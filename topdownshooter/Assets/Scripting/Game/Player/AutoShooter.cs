@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerShooting : MonoBehaviour
+public class AutoShooter : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject bulletPrefab;
@@ -53,6 +53,15 @@ public class PlayerShooting : MonoBehaviour
 
         foreach (GameObject enemy in enemies)
         {
+            // check if enemy is visible in camera
+            Vector3 viewportPos = Camera.main.WorldToViewportPoint(enemy.transform.position);
+            bool onScreen = viewportPos.x >= 0 && viewportPos.x <= 1 &&
+                            viewportPos.y >= 0 && viewportPos.y <= 1 &&
+                            viewportPos.z > 0; // in front of camera
+
+            if (!onScreen)
+                continue; // skip enemies off-screen
+
             float dist = Vector2.Distance(transform.position, enemy.transform.position);
             if (dist < minDist)
             {

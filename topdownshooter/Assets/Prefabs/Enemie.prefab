@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 7705832605091154836}
   - component: {fileID: 720283281531707828}
   - component: {fileID: 2067439041797632586}
+  - component: {fileID: -1718659793074869424}
+  - component: {fileID: 5500480891523861293}
   m_Layer: 0
   m_Name: Enemie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b34cf156225624b8af9fcf63443c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAwarenessDistance: 5
+  _playerAwarenessDistance: 500
 --- !u!58 &2067439041797632586
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -125,6 +127,33 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.45
+--- !u!114 &-1718659793074869424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184005365869111389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d8c012f4923ab4bb3e77d4ae2a40f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  healthBarFill: {fileID: 0}
+--- !u!114 &5500480891523861293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184005365869111389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe2d565f71f03b40bb40cfdfe8b2459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _contactDamage: 10
 --- !u!1 &7145042205174097309
 GameObject:
   m_ObjectHideFlags: 0
