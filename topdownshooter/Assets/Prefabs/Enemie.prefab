@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5718124482810303360}
   - component: {fileID: 5088608087563689285}
   - component: {fileID: 4450218037733749501}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d8c012f4923ab4bb3e77d4ae2a40f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseMaxHealth: 20
+  _baseMaxHealth: 19.5
   _healthScale: 1
   _healthBarFill: {fileID: 0}
   _spriteRenderer: {fileID: 5088608087563689285}

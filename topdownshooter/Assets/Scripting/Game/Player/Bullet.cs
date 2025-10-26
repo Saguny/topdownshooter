@@ -8,6 +8,13 @@ public class Bullet : MonoBehaviour
 
     private Vector2 _direction;
 
+    // expose speed for upgrades
+    public float Speed
+    {
+        get => _speed;
+        set => _speed = value;
+    }
+
     public void Shoot(Vector2 direction)
     {
         _direction = direction.normalized;
@@ -32,7 +39,8 @@ public class Bullet : MonoBehaviour
                 enemyHealth.TakeDamage(_damage);
         }
 
-        // optionally ignore player collision
+        if (collision.CompareTag("Player"))
+
         Destroy(gameObject);
     }
 }

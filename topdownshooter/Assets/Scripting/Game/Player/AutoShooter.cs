@@ -3,8 +3,11 @@ using UnityEngine;
 public class AutoShooter : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float fireRate = 0.25f;
+    [SerializeField] public GameObject bulletPrefab;
+
+    [Header("Shooting Settings")]
+    [SerializeField] public int bulletCount = 1;
+    [SerializeField] public float fireRate = 0.25f;
     [SerializeField] private float spawnOffset = 0.1f; // extra margin outside collider
 
     private float _nextFireTime = 0f;
@@ -14,7 +17,7 @@ public class AutoShooter : MonoBehaviour
     {
         _playerCollider = GetComponent<Collider2D>();
         if (_playerCollider == null)
-            Debug.LogError("PlayerShooting requires a Collider2D on the player!");
+            Debug.LogError("AutoShooter requires a Collider2D on the player!");
     }
 
     private void Update()
@@ -37,12 +40,16 @@ public class AutoShooter : MonoBehaviour
         Vector2 spawnPos = (Vector2)transform.position +
                            direction * (_playerCollider.bounds.extents.magnitude + spawnOffset);
 
-        GameObject bullet = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
-        bullet.GetComponent<Bullet>().Shoot(direction);
+        // loop for multi-bullet upgrade
+        for (int i = 0; i < bulletCount; i++)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
+            bullet.GetComponent<Bullet>().Shoot(direction);
 
-        // rotate bullet visually
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
+            // rotate bullet visually
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 
     private GameObject FindNearestEnemy()
