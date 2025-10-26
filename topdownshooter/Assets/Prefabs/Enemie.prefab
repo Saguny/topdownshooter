@@ -153,6 +153,8 @@ MonoBehaviour:
   _hitSoundVolume: 0.027
   _deathSoundVolume: 0.053
   _audioSource: {fileID: 4450218037733749501}
+  gearPickupPrefab: {fileID: 6789325886152309237, guid: 948195151fe6ece45b949ea7828ec460, type: 3}
+  gearsToDrop: 1
 --- !u!114 &5500480891523861293
 MonoBehaviour:
   m_ObjectHideFlags: 0

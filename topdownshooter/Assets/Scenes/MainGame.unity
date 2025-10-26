@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 45769267}
   - component: {fileID: 45769268}
   - component: {fileID: 45769270}
+  - component: {fileID: 45769273}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -378,6 +379,20 @@ MonoBehaviour:
   hitFlashDuration: 0.1
   hitSound: {fileID: 8300000, guid: 740f4986549ed924cba64eaea94070c4, type: 3}
   hitSoundVolume: 0.1
+--- !u!114 &45769273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45769261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c679103fc74664b9bf49d503e57d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gearCount: 0
+  gearsForUpgrade: 10
 --- !u!1 &250829400
 GameObject:
   m_ObjectHideFlags: 0
