@@ -96,27 +96,33 @@ public class EnemyHealth : MonoBehaviour
             _healthBarFill.fillAmount = Mathf.Clamp01(_currentHealth / GetScaledMaxHealth());
     }
 
+    [SerializeField] private GameObject gearPickupPrefab; // assign im Inspector
+    [SerializeField] private int gearsToDrop = 1;
+
     private void Die()
     {
-        // 💥 Partikeleffekt spawnen
+        // Partikel + Sound wie gehabt
         if (_deathEffectPrefab != null)
             Instantiate(_deathEffectPrefab, transform.position, Quaternion.identity);
 
-        // 🔊 Todessound separat abspielen, auch wenn Gegner sofort zerstört wird
         if (_deathSound != null)
         {
             GameObject soundObject = new GameObject("EnemyDeathSound");
             AudioSource tempSource = soundObject.AddComponent<AudioSource>();
             tempSource.clip = _deathSound;
             tempSource.volume = _deathSoundVolume;
-            tempSource.spatialBlend = _audioSource.spatialBlend; // 2D/3D übernehmen
             tempSource.Play();
-            Destroy(soundObject, _deathSound.length); // löscht sich selbst nach Ende
+            Destroy(soundObject, _deathSound.length);
+        }
+
+        // 🔧 Gear droppen
+        if (gearPickupPrefab != null)
+        {
+            Instantiate(gearPickupPrefab, transform.position, Quaternion.identity);
         }
 
         OnEnemyDied?.Invoke();
-
-        // 🧨 Gegner sofort zerstören
         Destroy(gameObject);
     }
+
 }
