@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private Transform firePoint; // assign your firePoint in the inspector
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private Animator _animator;
 
     private Rigidbody2D _rigidbody;
     private Vector2 _movementInput;
@@ -65,5 +66,9 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue inputValue)
     {
         _movementInput = inputValue.Get<Vector2>();
+
+        bool isMoving = _movementInput.sqrMagnitude > 0.01f;
+
+        _animator.SetBool("IsRunning", isMoving);
     }
 }

@@ -5,7 +5,7 @@ public class PlayerShooting : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float fireRate = 0.25f;
-    [SerializeField] private float spawnOffset = 0.1f; // extra margin outside collider
+    [SerializeField] private float spawnOffset = 0.1f; 
 
     private float _nextFireTime = 0f;
     private Collider2D _playerCollider;

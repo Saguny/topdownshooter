@@ -1,60 +1,68 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerAwareness))]
+[RequireComponent(typeof(Animator))]
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField]
-    private float _speed;
+    [SerializeField] private float _speed = 3f;
 
     private Rigidbody2D _rigidbody;
     private PlayerAwareness _playerAwareness;
-    private Vector2 _targetDirection;
-
+    private Animator _animator;
     private Vector3 _originalScale;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerAwareness = GetComponent<PlayerAwareness>();
-        _originalScale = transform.localScale; 
+        _animator = GetComponent<Animator>();
+        _originalScale = transform.localScale;
     }
 
     private void FixedUpdate()
     {
-        UpdateTargetDirection();
-        FlipSprite();
-        SetVelocity();
+        // decide direction
+        Vector2 direction = _playerAwareness.AwareOfPlayer
+            ? _playerAwareness.DirectionToPlayer
+            : Vector2.zero;
+
+        Move(direction);
+        FlipSprite(direction);
+
+        // tell the animator if we’re moving or idle
+        bool isMoving = _rigidbody.linearVelocity.sqrMagnitude > 0.01f;
+        _animator.SetBool("IsRunning", isMoving);
     }
 
-    private void UpdateTargetDirection()
+    private void Move(Vector2 direction)
     {
-        if (_playerAwareness.AwareOfPlayer)
-        {
-            _targetDirection = _playerAwareness.DirectionToPlayer;
-        }
-        else
-        {
-            _targetDirection = Vector2.zero;
-        }
-    }
-
-    private void FlipSprite()
-    {
-        if (_targetDirection.x > 0)
-            transform.localScale = new Vector3(Mathf.Abs(_originalScale.x), _originalScale.y, _originalScale.z); // face right
-        else if (_targetDirection.x < 0)
-            transform.localScale = new Vector3(-Mathf.Abs(_originalScale.x), _originalScale.y, _originalScale.z); // face left
-    }
-
-    private void SetVelocity()
-    {
-        if (_targetDirection == Vector2.zero)
+        if (direction.sqrMagnitude < 0.001f)
         {
             _rigidbody.linearVelocity = Vector2.zero;
+            return;
         }
-        else
+
+        _rigidbody.linearVelocity = direction.normalized * _speed;
+    }
+
+    private void FlipSprite(Vector2 direction)
+    {
+        if (direction.x > 0.01f)
         {
-            // move towards player
-            _rigidbody.linearVelocity = _targetDirection.normalized * _speed;
+            transform.localScale = new Vector3(
+                Mathf.Abs(_originalScale.x),
+                _originalScale.y,
+                _originalScale.z
+            );
+        }
+        else if (direction.x < -0.01f)
+        {
+            transform.localScale = new Vector3(
+                -Mathf.Abs(_originalScale.x),
+                _originalScale.y,
+                _originalScale.z
+            );
         }
     }
 }

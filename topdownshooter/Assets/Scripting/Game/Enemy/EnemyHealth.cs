@@ -4,17 +4,28 @@ using System;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth = 50f;
+    [Header("Health Settings")]
+    [SerializeField] private float _baseMaxHealth = 100f; // base health per enemy
+    [SerializeField] private float _healthScale = 1f;      // multiplier set by WaveManager.cs -> see that file
     private float _currentHealth;
 
     [Header("UI (optional)")]
-    [SerializeField] private Image _healthBarFill;
+    [SerializeField] private Image _healthBarFill; 
 
-    public static event Action OnEnemyDied; // notify when an enemy dies
+    
+    public static event Action OnEnemyDied;
 
     private void Awake()
     {
-        _currentHealth = _maxHealth;
+        _currentHealth = GetScaledMaxHealth();
+        UpdateHealthBar();
+    }
+
+    // called by WaveManager to scale enemy health each wave
+    public void SetHealthScale(float scale)
+    {
+        _healthScale = scale;
+        _currentHealth = GetScaledMaxHealth();
         UpdateHealthBar();
     }
 
@@ -27,15 +38,20 @@ public class EnemyHealth : MonoBehaviour
             Die();
     }
 
+    private float GetScaledMaxHealth()
+    {
+        return _baseMaxHealth * _healthScale;
+    }
+
     private void UpdateHealthBar()
     {
         if (_healthBarFill != null)
-            _healthBarFill.fillAmount = _currentHealth / _maxHealth;
+            _healthBarFill.fillAmount = Mathf.Clamp01(_currentHealth / GetScaledMaxHealth());
     }
 
     private void Die()
     {
-        OnEnemyDied?.Invoke(); // fire event
+        OnEnemyDied?.Invoke();
         Destroy(gameObject);
     }
 }
