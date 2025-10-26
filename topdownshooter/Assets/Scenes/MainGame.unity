@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 45769270}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,6 +373,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   healthBarFill: {fileID: 0}
+  spriteRenderer: {fileID: 45769268}
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  hitFlashDuration: 0.1
+  hitSound: {fileID: 8300000, guid: 740f4986549ed924cba64eaea94070c4, type: 3}
+  hitSoundVolume: 0.1
 --- !u!1 &250829400
 GameObject:
   m_ObjectHideFlags: 0
