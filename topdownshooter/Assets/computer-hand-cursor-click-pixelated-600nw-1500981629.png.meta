@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      computer-hand-cursor-click-pixelated-600nw-1500981629_0: 683575365639568211
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
