@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860a5d74bf1ef6943b32acd3bff3973c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 2
   healthBarFill: {fileID: 0}
 --- !u!1 &250829400
 GameObject:
@@ -1816,12 +1816,20 @@ MonoBehaviour:
   - {fileID: 250829402}
   _spawnInnerMargin: 0.25
   _waveDuration: 180
+<<<<<<< Updated upstream
   _timeBetweenWaves: 3
   _killsToClear: 25
+=======
+  _timeBetweenWaves: 7
+  _baseKillsToClear: 25
+>>>>>>> Stashed changes
   _minSpawnDelay: 0.3
   _maxSpawnDelay: 3
   _maxEnemiesOnField: 30
   _spawnOffset: 2
+  _finalRushSpawnDelay: 0.18
+  _gearPickupDelay: 0.8
+  _postPickupDelay: 1.2
 --- !u!4 &1558044647
 Transform:
   m_ObjectHideFlags: 0
