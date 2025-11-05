@@ -7,28 +7,13 @@ public class EnemyDamage : MonoBehaviour
 
     private void Awake()
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-                playerHealth.TakeDamage(_contactDamage);
-        }
-=======
-        _baseDamage = _damage;
->>>>>>> Stashed changes
-    }
-=======
         _baseDamage = _damage;
     }
 
-    public void SetDamageMultiplier(float mult)
+    public void SetDamageMultiplier(float multiplier)
     {
-        _damage = _baseDamage * mult;
+        _damage = _baseDamage * multiplier;
     }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
+    public float GetDamage() => _damage;
 }

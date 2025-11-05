@@ -1293,7 +1293,6 @@ BoxCollider2D:
     newSize: {x: 0, y: 0}
     adaptiveTilingThreshold: 0
     drawMode: 0
-    adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
@@ -1508,7 +1507,6 @@ BoxCollider2D:
     newSize: {x: 0, y: 0}
     adaptiveTilingThreshold: 0
     drawMode: 0
-    adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
@@ -1816,18 +1814,8 @@ MonoBehaviour:
   - {fileID: 250829402}
   _spawnInnerMargin: 0.25
   _waveDuration: 180
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   _timeBetweenWaves: 3
-  _killsToClear: 25
-=======
-  _timeBetweenWaves: 7
   _baseKillsToClear: 25
->>>>>>> Stashed changes
-=======
-  _timeBetweenWaves: 7
-  _baseKillsToClear: 25
->>>>>>> Stashed changes
   _minSpawnDelay: 0.3
   _maxSpawnDelay: 3
   _maxEnemiesOnField: 30
@@ -1991,7 +1979,6 @@ BoxCollider2D:
     newSize: {x: 0, y: 0}
     adaptiveTilingThreshold: 0
     drawMode: 0
-    adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
