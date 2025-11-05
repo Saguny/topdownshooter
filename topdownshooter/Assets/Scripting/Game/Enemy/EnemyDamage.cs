@@ -1,23 +1,34 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
 public class EnemyDamage : MonoBehaviour
 {
-    [SerializeField] private float _contactDamage = 10f;
+    [SerializeField] private float _damage = 5f;
+    private float _baseDamage;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Awake()
     {
-        Debug.Log("Collision with: " + collision.gameObject.name);
-
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
             if (playerHealth != null)
-            {
-                Debug.Log("Player takes damage!");
                 playerHealth.TakeDamage(_contactDamage);
-            }
         }
+=======
+        _baseDamage = _damage;
+>>>>>>> Stashed changes
+    }
+=======
+        _baseDamage = _damage;
     }
 
+    public void SetDamageMultiplier(float mult)
+    {
+        _damage = _baseDamage * mult;
+    }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 }

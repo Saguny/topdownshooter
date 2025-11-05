@@ -7,7 +7,7 @@ public class PlayerInventory : MonoBehaviour
     [Header("Gear Settings")]
     public int gearCount = 0;
     public int gearsForUpgrade = 5;
-    public float gearIncreaseMultiplier = 1.5f;
+    public float gearIncreaseMultiplier = 1.3f;
 
     [Header("Upgrade Settings")]
     public List<UpgradeData> allUpgrades; // assign ScriptableObjects here
@@ -16,7 +16,7 @@ public class PlayerInventory : MonoBehaviour
 
     private int currentLevel = 1;
     private AutoShooter autoShooter;
-    private Aura aura; // optional, in case you add it later
+    private Aura aura; 
     public bool hasAura = false;
 
     private void Awake()

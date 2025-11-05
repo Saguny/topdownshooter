@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerAwareness))]
@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 3f;
+    private float _baseSpeed; // 追加
 
     private Rigidbody2D _rigidbody;
     private PlayerAwareness _playerAwareness;
@@ -18,11 +19,12 @@ public class EnemyMovement : MonoBehaviour
         _playerAwareness = GetComponent<PlayerAwareness>();
         _animator = GetComponent<Animator>();
         _originalScale = transform.localScale;
+
+        _baseSpeed = _speed; // ここで保存
     }
 
     private void FixedUpdate()
     {
-        // decide direction
         Vector2 direction = _playerAwareness.AwareOfPlayer
             ? _playerAwareness.DirectionToPlayer
             : Vector2.zero;
@@ -30,7 +32,6 @@ public class EnemyMovement : MonoBehaviour
         Move(direction);
         FlipSprite(direction);
 
-        // tell the animator if we�re moving or idle
         bool isMoving = _rigidbody.linearVelocity.sqrMagnitude > 0.01f;
         _animator.SetBool("IsRunning", isMoving);
     }
@@ -64,5 +65,11 @@ public class EnemyMovement : MonoBehaviour
                 _originalScale.z
             );
         }
+    }
+
+    // 追加：毎回「基準×倍率」で決定（累積しない）
+    public void SetSpeedMultiplier(float mult)
+    {
+        _speed = _baseSpeed * mult;
     }
 }
