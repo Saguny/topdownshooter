@@ -1817,8 +1817,13 @@ MonoBehaviour:
   _spawnInnerMargin: 0.25
   _waveDuration: 180
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   _timeBetweenWaves: 3
   _killsToClear: 25
+=======
+  _timeBetweenWaves: 7
+  _baseKillsToClear: 25
+>>>>>>> Stashed changes
 =======
   _timeBetweenWaves: 7
   _baseKillsToClear: 25
