@@ -16,18 +16,19 @@ public class PlayerInventory : MonoBehaviour
 
     private int currentLevel = 1;
     private AutoShooter autoShooter;
-    private Aura aura; 
+    private Aura aura;
     public bool hasAura = false;
+
+    private StatContext stats;
 
     private void Awake()
     {
         autoShooter = GetComponent<AutoShooter>();
         aura = GetComponentInChildren<Aura>(true);
+        stats = GetComponent<StatContext>();
 
         if (aura == null)
-        {
-            aura = transform.Find("Upgrades/Aura")?.GetComponent<Aura>();   
-        }
+            aura = transform.Find("Upgrades/Aura")?.GetComponent<Aura>();
 
         if (progressBar != null)
             progressBar.maxValue = gearsForUpgrade;
@@ -63,7 +64,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void OpenUpgradeMenu()
     {
-        Time.timeScale = 0f; // pause gameplay
+        Time.timeScale = 0f;
 
         // pick 3 random upgrades
         List<UpgradeData> randomUpgrades = new List<UpgradeData>();
@@ -72,10 +73,10 @@ public class PlayerInventory : MonoBehaviour
         if (hasAura)
         {
             pool.RemoveAll(u => u.type == UpgradeType.AuraUnlock);
-        } else {
-            pool.RemoveAll(u =>
-            u.type == UpgradeType.AuraDamage ||
-            u.type == UpgradeType.AuraRadius);
+        }
+        else
+        {
+            pool.RemoveAll(u => u.type == UpgradeType.AuraDamage || u.type == UpgradeType.AuraRadius);
         }
 
         for (int i = 0; i < 3 && pool.Count > 0; i++)
@@ -90,29 +91,15 @@ public class PlayerInventory : MonoBehaviour
 
     private void ApplyUpgrade(UpgradeData upgrade)
     {
+        if (stats != null)
+            stats.Apply(upgrade);
+
         switch (upgrade.type)
         {
-            case UpgradeType.FireRate:
-                autoShooter.fireRate *= upgrade.value; // smaller = faster
-                break;
-
-            case UpgradeType.BulletSpeed:
-                {
-                    Bullet bulletScript = autoShooter.bulletPrefab.GetComponent<Bullet>();
-                    if (bulletScript != null)
-                        bulletScript.Speed *= upgrade.value;
-                    break;
-                }
-
-
-            case UpgradeType.BulletCount:
-                autoShooter.bulletCount += Mathf.RoundToInt(upgrade.value);
-                break;
-
             case UpgradeType.AuraUnlock:
                 if (aura != null && !aura.gameObject.activeSelf)
                     aura.gameObject.SetActive(true);
-                    hasAura = true;
+                hasAura = true;
                 break;
 
             case UpgradeType.AuraDamage:
@@ -126,7 +113,7 @@ public class PlayerInventory : MonoBehaviour
                 break;
         }
 
-        Time.timeScale = 1f; // resume gameplay
+        Time.timeScale = 1f;
     }
 
     public void ResetRun()
@@ -140,5 +127,7 @@ public class PlayerInventory : MonoBehaviour
             progressBar.maxValue = gearsForUpgrade;
             progressBar.value = 0;
         }
+
+        if (stats != null) stats.ResetStats();
     }
 }

@@ -7,40 +7,39 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _damage = 10f;
 
     private Vector2 _direction;
+    private Rigidbody2D _rb;
 
-    // expose speed for upgrades
-    public float Speed
+    public float Speed { get => _speed; set => _speed = value; }
+
+    public void Shoot(Vector2 direction) => _direction = direction.normalized;
+
+    private void Awake()
     {
-        get => _speed;
-        set => _speed = value;
+        _rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Shoot(Vector2 direction)
-    {
-        _direction = direction.normalized;
-    }
-
-    private void Start()
+    private void OnEnable()
     {
         Destroy(gameObject, _lifetime);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        transform.Translate(_direction * _speed * Time.deltaTime, Space.World);
+        if (_rb != null)
+            _rb.linearVelocity = _direction * _speed;
+        else
+            transform.Translate(_direction * _speed * Time.fixedDeltaTime, Space.World);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
+            var enemyHealth = collision.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
                 enemyHealth.TakeDamage(_damage);
+
+            Destroy(gameObject);
         }
-
-        if (collision.CompareTag("Player"))
-
-        Destroy(gameObject);
     }
 }

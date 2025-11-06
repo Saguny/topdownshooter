@@ -1,74 +1,70 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [Header("Movement")]
+    [SerializeField, Min(0f)] private float _speed = 6f;
+    [SerializeField, Range(0f, 0.5f)] private float _accelTime = 0.08f; // smoothing time
+
+    [Header("Visuals")]
     [SerializeField] private Transform firePoint;
     [SerializeField] private Animator _animator;
 
-    private Rigidbody2D _rigidbody;
-    private Vector2 _movementInput;
-    private Vector2 _smoothedMovementInput;
-    private Vector2 _movementInputSmoothVelocity;
+    private Rigidbody2D _rb;
+    private Vector2 _moveInput;                 // raw input from WASD/Stick
+    private Vector2 _velocitySmoothRef;         // ref for SmoothDamp
     private Vector3 _originalScale;
     private Vector3 _originalFirePointLocalPos;
+    private int _facingSign = -1;                // 1 = right, -1 = left
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.gravityScale = 0f;
+        _rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        _rb.freezeRotation = true;
+
         _originalScale = transform.localScale;
 
         if (firePoint != null)
             _originalFirePointLocalPos = firePoint.localPosition;
     }
 
-    [System.Obsolete]
     private void FixedUpdate()
     {
-        SetPlayerVelocity();
-        FlipSprite();
-    }
+        // normalize so diagonals aren't faster
+        Vector2 dir = _moveInput.sqrMagnitude > 1f ? _moveInput.normalized : _moveInput;
 
-    private void SetPlayerVelocity()
-    {
-        _smoothedMovementInput = Vector2.SmoothDamp(
-            _smoothedMovementInput,
-            _movementInput,
-            ref _movementInputSmoothVelocity,
-            0.1f);
+        // target velocity and smooth acceleration/deceleration
+        Vector2 desiredVel = dir * _speed;
+        _rb.linearVelocity = Vector2.SmoothDamp(_rb.linearVelocity, desiredVel, ref _velocitySmoothRef, _accelTime);
 
-        _rigidbody.linearVelocity = _smoothedMovementInput * _speed;
-    }
-
-    private void FlipSprite()
-    {
-        if (_movementInput.x > 0)
+        // flip from velocity when there's horizontal motion
+        if (Mathf.Abs(_rb.linearVelocity.x) > -0.001f)
         {
-            transform.localScale = new Vector3(Mathf.Abs(_originalScale.x), _originalScale.y, _originalScale.z);
-            if (firePoint != null)
-                firePoint.localPosition = _originalFirePointLocalPos; // reset to original
-        }
-        else if (_movementInput.x < 0)
-        {
-            transform.localScale = new Vector3(-Mathf.Abs(_originalScale.x), _originalScale.y, _originalScale.z);
+            _facingSign = _rb.linearVelocity.x > 0 ? -1 : 1;
+            transform.localScale = new Vector3(Mathf.Abs(_originalScale.x) * _facingSign, _originalScale.y, _originalScale.z);
+
             if (firePoint != null)
             {
-                Vector3 flipped = _originalFirePointLocalPos;
-                flipped.x *= -1;
-                firePoint.localPosition = flipped;
+                Vector3 lp = _originalFirePointLocalPos;
+                lp.x *= _facingSign;
+                firePoint.localPosition = lp;
             }
         }
     }
 
-    private void OnMove(InputValue inputValue)
+    // new input system callback (Player Input component → Actions: Move)
+    private void OnMove(InputValue value)
     {
-        _movementInput = inputValue.Get<Vector2>();
+        _moveInput = value.Get<Vector2>();
 
-        bool isMoving = _movementInput.sqrMagnitude > 0.01f;
-
-        _animator.SetBool("IsRunning", isMoving);
+        if (_animator != null)
+        {
+            bool isMoving = _moveInput.sqrMagnitude > 0.001f;
+            _animator.SetBool("IsRunning", isMoving);
+        }
     }
 }
