@@ -961,11 +961,20 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 1274759125}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
+  healColor: {r: 0, g: 1, b: 0, a: 1}
   hitFlashDuration: 0.1
+  healFlashDuration: 0.25
   hitSound: {fileID: 8300000, guid: 740f4986549ed924cba64eaea94070c4, type: 3}
-  hitSoundVolume: 0.7
+  hitSoundVolume: 0.106
+  healSound: {fileID: 0}
+  healSoundVolume: 0.8
+--- !u!212 &1274759125 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3517767873189807665, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
+  m_PrefabInstance: {fileID: 2169243385333242675}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1446568112
 GameObject:
   m_ObjectHideFlags: 0

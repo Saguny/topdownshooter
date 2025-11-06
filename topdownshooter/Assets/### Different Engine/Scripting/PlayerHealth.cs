@@ -23,18 +23,22 @@ public class PlayerHealth : MonoBehaviour, IHealth
     [Header("Visual Feedback")]
     public SpriteRenderer spriteRenderer;
     public Color hitColor = Color.red;
+    public Color healColor = Color.green;        // 💚 Farbe für Heil-Flash
     [Min(0f)] public float hitFlashDuration = 0.1f;
+    [Min(0f)] public float healFlashDuration = 0.15f;  // 💚 Dauer für Heal-Flash
 
     [Header("Audio (optional)")]
     public AudioClip hitSound;
     [Range(0f, 1f)] public float hitSoundVolume = 0.7f;
+    public AudioClip healSound;                  // 💚 Sound beim Heilen
+    [Range(0f, 1f)] public float healSoundVolume = 0.8f;
 
     // ----- IHealth -----
     public float Max => maxHealth;
     public float Current => currentHealth;
     public event Action<float, float> OnHealthChanged;
 
-    // Events you can hook into
+    // Events
     public static Action OnPlayerDied;
     public static Action<float, float> OnPlayerHealed;   // (amount, newHealth)
     public static Action<float, float> OnPlayerDamaged;  // (amount, newHealth)
@@ -47,7 +51,6 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     private void Reset()
     {
-        
         hudGradient = new Gradient
         {
             colorKeys = new[]
@@ -76,7 +79,6 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     private void OnEnable()
     {
-        
         PushHealthChanged();
         UpdateHudBar();
         _invulnTimer = 0f;
@@ -87,21 +89,44 @@ public class PlayerHealth : MonoBehaviour, IHealth
         if (_invulnTimer > 0f) _invulnTimer -= Time.deltaTime;
     }
 
-    
-
+    // -------------------
+    // HEAL
+    // -------------------
     public void Heal(float amount)
     {
         if (amount <= 0f) return;
         float prev = currentHealth;
 
         currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
+
         if (!Mathf.Approximately(prev, currentHealth))
         {
             OnPlayerHealed?.Invoke(currentHealth - prev, currentHealth);
+
+            // 🔊 Sound beim Heilen
+            if (healSound != null)
+                _audio.PlayOneShot(healSound, healSoundVolume);
+
+            // 💚 Visuelles Feedback
+            if (spriteRenderer != null)
+            {
+                if (_flashRoutine != null) StopCoroutine(_flashRoutine);
+                _flashRoutine = StartCoroutine(FlashRoutine(healColor, healFlashDuration));
+            }
+
             PushHealthChanged();
             UpdateHudBar();
         }
     }
+
+    /// Löst einen kurzen grünen Flash beim Heilen aus.
+    public void StartHealFlash()
+    {
+        if (spriteRenderer == null) return;
+        if (_flashRoutine != null) StopCoroutine(_flashRoutine);
+        _flashRoutine = StartCoroutine(FlashRoutine(healColor, healFlashDuration));
+    }
+
 
     public void SetMax(float newMax, bool fillToMax = false)
     {
@@ -112,7 +137,9 @@ public class PlayerHealth : MonoBehaviour, IHealth
         UpdateHudBar();
     }
 
-    
+    // -------------------
+    // DAMAGE
+    // -------------------
     public bool TakeDamage(float amount)
     {
         if (amount <= 0f) return false;
@@ -122,14 +149,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
         currentHealth -= amount;
         _invulnTimer = invulnTimeOnHit;
 
-        // visual flash
+        // 🔴 Hit Flash
         if (spriteRenderer != null)
         {
             if (_flashRoutine != null) StopCoroutine(_flashRoutine);
-            _flashRoutine = StartCoroutine(FlashRoutine());
+            _flashRoutine = StartCoroutine(FlashRoutine(hitColor, hitFlashDuration));
         }
 
-        // sound
+        // Sound
         if (hitSound != null)
             _audio.PlayOneShot(hitSound, hitSoundVolume);
 
@@ -141,20 +168,21 @@ public class PlayerHealth : MonoBehaviour, IHealth
         {
             currentHealth = 0f;
             OnPlayerDied?.Invoke();
-            // TODO: trigger game over / respawn flow here
             return true;
         }
 
         return false;
     }
 
-    
-
-    private IEnumerator FlashRoutine()
+    // -------------------
+    // FLASH ROUTINE
+    // -------------------
+    private IEnumerator FlashRoutine(Color flashColor, float duration)
     {
-        spriteRenderer.color = hitColor;
-        yield return new WaitForSeconds(hitFlashDuration);
-        if (spriteRenderer != null) spriteRenderer.color = _originalColor;
+        spriteRenderer.color = flashColor;
+        yield return new WaitForSeconds(duration);
+        if (spriteRenderer != null)
+            spriteRenderer.color = _originalColor;
     }
 
     private void UpdateHudBar()
@@ -164,7 +192,6 @@ public class PlayerHealth : MonoBehaviour, IHealth
         float t = Mathf.Clamp01(currentHealth / Mathf.Max(1f, maxHealth));
         healthBarFill.fillAmount = t;
 
-        // color from gradient (green→yellow→red)
         if (hudGradient.colorKeys != null && hudGradient.colorKeys.Length > 0)
             healthBarFill.color = hudGradient.Evaluate(t);
         else

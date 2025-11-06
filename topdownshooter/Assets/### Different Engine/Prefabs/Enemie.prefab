@@ -167,6 +167,16 @@ MonoBehaviour:
   minGear: 1
   maxGear: 1
   deathVfxPrefab: {fileID: 1185364733144309390, guid: 8dbdeab253bc16a41b359021d27d4fb4, type: 3}
+  deathSound: {fileID: 8300000, guid: 51f49a435780a224f9fd0f008a22a0c3, type: 3}
+  deathVolume: 0.324
+  healItemPrefab: {fileID: 1653245802588275055, guid: 9b80ca85b45a48f428cf70029f106a15, type: 3}
+  healDropChance: 0.1
+  spriteRenderer: {fileID: 5088608087563689285}
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
+  hitSound: {fileID: 8300000, guid: dd45327e668360443bbb60b08529d526, type: 3}
+  hitVolume: 0.16
+  audioSource: {fileID: 0}
   destroyOnDeath: 1
 --- !u!114 &367867116019851203
 MonoBehaviour:

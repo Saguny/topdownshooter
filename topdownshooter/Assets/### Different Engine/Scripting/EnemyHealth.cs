@@ -1,5 +1,6 @@
-using System;
+﻿using System.Collections;
 using UnityEngine;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -20,29 +21,51 @@ public class EnemyHealth : MonoBehaviour, IHealth
     [SerializeField, Min(0)] private int minGear = 1;
     [SerializeField, Min(0)] private int maxGear = 1;
     [SerializeField] private GameObject deathVfxPrefab;
+    [SerializeField] private AudioClip deathSound;
+    [Range(0f, 1f)][SerializeField] private float deathVolume = 1f;
+
+    [Header("heal item drop")]
+    [SerializeField] private GameObject healItemPrefab;      // 💚 Heil-Item Prefab
+    [Range(0f, 1f)][SerializeField] private float healDropChance = 0.25f; // 💚 25% Drop-Chance standardmäßig
+
+    [Header("damage feedback")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Color hitColor = Color.red;
+    [SerializeField] private float flashDuration = 0.1f;
+    [SerializeField] private AudioClip hitSound;
+    [Range(0f, 1f)][SerializeField] private float hitVolume = 1f;
+    [SerializeField] private AudioSource audioSource;
 
     [Header("debug")]
     public bool destroyOnDeath = true;
 
-    // existing events you already used
     public static Action OnEnemyDied;
 
-    // ---- IHealth implementation ----
     public float Max => baseMaxHealth;
     public float Current => currentHealth;
     public event Action<float, float> OnHealthChanged;
 
     private bool _dead;
+    private Color _originalColor;
+    private Coroutine _flashRoutine;
 
     private void Awake()
     {
         if (!CompareTag("Enemy")) gameObject.tag = "Enemy";
         ResetHealth();
+
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+            _originalColor = spriteRenderer.color;
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
     {
-        // ensure health bars refresh if the enemy is pooled & re-enabled
         OnHealthChanged?.Invoke(currentHealth, baseMaxHealth);
     }
 
@@ -53,7 +76,6 @@ public class EnemyHealth : MonoBehaviour, IHealth
         OnHealthChanged?.Invoke(currentHealth, baseMaxHealth);
     }
 
-    /// <summary>Set absolute new max health (used by wave scaling).</summary>
     public void SetScaled(float absoluteMaxHealth)
     {
         baseMaxHealth = Mathf.Max(1f, absoluteMaxHealth);
@@ -61,16 +83,6 @@ public class EnemyHealth : MonoBehaviour, IHealth
         OnHealthChanged?.Invoke(currentHealth, baseMaxHealth);
     }
 
-    /// <summary>Multiply current max health by scale (legacy helper).</summary>
-    public void SetHealthScale(float scale)
-    {
-        scale = Mathf.Max(0.01f, scale);
-        baseMaxHealth = Mathf.Max(1f, baseMaxHealth * scale);
-        currentHealth = baseMaxHealth;
-        OnHealthChanged?.Invoke(currentHealth, baseMaxHealth);
-    }
-
-    /// <summary>Returns true if this hit killed the enemy.</summary>
     public bool TakeDamage(float rawDamage)
     {
         if (_dead) return false;
@@ -79,6 +91,19 @@ public class EnemyHealth : MonoBehaviour, IHealth
         if (dmg <= 0f) return false;
 
         currentHealth -= dmg;
+
+        // 🔥 Feedback bei Treffer
+        if (spriteRenderer != null)
+        {
+            if (_flashRoutine != null)
+                StopCoroutine(_flashRoutine);
+            _flashRoutine = StartCoroutine(FlashRed());
+        }
+
+        // 🎵 Treffer-Sound
+        if (hitSound != null)
+            AudioSource.PlayClipAtPoint(hitSound, transform.position, hitVolume);
+
         if (currentHealth <= 0f)
         {
             currentHealth = 0f;
@@ -91,13 +116,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
         return false;
     }
 
-    public void Heal(float amount)
+    private IEnumerator FlashRed()
     {
-        if (_dead) return;
-        float prev = currentHealth;
-        currentHealth = Mathf.Min(baseMaxHealth, currentHealth + Mathf.Max(0f, amount));
-        if (!Mathf.Approximately(prev, currentHealth))
-            OnHealthChanged?.Invoke(currentHealth, baseMaxHealth);
+        spriteRenderer.color = hitColor;
+        yield return new WaitForSeconds(flashDuration);
+        spriteRenderer.color = _originalColor;
     }
 
     private void Die()
@@ -105,15 +128,18 @@ public class EnemyHealth : MonoBehaviour, IHealth
         if (_dead) return;
         _dead = true;
 
-        // fire public events
         try { OnEnemyDied?.Invoke(); } catch { }
         try { GameEvents.OnEnemyKilled?.Invoke(1); } catch { }
 
-        // vfx
+        // 💥 VFX
         if (deathVfxPrefab != null)
             Instantiate(deathVfxPrefab, transform.position, Quaternion.identity);
 
-        // drops
+        // 🎵 Death Sound
+        if (deathSound != null)
+            AudioSource.PlayClipAtPoint(deathSound, transform.position, deathVolume);
+
+        // 🎁 Gear Drops
         if (gearDropPrefab != null && (minGear > 0 || maxGear > 0))
         {
             int count = Mathf.Clamp(UnityEngine.Random.Range(minGear, maxGear + 1), 0, 999);
@@ -124,6 +150,15 @@ public class EnemyHealth : MonoBehaviour, IHealth
                 p.y += UnityEngine.Random.Range(-0.25f, 0.25f);
                 Instantiate(gearDropPrefab, p, Quaternion.identity);
             }
+        }
+
+        // 💚 Heilungs-Item mit Wahrscheinlichkeit droppen
+        if (healItemPrefab != null && UnityEngine.Random.value <= healDropChance)
+        {
+            Vector3 dropPos = transform.position;
+            dropPos.x += UnityEngine.Random.Range(-0.2f, 0.2f);
+            dropPos.y += UnityEngine.Random.Range(-0.2f, 0.2f);
+            Instantiate(healItemPrefab, dropPos, Quaternion.identity);
         }
 
         if (destroyOnDeath)
@@ -137,39 +172,8 @@ public class EnemyHealth : MonoBehaviour, IHealth
     {
         if (maxGear < minGear) maxGear = minGear;
         baseMaxHealth = Mathf.Max(1f, baseMaxHealth);
-        // keep inspector preview line in gizmos accurate while editing
         if (!Application.isPlaying)
             currentHealth = Mathf.Clamp(currentHealth, 0f, baseMaxHealth);
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Vector3 a = transform.position + new Vector3(-0.4f, 0.6f, 0f);
-        Vector3 b = transform.position + new Vector3(0.4f, 0.6f, 0f);
-        Gizmos.DrawLine(a, b);
-
-        float t = Application.isPlaying ? Mathf.Clamp01(currentHealth / Mathf.Max(1f, baseMaxHealth)) : 1f;
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(a, Vector3.Lerp(a, b, t));
-    }
 #endif
 }
-public sealed class ReadOnlyFieldAttribute : PropertyAttribute { }
-
-#if UNITY_EDITOR
-[CustomPropertyDrawer(typeof(ReadOnlyFieldAttribute))]
-public class ReadOnlyFieldDrawer : PropertyDrawer
-{
-    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-        => EditorGUI.GetPropertyHeight(property, label, true);
-
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-    {
-        bool prev = GUI.enabled;
-        GUI.enabled = false;
-        EditorGUI.PropertyField(position, property, label, true);
-        GUI.enabled = prev;
-    }
-}
-#endif
