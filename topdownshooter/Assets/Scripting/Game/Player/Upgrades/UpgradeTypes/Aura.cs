@@ -8,12 +8,18 @@ public class Aura : MonoBehaviour
     public float damage = 10f;
     public float damageInterval = 0.5f; // pulse rate in seconds
 
+    [Header("Particle-driven Damage")]
+    [SerializeField] private float perParticleHitRadius = 0.25f; // the “size” of each particle’s hit
+    [SerializeField] private int maxParticlesToSample = 64;       // cap how many particles we test per tick
+    [SerializeField] private LayerMask enemyMask;                  // set to your Enemy layer
+
     private float _nextDamageTime;
     private CircleCollider2D _collider;
     private ParticleSystem _particles;
 
-    // buffer for detected colliders (tweak size if needed)
-    private readonly Collider2D[] _hits = new Collider2D[50];
+    // particle / hit buffers
+    private ParticleSystem.Particle[] _particleBuf;
+    private readonly Collider2D[] _miniHits = new Collider2D[8];
 
     // pulse animation timing
     private float _pulseScaleTime;
@@ -25,6 +31,8 @@ public class Aura : MonoBehaviour
         _collider.isTrigger = true;
 
         _particles = GetComponentInChildren<ParticleSystem>(true);
+        _particleBuf = new ParticleSystem.Particle[Mathf.Max(8, maxParticlesToSample)];
+
         UpdateAuraVisuals();
     }
 
@@ -36,7 +44,7 @@ public class Aura : MonoBehaviour
 
     private void Update()
     {
-        // always sync collider + visual radius
+        // keep collider + visual radius in sync (visual only; collider is trigger)
         _collider.radius = radius;
 
         if (_particles != null)
@@ -48,7 +56,7 @@ public class Aura : MonoBehaviour
         // pulse tick
         if (Time.time >= _nextDamageTime)
         {
-            DamageAllInside();
+            DamageByParticles();
             _nextDamageTime = Time.time + damageInterval;
         }
 
@@ -66,33 +74,52 @@ public class Aura : MonoBehaviour
         }
     }
 
-    private void DamageAllInside()
+    /// <summary>
+    /// Uses alive particle positions as sampling points and applies small 2D overlap checks.
+    /// </summary>
+    private void DamageByParticles()
     {
-        // fill buffer without allocating new array
-        int hitCount = Physics2D.OverlapCircleNonAlloc(transform.position, radius, _hits);
+        if (_particles == null) return;
+
+        int alive = _particles.GetParticles(_particleBuf);
+        if (alive <= 0) return;
+
+        // cap sampling count for perf
+        int count = Mathf.Min(alive, maxParticlesToSample);
+
+        // figure out if particle positions are in local or world space
+        var main = _particles.main;
+        bool isLocal = main.simulationSpace == ParticleSystemSimulationSpace.Local;
+        Transform psTransform = _particles.transform;
 
         bool hitSomething = false;
 
-        for (int i = 0; i < hitCount; i++)
+        for (int i = 0; i < count; i++)
         {
-            Collider2D hit = _hits[i];
-            if (hit == null) continue;
+            Vector3 worldPos = _particleBuf[i].position;
+            if (isLocal) worldPos = psTransform.TransformPoint(worldPos);
 
-            if (hit.CompareTag("Enemy"))
+            int n = Physics2D.OverlapCircleNonAlloc(worldPos, perParticleHitRadius, _miniHits, enemyMask);
+
+            for (int j = 0; j < n; j++)
             {
-                EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
-                if (enemy != null)
+                var c = _miniHits[j];
+                if (!c) continue;
+
+                // optional: tag check if you want the extra safety
+                // if (!c.CompareTag("Enemy")) { _miniHits[j] = null; continue; }
+
+                var eh = c.GetComponent<EnemyHealth>();
+                if (eh != null)
                 {
-                    enemy.TakeDamage(damage);
+                    eh.TakeDamage(damage);
                     hitSomething = true;
                 }
-            }
 
-            // cleanup ref for safety
-            _hits[i] = null;
+                _miniHits[j] = null; // clear slot
+            }
         }
 
-        // only trigger visuals if something was hit
         if (hitSomething)
             DoPulseEffect();
     }

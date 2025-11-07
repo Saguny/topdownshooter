@@ -90,7 +90,7 @@ public class UpgradeMenuUI : MonoBehaviour
     public void Close()
     {
         if (panel != null) panel.SetActive(false);
-        // optional: clear current list / listeners (not strictly required each time)
+        
     }
 
     private void Choose(int index)

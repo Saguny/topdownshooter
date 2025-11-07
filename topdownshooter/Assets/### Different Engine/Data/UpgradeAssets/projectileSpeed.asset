@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d9bb11926747048ac07a4ce42fe184, type: 3}
   m_Name: projectileSpeed
   m_EditorClassIdentifier: 
-  title: 
-  type: 0
-  value: 1.1
-  additive: 0
+  title: Bullet Speed
+  type: 1
+  value: 1.2
+  additive: 1
   description: 
