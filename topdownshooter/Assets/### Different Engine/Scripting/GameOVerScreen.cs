@@ -1,29 +1,25 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // Für Text oder UI-Elemente
+using UnityEngine.UI; 
 
-public class GameOVerScreen : MonoBehaviour
+public class GameOverScreen : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOverUI; // Canvas oder Panel, das angezeigt werden soll
-    [SerializeField] private Text healthText;        // (optional) Text, um HP anzuzeigen
+    [SerializeField] private GameObject gameOverUI; // Canvas oder Panel, das angezeigt werden soll        
 
     // Wird von PlayerHealth.cs aufgerufen
     public void Setup(float currentHealth)
     {
         if (gameOverUI != null)
             gameOverUI.SetActive(true); // Zeigt den Game Over Screen an
-
-        if (healthText != null)
-            healthText.text = "HP: " + currentHealth.ToString("0");
         
-        // Optional: Spiel pausieren
+        // optional Spiel pausieren
         Time.timeScale = 0f;
     }
 
     public void RestartButton()
     {
         Time.timeScale = 1f; // Zeit wieder starten
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("MainTestGame");
     }
 
     public void ExitButton()

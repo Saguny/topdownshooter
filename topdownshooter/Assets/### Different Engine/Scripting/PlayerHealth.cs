@@ -23,14 +23,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
     [Header("Visual Feedback")]
     public SpriteRenderer spriteRenderer;
     public Color hitColor = Color.red;
-    public Color healColor = Color.green;        // 💚 Farbe für Heil-Flash
+    public Color healColor = Color.green;        
     [Min(0f)] public float hitFlashDuration = 0.1f;
-    [Min(0f)] public float healFlashDuration = 0.15f;  // 💚 Dauer für Heal-Flash
+    [Min(0f)] public float healFlashDuration = 0.15f;  
 
     [Header("Audio (optional)")]
     public AudioClip hitSound;
     [Range(0f, 1f)] public float hitSoundVolume = 0.7f;
-    public AudioClip healSound;                  // 💚 Sound beim Heilen
+    public AudioClip healSound;                  
     [Range(0f, 1f)] public float healSoundVolume = 0.8f;
 
     // ----- IHealth -----
@@ -89,9 +89,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         if (_invulnTimer > 0f) _invulnTimer -= Time.deltaTime;
     }
 
-    // -------------------
-    // HEAL
-    // -------------------
+    
     public void Heal(float amount)
     {
         if (amount <= 0f) return;
@@ -119,7 +117,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         }
     }
 
-    /// Löst einen kurzen grünen Flash beim Heilen aus.
+    
     public void StartHealFlash()
     {
         if (spriteRenderer == null) return;
@@ -137,9 +135,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         UpdateHudBar();
     }
 
-    // -------------------
-    // DAMAGE
-    // -------------------
+    
     public bool TakeDamage(float amount)
     {
         if (amount <= 0f) return false;
@@ -149,7 +145,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         currentHealth -= amount;
         _invulnTimer = invulnTimeOnHit;
 
-        // 🔴 Hit Flash
+        
         if (spriteRenderer != null)
         {
             if (_flashRoutine != null) StopCoroutine(_flashRoutine);
@@ -202,18 +198,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     private void PushHealthChanged() => OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
-    // -------------------
-    // GameOverScreen
-    // -------------------
-
-public GameOVerScreen GameOVerScreen; 
+    public GameOverScreen GameOverScreen;
 
 
-private void GameOver()
-{
-    if (GameOVerScreen != null)
+    private void GameOver()
     {
-        GameOVerScreen.Setup(currentHealth);
+        if (GameOverScreen != null)
+        {
+            GameOverScreen.Setup(currentHealth);
+        }
     }
-}
 }

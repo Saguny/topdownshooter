@@ -266,9 +266,6 @@ GameObject:
   - component: {fileID: 178176870}
   - component: {fileID: 178176875}
   - component: {fileID: 178176874}
-  - component: {fileID: 178176873}
-  - component: {fileID: 178176872}
-  - component: {fileID: 178176871}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -284,104 +281,20 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178176869}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.032975405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1655199155}
   - {fileID: 1614972052}
   - {fileID: 268235847}
-  m_Father: {fileID: 1189928458}
+  m_Father: {fileID: 2058173058}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 963.41705, y: 539.99646}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &178176871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178176869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb0113ad66908a47952f24b2133f980, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverUI: {fileID: 0}
-  healthText: {fileID: 0}
---- !u!114 &178176872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178176869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 860a5d74bf1ef6943b32acd3bff3973c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  invulnTimeOnHit: 0.15
-  healthBarFill: {fileID: 0}
-  hudGradient:
-    serializedVersion: 2
-    key0: {r: 0.9, g: 0.15, b: 0.15, a: 1}
-    key1: {r: 0.95, g: 0.85, b: 0.2, a: 1}
-    key2: {r: 0.18, g: 0.78, b: 0.2, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 32768
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
-  spriteRenderer: {fileID: 0}
-  hitColor: {r: 1, g: 0, b: 0, a: 1}
-  healColor: {r: 0, g: 1, b: 0, a: 1}
-  hitFlashDuration: 0.1
-  healFlashDuration: 0.15
-  hitSound: {fileID: 0}
-  hitSoundVolume: 0.7
-  healSound: {fileID: 0}
-  healSoundVolume: 0.8
-  GameOVerScreen: {fileID: 0}
---- !u!114 &178176873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178176869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb0113ad66908a47952f24b2133f980, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverUI: {fileID: 0}
-  healthText: {fileID: 0}
 --- !u!114 &178176874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,8 +582,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 178176871}
-        m_TargetAssemblyTypeName: GameOVerScreen, Assembly-CSharp
+      - m_Target: {fileID: 2058173059}
+        m_TargetAssemblyTypeName: GameOverScreen, Assembly-CSharp
         m_MethodName: ExitButton
         m_Mode: 1
         m_Arguments:
@@ -1104,7 +1017,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 0}
-  healthText: {fileID: 0}
 --- !u!1 &1189928454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1113,7 @@ RectTransform:
   m_Children:
   - {fileID: 336746120}
   - {fileID: 1514203400}
-  - {fileID: 178176870}
+  - {fileID: 2058173058}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1420,7 +1332,7 @@ MonoBehaviour:
   hitSoundVolume: 0.106
   healSound: {fileID: 0}
   healSoundVolume: 0.8
-  GameOVerScreen: {fileID: 0}
+  GameOverScreen: {fileID: 2058173059}
 --- !u!212 &1274759125 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3517767873189807665, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
@@ -1858,8 +1770,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 178176871}
-        m_TargetAssemblyTypeName: GameOVerScreen, Assembly-CSharp
+      - m_Target: {fileID: 2058173059}
+        m_TargetAssemblyTypeName: GameOverScreen, Assembly-CSharp
         m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
@@ -2259,6 +2171,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2058173057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058173058}
+  - component: {fileID: 2058173059}
+  m_Layer: 0
+  m_Name: GameOverUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2058173058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058173057}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -963.41705, y: -539.99646, z: -0.032975405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 178176870}
+  m_Father: {fileID: 1189928458}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2058173059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058173057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb0113ad66908a47952f24b2133f980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 178176869}
 --- !u!1001 &2169243385333242675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2291,6 +2249,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 8639112807478518394, guid: 8fff4f84ca6829d479075a68ae351597, type: 3}
+    - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
+      propertyPath: gearsForUpgrade
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: allUpgrades.Array.size
       value: 5
