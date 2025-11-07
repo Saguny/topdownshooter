@@ -168,6 +168,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
         {
             currentHealth = 0f;
             OnPlayerDied?.Invoke();
+
+            GameOver();
             return true;
         }
 
@@ -199,4 +201,19 @@ public class PlayerHealth : MonoBehaviour, IHealth
     }
 
     private void PushHealthChanged() => OnHealthChanged?.Invoke(currentHealth, maxHealth);
+
+    // -------------------
+    // GameOverScreen
+    // -------------------
+
+public GameOVerScreen GameOVerScreen; 
+
+
+private void GameOver()
+{
+    if (GameOVerScreen != null)
+    {
+        GameOVerScreen.Setup(currentHealth);
+    }
+}
 }
