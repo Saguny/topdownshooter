@@ -2663,7 +2663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4494451677080024271, guid: 20a9a29f6f5494a47b67955c5cff46b8, type: 3}
   attackInterval: 5
-  attackRange: 8
+  attackRange: 2
   damage: 20
   fireSound: {fileID: 0}
   fireVolume: 0.8

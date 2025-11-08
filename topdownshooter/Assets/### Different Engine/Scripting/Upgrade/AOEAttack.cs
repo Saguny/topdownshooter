@@ -60,7 +60,10 @@ public class AOEAttack : MonoBehaviour
 
         GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         if (proj.TryGetComponent(out AOEProjectile aoe))
-            aoe.Setup(nearest.transform, damage);
+        {
+            aoe.Setup(nearest.transform, damage, attackRange); // radius hier übergeben
+        }
+
 
         if (fireSound != null)
             _audio.PlayOneShot(fireSound, fireVolume);
