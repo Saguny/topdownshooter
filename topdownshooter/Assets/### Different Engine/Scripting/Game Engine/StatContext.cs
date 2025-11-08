@@ -6,6 +6,7 @@ public class StatContext : MonoBehaviour
     public float bulletSpeedMul = 1f;
     public float pickupRadiusMul = 1f;
     public float bulletDamageMul = 1f;
+    public float healthMul = 1f;   // 🩸 NEU
 
     public int bulletCountAdd = 0;
 
@@ -15,6 +16,7 @@ public class StatContext : MonoBehaviour
         bulletSpeedMul = 1f;
         pickupRadiusMul = 1f;
         bulletDamageMul = 1f;
+        healthMul = 1f;  // 🩸 NEU
         bulletCountAdd = 0;
     }
 
@@ -37,10 +39,33 @@ public class StatContext : MonoBehaviour
             case UpgradeType.BulletDamage:
                 bulletDamageMul *= u.additive ? (1f + u.value) : u.value;
                 break;
+            case UpgradeType.MaxHealth: // 🩸 NEU
+                healthMul *= u.additive ? (1f + u.value) : u.value;
+                ApplyHealthUpgrade();
+                break;
             case UpgradeType.AuraUnlock:
             case UpgradeType.AuraDamage:
             case UpgradeType.AuraRadius:
                 break;
+            case UpgradeType.AOEAttack:
+                {
+                    var blast = GetComponent<AOEAttack>();
+                    if (blast == null)
+                        blast = gameObject.AddComponent<AOEAttack>();
+
+                    blast.Activate(3f, 20f, 5f); // Beispielwerte: radius, damage, interval
+                    break;
+                }
+
         }
+    }
+
+    private void ApplyHealthUpgrade()
+    {
+        var playerHealth = GetComponent<PlayerHealth>();
+        if (playerHealth == null) return;
+
+        float newMax = playerHealth.Max * healthMul;
+        playerHealth.SetMax(newMax, true); // true = direkt volle HP nach Upgrade
     }
 }

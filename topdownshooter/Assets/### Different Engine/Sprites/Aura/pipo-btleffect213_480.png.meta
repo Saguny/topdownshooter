@@ -153,6 +153,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -609,7 +622,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pipo-btleffect213_480_0: -7815665843150739226
+      pipo-btleffect213_480_1: -4218009967258310932
+      pipo-btleffect213_480_10: -1062919114154464494
+      pipo-btleffect213_480_11: -6261395159015484185
+      pipo-btleffect213_480_12: -8278772754862238653
+      pipo-btleffect213_480_13: 1548734820575731210
+      pipo-btleffect213_480_14: 690165095613843089
+      pipo-btleffect213_480_15: 2432500424931794912
+      pipo-btleffect213_480_16: 8603242030038291492
+      pipo-btleffect213_480_17: 3130874848038619076
+      pipo-btleffect213_480_18: -5503807264469774181
+      pipo-btleffect213_480_19: -893583917528990206
+      pipo-btleffect213_480_2: -2172034533169124541
+      pipo-btleffect213_480_3: -6775332596218731925
+      pipo-btleffect213_480_4: -7483542520454212985
+      pipo-btleffect213_480_5: 6589630865141083968
+      pipo-btleffect213_480_6: -826356216088696472
+      pipo-btleffect213_480_7: -6001615010134560413
+      pipo-btleffect213_480_8: 7603202850431309685
+      pipo-btleffect213_480_9: -391833001482207898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

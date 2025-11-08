@@ -10,4 +10,5 @@ public enum UpgradeType
     BulletDamage,
     MaxHealth,
     HealthRegen,
+    AOEAttack
 }

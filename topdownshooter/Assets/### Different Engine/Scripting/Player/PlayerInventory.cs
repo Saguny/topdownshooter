@@ -105,6 +105,20 @@ public class PlayerInventory : MonoBehaviour
                     aura.IncreaseVisualScale(1.15f);   // visual: +15% transform scale
                 }
                 break;
+            case UpgradeType.AOEAttack:
+                {
+                    var aoe = GetComponent<AOEAttack>();
+                    if (aoe == null)
+                        aoe = gameObject.AddComponent<AOEAttack>();
+
+                    // Werte pro Level skalieren (Beispiel)
+                    float radius = 3f + (upgrade.Level - 1) * 0.5f;
+                    float damage = 20f + (upgrade.Level - 1) * 5f;
+                    float interval = Mathf.Max(2f, 5f - (upgrade.Level - 1) * 0.3f);
+
+                    aoe.Activate(radius, damage, interval);
+                    break;
+                }
         }
 
         upgrade.LevelUp();

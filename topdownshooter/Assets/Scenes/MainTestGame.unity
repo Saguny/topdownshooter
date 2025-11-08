@@ -2566,6 +2566,7 @@ MonoBehaviour:
   bulletSpeedMul: 1
   pickupRadiusMul: 1
   bulletDamageMul: 1
+  healthMul: 1
   bulletCountAdd: 0
 --- !u!114 &1274759117
 MonoBehaviour:
@@ -2640,14 +2641,33 @@ MonoBehaviour:
   healFlashDuration: 0.25
   hitSound: {fileID: 8300000, guid: 740f4986549ed924cba64eaea94070c4, type: 3}
   hitSoundVolume: 0.106
-  healSound: {fileID: 0}
-  healSoundVolume: 0.8
+  healSound: {fileID: 8300000, guid: 9f6ecfd741b830f42b587af01ab11a07, type: 3}
+  healSoundVolume: 0.202
   GameOverScreen: {fileID: 2058173059}
 --- !u!212 &1274759125 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3517767873189807665, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
   m_PrefabInstance: {fileID: 2169243385333242675}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1274759134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274759104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb08a211ded4d3498fa6ffd6d3a7a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  damage: 20
+  interval: 5
+  projectileSpeed: 10
+  projectilePrefab: {fileID: 0}
+  aoeEffectPrefab: {fileID: 0}
+  aoeColor: {r: 1, g: 1, b: 1, a: 0.5}
 --- !u!1 &1339804097
 GameObject:
   m_ObjectHideFlags: 0
@@ -4484,7 +4504,7 @@ PrefabInstance:
       objectReference: {fileID: 1866763091}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: allUpgrades.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: gearIncreaseMultiplier
@@ -4493,19 +4513,19 @@ PrefabInstance:
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: 'allUpgrades.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 9949200c23b69924191e4aca011072ce, type: 2}
+      objectReference: {fileID: 11400000, guid: 3c6b3cca1aec4e94889bbd194a764622, type: 2}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: 'allUpgrades.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 3c6b3cca1aec4e94889bbd194a764622, type: 2}
+      objectReference: {fileID: 11400000, guid: 09adf57cc4790824cbce1fc2cd034da7, type: 2}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: 'allUpgrades.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: b005e1e813757914f858df11639e306f, type: 2}
+      objectReference: {fileID: 11400000, guid: 3d5022850414a664ab4a37a90360610a, type: 2}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: 'allUpgrades.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 0968dec29f08ad94f84c0207b63a55c6, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: 'allUpgrades.Array.data[4]'
       value: 
@@ -4602,6 +4622,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 767629532391218235, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1274759117}
+    - targetCorrespondingSourceObject: {fileID: 767629532391218235, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1274759134}
   m_SourcePrefab: {fileID: 100100000, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
