@@ -2665,8 +2665,8 @@ MonoBehaviour:
   attackInterval: 5
   attackRange: 2
   damage: 20
-  fireSound: {fileID: 0}
-  fireVolume: 0.8
+  fireSound: {fileID: 8300000, guid: 8823a5f3dd41f5549b909c33fd16dc1b, type: 3}
+  fireVolume: 0.229
 --- !u!1 &1339804097
 GameObject:
   m_ObjectHideFlags: 0
