@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: AOEAttack
   type: 10
-  value: 1
+  value: 1.15
   additive: 0
   description: Adds AOEAttack
   level: 0
-  maxLevel: 7
+  maxLevel: 5

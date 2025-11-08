@@ -48,14 +48,9 @@ public class StatContext : MonoBehaviour
             case UpgradeType.AuraRadius:
                 break;
             case UpgradeType.AOEAttack:
-                {
-                    var blast = GetComponent<AOEAttack>();
-                    if (blast == null)
-                        blast = gameObject.AddComponent<AOEAttack>();
+                // Dieses Upgrade wird im PlayerInventory direkt gehandhabt.
+                break;
 
-                    blast.Activate(3f, 20f, 5f); // Beispielwerte: radius, damage, interval
-                    break;
-                }
 
         }
     }

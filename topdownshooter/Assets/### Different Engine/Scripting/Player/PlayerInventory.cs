@@ -87,43 +87,53 @@ public class PlayerInventory : MonoBehaviour
             return;
         }
 
-        if (stats != null) stats.Apply(upgrade);
+        if (stats != null)
+            stats.Apply(upgrade);
 
         switch (upgrade.type)
         {
             case UpgradeType.AuraUnlock:
-                if (aura != null && !aura.gameObject.activeSelf) aura.gameObject.SetActive(true);
+                if (aura != null && !aura.gameObject.activeSelf)
+                    aura.gameObject.SetActive(true);
                 hasAura = true;
                 break;
+
             case UpgradeType.AuraDamage:
-                if (aura != null && aura.gameObject.activeSelf) aura.damage *= upgrade.value;
+                if (aura != null && aura.gameObject.activeSelf)
+                    aura.damage *= upgrade.value;
                 break;
+
             case UpgradeType.AuraRadius:
                 if (aura != null && aura.gameObject.activeSelf)
                 {
-                    aura.radius *= upgrade.value;      // gameplay radius
-                    aura.IncreaseVisualScale(1.15f);   // visual: +15% transform scale
+                    aura.radius *= upgrade.value;
+                    aura.IncreaseVisualScale(1.15f);
                 }
                 break;
+
+            // ✅ Neu: AOE Attack freischalten oder verbessern
             case UpgradeType.AOEAttack:
+                var aoe = GetComponent<AOEAttack>();
+                if (aoe != null)
                 {
-                    var aoe = GetComponent<AOEAttack>();
-                    if (aoe == null)
-                        aoe = gameObject.AddComponent<AOEAttack>();
-
-                    // Werte pro Level skalieren (Beispiel)
-                    float radius = 3f + (upgrade.Level - 1) * 0.5f;
-                    float damage = 20f + (upgrade.Level - 1) * 5f;
-                    float interval = Mathf.Max(2f, 5f - (upgrade.Level - 1) * 0.3f);
-
-                    aoe.Activate(radius, damage, interval);
-                    break;
+                    if (upgrade.Level == 0)
+                    {
+                        aoe.Activate(); // Erstes Mal: freischalten
+                        Debug.Log("AOE Attack aktiviert!");
+                    }
+                    else
+                    {
+                        aoe.Upgrade(0.9f, 1.15f); // Danach: verbessern
+                        Debug.Log("AOE Attack verbessert!");
+                    }
                 }
+                break;
         }
 
         upgrade.LevelUp();
         Time.timeScale = 1f;
     }
+
 
     public void ResetRun()
     {
