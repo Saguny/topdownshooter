@@ -99,7 +99,11 @@ public class PlayerInventory : MonoBehaviour
                 if (aura != null && aura.gameObject.activeSelf) aura.damage *= upgrade.value;
                 break;
             case UpgradeType.AuraRadius:
-                if (aura != null && aura.gameObject.activeSelf) aura.radius *= upgrade.value;
+                if (aura != null && aura.gameObject.activeSelf)
+                {
+                    aura.radius *= upgrade.value;         // gameplay radius change
+                    aura.transform.localScale *= upgrade.value;  
+                }
                 break;
         }
 

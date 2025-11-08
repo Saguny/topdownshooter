@@ -43,6 +43,9 @@ TagManager:
   - name: Background
     uniqueID: 565000409
     locked: 0
+  - name: Aura
+    uniqueID: 3786826729
+    locked: 0
   - name: Player
     uniqueID: 1987439627
     locked: 0
@@ -59,3 +62,5 @@ TagManager:
   - Default
   - Background
   - Player
+  - Aura
+  - Layer 4

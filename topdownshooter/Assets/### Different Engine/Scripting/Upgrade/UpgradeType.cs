@@ -7,5 +7,7 @@ public enum UpgradeType
     AuraUnlock,
     AuraDamage,
     AuraRadius,
-    BulletDamage
+    BulletDamage,
+    MaxHealth,
+    HealthRegen,
 }

@@ -23,14 +23,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
     [Header("Visual Feedback")]
     public SpriteRenderer spriteRenderer;
     public Color hitColor = Color.red;
-    public Color healColor = Color.green;        
+    public Color healColor = Color.green;
     [Min(0f)] public float hitFlashDuration = 0.1f;
-    [Min(0f)] public float healFlashDuration = 0.15f;  
+    [Min(0f)] public float healFlashDuration = 0.15f;
 
     [Header("Audio (optional)")]
     public AudioClip hitSound;
     [Range(0f, 1f)] public float hitSoundVolume = 0.7f;
-    public AudioClip healSound;                  
+    public AudioClip healSound;
     [Range(0f, 1f)] public float healSoundVolume = 0.8f;
 
     // ----- IHealth -----
@@ -89,7 +89,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         if (_invulnTimer > 0f) _invulnTimer -= Time.deltaTime;
     }
 
-    
+
     public void Heal(float amount)
     {
         if (amount <= 0f) return;
@@ -117,7 +117,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         }
     }
 
-    
+
     public void StartHealFlash()
     {
         if (spriteRenderer == null) return;
@@ -135,7 +135,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         UpdateHudBar();
     }
 
-    
+
     public bool TakeDamage(float amount)
     {
         if (amount <= 0f) return false;
@@ -145,7 +145,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         currentHealth -= amount;
         _invulnTimer = invulnTimeOnHit;
 
-        
+
         if (spriteRenderer != null)
         {
             if (_flashRoutine != null) StopCoroutine(_flashRoutine);
