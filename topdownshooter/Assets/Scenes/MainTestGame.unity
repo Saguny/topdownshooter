@@ -4491,7 +4491,7 @@ PrefabInstance:
       objectReference: {fileID: 1047109365}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: gearsForUpgrade
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: progressBackground
