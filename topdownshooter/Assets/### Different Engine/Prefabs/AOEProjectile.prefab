@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9114841126378952767}
   - component: {fileID: 294263820714722851}
   - component: {fileID: -6945382925698950036}
-  - component: {fileID: -920258117106586960}
   - component: {fileID: 6255660209566955238}
   m_Layer: 0
   m_Name: AOEProjectile
@@ -103,36 +102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  lifeTime: 4
   damage: 20
+  radius: 2
   impactEffectPrefab: {fileID: 2769219319097304828, guid: fa4f296afedb06f43866de0995347ace, type: 3}
   impactEffectDuration: 0.5
---- !u!50 &-920258117106586960
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4494451677080024271}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!58 &6255660209566955238
 CircleCollider2D:
   m_ObjectHideFlags: 0

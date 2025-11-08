@@ -31,7 +31,7 @@ public class AOEAttack : MonoBehaviour
         if (_timer >= attackInterval)
         {
             _timer = 0f;
-            FireAtNearestEnemy();
+            FireProjectile();
         }
     }
 
@@ -46,45 +46,22 @@ public class AOEAttack : MonoBehaviour
         _active = false;
     }
 
-    // 👉 Wird beim Upgrade aufgerufen
     public void Upgrade(float intervalMultiplier, float damageMultiplier)
     {
         attackInterval = Mathf.Max(0.5f, attackInterval * intervalMultiplier);
         damage *= damageMultiplier;
     }
 
-    private void FireAtNearestEnemy()
+    private void FireProjectile()
     {
-        GameObject nearest = FindNearestEnemy();
-        if (nearest == null) return;
-
         GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+
         if (proj.TryGetComponent(out AOEProjectile aoe))
         {
-            aoe.Setup(nearest.transform, damage, attackRange); // radius hier übergeben
+            aoe.Setup(damage, attackRange);
         }
-
 
         if (fireSound != null)
             _audio.PlayOneShot(fireSound, fireVolume);
-    }
-
-    private GameObject FindNearestEnemy()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject nearest = null;
-        float minDist = Mathf.Infinity;
-
-        foreach (GameObject e in enemies)
-        {
-            float dist = Vector2.Distance(transform.position, e.transform.position);
-            if (dist < minDist && dist <= attackRange)
-            {
-                nearest = e;
-                minDist = dist;
-            }
-        }
-
-        return nearest;
     }
 }

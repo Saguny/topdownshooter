@@ -18,4 +18,4 @@ MonoBehaviour:
   additive: 0
   description: Adds AOEAttack
   level: 0
-  maxLevel: 5
+  maxLevel: 1
