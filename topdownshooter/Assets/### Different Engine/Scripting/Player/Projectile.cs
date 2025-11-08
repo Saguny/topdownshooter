@@ -4,50 +4,53 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float lifetime = 2f;
-    [SerializeField] private int damage = 5;
-    [SerializeField] private int pierce = 0; // 0 = no pierce
+    [SerializeField] private float damage = 10f;
 
     private Rigidbody2D rb;
+    private bool fired;
     private Vector2 dir;
-    private float speed;
-    private int pierced;
+    private float spd;
+
+    public void SetDamage(float v) { damage = v; }
+
+    public void Fire(Vector2 direction, float speed)
+    {
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
+        dir = direction.sqrMagnitude > 0 ? direction.normalized : Vector2.right;
+        spd = speed;
+        fired = true;
+        rb.gravityScale = 0f;
+        rb.linearVelocity = dir * spd;
+    }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.isKinematic = true;
-        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-
-        var col = GetComponent<Collider2D>();
-        col.isTrigger = true;
+        rb.gravityScale = 0f;
     }
 
-    public void Fire(Vector2 direction, float setSpeed)
+    private void OnEnable()
     {
-        dir = direction.normalized;
-        speed = setSpeed;
-        pierced = 0;
-
-        rb.linearVelocity = dir * speed;
-        CancelInvoke();
-        Invoke(nameof(Despawn), lifetime);
+        if (fired) rb.linearVelocity = dir * spd;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D c)
     {
-        if (!other.CompareTag("Enemy")) return;
-
-        if (other.TryGetComponent(out EnemyHealth eh))
+        var eh = c.collider.GetComponent<EnemyHealth>();
+        if (eh != null)
+        {
             eh.TakeDamage(damage);
-
-        if (pierce <= 0 || ++pierced > pierce)
-            Despawn();
+            Destroy(gameObject);
+        }
     }
 
-    private void Despawn()
+    private void OnTriggerEnter2D(Collider2D c)
     {
-        rb.linearVelocity = Vector2.zero;
-        Destroy(gameObject); // swap to pooling later if desired
+        var eh = c.GetComponent<EnemyHealth>();
+        if (eh != null)
+        {
+            eh.TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }

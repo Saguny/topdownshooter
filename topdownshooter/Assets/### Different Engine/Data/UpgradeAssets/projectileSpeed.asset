@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Bullet Speed
   type: 1
-  value: 1.2
-  additive: 1
-  description: 
+  value: 1.1
+  additive: 0
+  description: Increases Bullet speed by 10%
+  level: 0
+  maxLevel: 7

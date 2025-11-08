@@ -10,17 +10,18 @@ GameObject:
   m_Component:
   - component: {fileID: 1557639186676885559}
   - component: {fileID: 6062129734803959353}
+  - component: {fileID: -6497688819578841960}
   - component: {fileID: 6993717957234600409}
   - component: {fileID: 7705832605091154836}
   - component: {fileID: 720283281531707828}
   - component: {fileID: 2067439041797632586}
   - component: {fileID: 8483690065550941714}
-  - component: {fileID: 367867116019851203}
   - component: {fileID: 5718124482810303360}
   - component: {fileID: 5088608087563689285}
   - component: {fileID: 4450218037733749501}
+  - component: {fileID: 6190732262709710906}
   m_Layer: 11
-  m_Name: Enemie
+  m_Name: Grunt Blue
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,6 +69,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-6497688819578841960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184005365869111389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bf6c418de0368b4189b105b0401a240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  archetype: {fileID: 11400000, guid: a140de101f11205448e08eba5e215647, type: 2}
+  difficulty: {fileID: 11400000, guid: 363da86acd973b94595557ed92a9f4d2, type: 2}
+  contact: {fileID: 6993717957234600409}
 --- !u!114 &6993717957234600409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,12 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd6d9b303124b041a6f5b521170d12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerTick: 5
+  damagePerTick: 0
   tickInterval: 0.5
-  playerTag: Player
-  playerLayers:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &7705832605091154836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cddcc88e3d6903347a4e543b9a400307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaxHealth: 10
+  baseMaxHealth: 9.5
   currentHealth: 0
   armor: 0
   gearDropPrefab: {fileID: 6789325886152309237, guid: 42881677769281a46a72816921134c5f, type: 3}
@@ -170,7 +182,7 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 51f49a435780a224f9fd0f008a22a0c3, type: 3}
   deathVolume: 0.324
   healItemPrefab: {fileID: 1653245802588275055, guid: 9b80ca85b45a48f428cf70029f106a15, type: 3}
-  healDropChance: 0.1
+  healDropChance: 0.05
   spriteRenderer: {fileID: 5088608087563689285}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
@@ -178,26 +190,6 @@ MonoBehaviour:
   hitVolume: 0.16
   audioSource: {fileID: 0}
   destroyOnDeath: 1
---- !u!114 &367867116019851203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4184005365869111389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad6891fd2c692dc47b62f49e2704c89d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  sortingLayer: HUD
-  bgOrder: 199
-  fgOrder: 200
-  size: {x: 0.8, y: 0.08}
-  offset: {x: 0, y: -0.8, z: 0}
-  bgPadding: 0.04
-  pixelSnap: 0
 --- !u!95 &5718124482810303360
 Animator:
   serializedVersion: 7
@@ -208,7 +200,7 @@ Animator:
   m_GameObject: {fileID: 4184005365869111389}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f8fe77fcacf19e04fbea10d993886918, type: 2}
+  m_Controller: {fileID: 9100000, guid: ceb3007634aa5f64f8bbe019b7468283, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -264,7 +256,7 @@ SpriteRenderer:
   m_SortingLayerID: 242874385
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7451426116336585031, guid: 4d6eaca356ddff345abd01730e960dd5, type: 3}
+  m_Sprite: {fileID: -153612027754913308, guid: a050680bc80a1694bb8cf5eb19d63d59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -372,3 +364,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6190732262709710906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184005365869111389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6891fd2c692dc47b62f49e2704c89d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  sortingLayer: HUD
+  bgOrder: 199
+  fgOrder: 200
+  size: {x: 0.8, y: 0.08}
+  offset: {x: 0, y: -0.8, z: 0}
+  bgPadding: 0.04
+  pixelSnap: 0

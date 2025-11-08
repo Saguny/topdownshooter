@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   cost: 1
-  weight: 0.5
+  weight: 0.203
   baseHealth: 10
-  baseSpeed: 1.5
+  baseSpeed: 2.52
   baseDamage: 5

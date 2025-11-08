@@ -17,3 +17,5 @@ MonoBehaviour:
   value: 1
   additive: 0
   description: 
+  level: 0
+  maxLevel: 1

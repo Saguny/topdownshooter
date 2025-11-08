@@ -6,5 +6,6 @@ public enum UpgradeType
     PickupRadius,
     AuraUnlock,
     AuraDamage,
-    AuraRadius
+    AuraRadius,
+    BulletDamage
 }

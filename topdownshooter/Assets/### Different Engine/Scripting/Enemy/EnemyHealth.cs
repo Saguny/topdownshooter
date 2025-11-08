@@ -25,8 +25,8 @@ public class EnemyHealth : MonoBehaviour, IHealth
     [Range(0f, 1f)][SerializeField] private float deathVolume = 1f;
 
     [Header("heal item drop")]
-    [SerializeField] private GameObject healItemPrefab;      // 💚 Heil-Item Prefab
-    [Range(0f, 1f)][SerializeField] private float healDropChance = 0.25f; // 💚 25% Drop-Chance standardmäßig
+    [SerializeField] private GameObject healItemPrefab;      
+    [Range(0f, 1f)][SerializeField] private float healDropChance = 0.05f; 
 
     [Header("damage feedback")]
     [SerializeField] private SpriteRenderer spriteRenderer;

@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Bullet Count
   type: 2
-  value: 2
+  value: 1
   additive: 1
-  description: 
+  description: Increases the Amount of Bullets by 1
+  level: 0
+  maxLevel: 6

@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Pickup Radius
   type: 3
-  value: 1.33
-  additive: 1
-  description: 
+  value: 1.05
+  additive: 0
+  description: Increases Pickup Radius by 5%
+  level: 0
+  maxLevel: 7

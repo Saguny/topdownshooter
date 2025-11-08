@@ -1,55 +1,58 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GearSweepOnWaveClear : MonoBehaviour
 {
-    [SerializeField] private float delayBeforePull = 0.8f;
+    [SerializeField] private float delay = 0.8f;
+    [SerializeField] private float duration = 0.5f;
 
-    private void OnEnable() => GameEvents.OnWaveCleared += HandleWaveClear;
-    private void OnDisable() => GameEvents.OnWaveCleared -= HandleWaveClear;
+    private void OnEnable()
+    {
+        GameEvents.OnWaveCleared += HandleWaveCleared;
+    }
 
-    private void HandleWaveClear(int waveIndex)
+    private void OnDisable()
+    {
+        GameEvents.OnWaveCleared -= HandleWaveCleared;
+    }
+
+    private void HandleWaveCleared(int _)
     {
         StartCoroutine(PullAfterDelay());
     }
 
     private IEnumerator PullAfterDelay()
     {
-        yield return new WaitForSeconds(delayBeforePull);
-        PullAllGearsToPlayer();
-    }
+        yield return new WaitForSeconds(delay);
+        var player = GameObject.FindGameObjectWithTag("Player");
+        if (!player) yield break;
 
-    private void PullAllGearsToPlayer()
-    {
-        var player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        if (player == null) return;
+        var gears = new List<GameObject>(GameObject.FindGameObjectsWithTag("Gear"));
+        var start = new Dictionary<GameObject, Vector3>();
+        foreach (var g in gears) if (g) start[g] = g.transform.position;
 
-        var gears = GameObject.FindGameObjectsWithTag("Gear");
-        foreach (var g in gears)
-        {
-            if (g == null) continue;
-            StartCoroutine(MoveGearToPlayer(g.transform, player));
-        }
-    }
-
-    private IEnumerator MoveGearToPlayer(Transform gear, Transform player)
-    {
-        float duration = 0.6f, t = 0f;
-        Vector3 start = gear.position;
-
-        while (t < duration && gear != null && player != null)
+        float t = 0f;
+        while (t < duration)
         {
             t += Time.deltaTime;
-            float p = t / duration;
-            gear.position = Vector3.Lerp(start, player.position, p * p);
+            float k = Mathf.Clamp01(t / duration);
+            foreach (var g in gears)
+            {
+                if (!g) continue;
+                var rb = g.GetComponent<Rigidbody2D>();
+                if (rb) { rb.linearVelocity = Vector2.zero; rb.angularVelocity = 0f; }
+                g.transform.position = Vector3.Lerp(start[g], player.transform.position, k);
+            }
             yield return null;
         }
 
-        if (gear != null && player != null)
+        var inv = player.GetComponent<PlayerInventory>();
+        foreach (var g in gears)
         {
-            var inv = player.GetComponent<PlayerInventory>();
-            if (inv != null) inv.AddGears(1);
-            Destroy(gear.gameObject);
+            if (!g) continue;
+            if (inv) inv.AddGears(1);
+            Destroy(g);
         }
     }
 }

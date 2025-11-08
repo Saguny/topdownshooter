@@ -16,5 +16,5 @@ MonoBehaviour:
   cost: 2
   weight: 0.6
   baseHealth: 10
-  baseSpeed: 1
-  baseDamage: 5
+  baseSpeed: 0.5
+  baseDamage: 20
