@@ -25,12 +25,14 @@ public class PlayerInventory : MonoBehaviour
     {
         BuildRuntimeUpgrades();
         UpdateProgress();
+        GameEvents.OnEnemyKilled += HandleEnemyKilled;
     }
 
     private void OnDisable()
     {
         foreach (var u in allUpgrades) if (u != null) u.ResetLevel();
         runtimeUpgrades.Clear();
+        GameEvents.OnEnemyKilled -= HandleEnemyKilled;
     }
 
     private void Awake()
@@ -38,6 +40,12 @@ public class PlayerInventory : MonoBehaviour
         aura = GetComponentInChildren<Aura>(true);
         stats = GetComponent<StatContext>();
         if (aura == null) aura = transform.Find("Upgrades/Aura")?.GetComponent<Aura>();
+    }
+
+    private void HandleEnemyKilled(int count)
+    {
+        if (count > 0)
+            AddGears(count);
     }
 
     public void AddGears(int amount)
@@ -79,10 +87,8 @@ public class PlayerInventory : MonoBehaviour
 
         randomUpgrades.RemoveAll(u => u == null || u.IsAtCap);
 
-        // NEW: pass the player's current level into the UI
         upgradeMenuUI.Open(randomUpgrades, ApplyUpgrade, CurrentLevel);
     }
-
 
     private void ApplyUpgrade(UpgradeData upgrade)
     {
@@ -112,24 +118,21 @@ public class PlayerInventory : MonoBehaviour
                 if (aura != null && aura.gameObject.activeSelf)
                 {
                     aura.radius *= upgrade.value;
-                    aura.IncreaseVisualScale(1.15f);
+                    aura.OnRadiusUpgraded();
                 }
                 break;
 
-            
             case UpgradeType.AOEAttack:
                 var aoe = GetComponent<AOEAttack>();
                 if (aoe != null)
                 {
                     if (upgrade.Level == 0)
                     {
-                        aoe.Activate(); 
-                        
+                        aoe.Activate();
                     }
                     else
                     {
-                        aoe.Upgrade(0.9f, 1.15f); 
-                        ;
+                        aoe.Upgrade(0.9f, 1.15f);
                     }
                 }
                 break;
@@ -138,7 +141,6 @@ public class PlayerInventory : MonoBehaviour
         upgrade.LevelUp();
         Time.timeScale = 1f;
     }
-
 
     public void ResetRun()
     {

@@ -76,12 +76,12 @@ public class UIWaveAndTimer : MonoBehaviour
     private void HandleRushStart(int waveNumber, int quota)
     {
         if (runTimerText) runTimerText.color = rushColor;
-        if (waveText) waveText.text = $"final rush – {quota}";
+        if (waveText) waveText.text = $"Kill {quota} Enemies";
     }
 
     private void HandleRushEnd(int waveNumber)
     {
         if (runTimerText) runTimerText.color = normalColor;
-        if (waveText) waveText.text = $"wave {waveNumber} cleared";
+        if (waveText) waveText.text = $"Wave {waveNumber} cleared";
     }
 }

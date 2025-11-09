@@ -15,17 +15,21 @@ public class Aura : MonoBehaviour
     [SerializeField] private string spawnAnimName = "Aura_Spawn";
     [SerializeField] private string loopAnimName = "Aura_Loop";
 
+    [SerializeField] private float _visualScaleBase = 2.5f;
+
     private CircleCollider2D _collider;
     private float _nextDamageTime;
     private readonly Collider2D[] _hits = new Collider2D[16];
     private readonly HashSet<int> _hitThisPulse = new HashSet<int>();
-    [SerializeField] private float _visualScaleBase = 1f;
 
     private void Awake()
     {
         _collider = GetComponent<CircleCollider2D>();
         _collider.isTrigger = true;
         if (!animator) animator = GetComponentInChildren<Animator>(true);
+
+        if (_visualScaleBase <= 0f)
+            _visualScaleBase = radius;
     }
 
     private void OnEnable()
@@ -44,20 +48,15 @@ public class Aura : MonoBehaviour
             _nextDamageTime = Time.time + damageInterval;
         }
 
+        float scaleFactor = radius / _visualScaleBase;
         if (animator == null || animator.runtimeAnimatorController == null)
-            transform.localScale = Vector3.one * _visualScaleBase;
+            transform.localScale = Vector3.one * scaleFactor;
         else
-            animator.transform.localScale = Vector3.one * _visualScaleBase;
-    }
-
-    public void IncreaseVisualScale(float factor)
-    {
-        _visualScaleBase *= factor;
+            animator.transform.localScale = Vector3.one * scaleFactor;
     }
 
     public void OnRadiusUpgraded()
     {
-        _visualScaleBase *= 1.15f;
         if (animator && !string.IsNullOrEmpty(loopAnimName))
             animator.Play(loopAnimName, 0, 0f);
     }

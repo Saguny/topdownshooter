@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnDirector : MonoBehaviour
 {
@@ -18,25 +19,42 @@ public class SpawnDirector : MonoBehaviour
     [SerializeField] private float boundsInset = 0.25f;
     [SerializeField] private float pauseAfterClear = 2f;
     [SerializeField] private float purgeStepDelay = 0.02f;
-
     [SerializeField] private float startingBudget = 3f;
 
     [Header("Fast Phase")]
-    [SerializeField] private EnemyArchetype fastPhaseArchetype; // drag your Fast SO here
+    [SerializeField] private EnemyArchetype fastPhaseArchetype;
     [SerializeField] private float fastPhaseDuration = 10f;
     [SerializeField] private float fastPhaseCheckInterval = 10f;
     [SerializeField, Range(0f, 1f)] private float fastPhaseChance = 0.01f;
-    [SerializeField] private float fastPhaseSpawnrateMul = 3f;   // budget gain + cooldown scaling
-    [SerializeField] private float fastPhaseDensityMul = 3f;     // more enemies allowed on screen
+    [SerializeField] private float fastPhaseSpawnrateMul = 3f;
+    [SerializeField] private float fastPhaseDensityMul = 3f;
+    [SerializeField] private float fastPhaseMinRunTime = 120f;
+    [SerializeField] private float fastPhasePostClearDelay = 1f;
+
+    [Header("Boss")]
+    [SerializeField] private EnemyArchetype bossArchetype;
+
+    [Header("Final Rush UI")]
+    [SerializeField] private Slider finalRushSlider;
 
     private float fastPhaseUntil = -1f;
     private float nextFastPhaseCheck;
-
     private float timeElapsed;
     private float budget;
     private float spawnCooldown;
     private bool finalRush;
     private float spawnPausedUntil;
+    private float runTime;
+    private bool preparingFastPhase;
+    private bool fastPhaseSequenceRunning;
+
+    private int currentWave;
+    private int bossesSpawnedThisRush;
+    private List<GameObject> activeBosses = new List<GameObject>();
+
+    private int finalRushQuota;
+    private int finalRushKills;
+    private bool finalRushEndTriggered;
 
     private void OnEnable()
     {
@@ -44,6 +62,8 @@ public class SpawnDirector : MonoBehaviour
         GameEvents.OnFinalRushEnded += HandleFinalRushEnd;
         GameEvents.OnWaveCleared += HandleWaveCleared;
         GameEvents.OnPurgeEnemiesWithFx += HandlePurge;
+        GameEvents.OnRunTimeChanged += HandleRunTimeChanged;
+        GameEvents.OnEnemyKilled += HandleEnemyKilled;
     }
 
     private void OnDisable()
@@ -52,12 +72,35 @@ public class SpawnDirector : MonoBehaviour
         GameEvents.OnFinalRushEnded -= HandleFinalRushEnd;
         GameEvents.OnWaveCleared -= HandleWaveCleared;
         GameEvents.OnPurgeEnemiesWithFx -= HandlePurge;
+        GameEvents.OnRunTimeChanged -= HandleRunTimeChanged;
+        GameEvents.OnEnemyKilled -= HandleEnemyKilled;
     }
 
     private void Start()
     {
         budget = startingBudget;
         nextFastPhaseCheck = Time.time + fastPhaseCheckInterval;
+        UpdateFinalRushProgressBar();
+    }
+
+    private void HandleRunTimeChanged(float value)
+    {
+        runTime = value;
+    }
+
+    private void StartPreparingFastPhase()
+    {
+        preparingFastPhase = true;
+        spawnCooldown = 0f;
+    }
+
+    private IEnumerator BeginFastPhaseAfterDelay()
+    {
+        fastPhaseSequenceRunning = true;
+        yield return new WaitForSeconds(fastPhasePostClearDelay);
+        preparingFastPhase = false;
+        StartFastPhase(fastPhaseDuration);
+        fastPhaseSequenceRunning = false;
     }
 
     private void Update()
@@ -67,28 +110,35 @@ public class SpawnDirector : MonoBehaviour
 
         bool inFastPhase = Time.time < fastPhaseUntil;
 
-        // random fast phase trigger
-        if (Time.time >= nextFastPhaseCheck)
+        if (!preparingFastPhase &&
+            !inFastPhase &&
+            runTime >= fastPhaseMinRunTime &&
+            Time.time >= nextFastPhaseCheck)
         {
             nextFastPhaseCheck = Time.time + fastPhaseCheckInterval;
-
-            // only trigger if not already in a fast phase
-            if (!inFastPhase && Random.value < fastPhaseChance)
+            if (Random.value < fastPhaseChance)
             {
-                StartFastPhase(fastPhaseDuration);
-                inFastPhase = true;
-                // Debug.Log($"Fast phase started for {fastPhaseDuration} seconds");
+                StartPreparingFastPhase();
             }
         }
 
         float densityScale = curve != null ? curve.DensityAt(timeElapsed) : 1f;
         float rushScale = finalRush ? densityScale * 1.2f : densityScale;
 
+        int alive = CountAlive();
+
+        if (preparingFastPhase)
+        {
+            if (alive <= 0 && !fastPhaseSequenceRunning)
+            {
+                StartCoroutine(BeginFastPhaseAfterDelay());
+            }
+            return;
+        }
+
         float spawnrateMul = inFastPhase ? fastPhaseSpawnrateMul : 1f;
         float densityMul = inFastPhase ? fastPhaseDensityMul : 1f;
-
         float target = desiredPerScreen * densityMul * rushScale;
-        int alive = CountAlive();
 
         budget += budgetPerSecond * spawnrateMul * Time.deltaTime * rushScale;
 
@@ -105,35 +155,75 @@ public class SpawnDirector : MonoBehaviour
         {
             EnemyArchetype arch;
 
-            // if a fast phase is active, force the fast archetype
-            if (inFastPhase && fastPhaseArchetype != null)
+            if (finalRush && bossArchetype != null && bossArchetype.prefab != null)
             {
-                arch = fastPhaseArchetype;
+                int maxBosses = GetMaxBossCountForWave(currentWave);
+                int aliveBosses = GetAliveBossCount();
+
+                if (aliveBosses < maxBosses && bossesSpawnedThisRush < maxBosses)
+                {
+                    arch = bossArchetype;
+                }
+                else if (inFastPhase && fastPhaseArchetype != null)
+                {
+                    arch = fastPhaseArchetype;
+                }
+                else
+                {
+                    arch = PickEnemy(finalRush);
+                }
             }
             else
             {
-                arch = PickEnemy(finalRush);
+                if (inFastPhase && fastPhaseArchetype != null)
+                {
+                    arch = fastPhaseArchetype;
+                }
+                else
+                {
+                    arch = PickEnemy(finalRush);
+                }
             }
 
             if (arch == null || arch.prefab == null) break;
             if (budget < arch.cost) break;
 
-            Spawn(arch, finalRush);
+            var go = Spawn(arch, finalRush);
+            if (go == null) break;
+
             budget -= arch.cost;
             alive++;
             spawnsThisFrame++;
 
-            // base cooldown scaled by spawnrate multiplier
+            if (arch == bossArchetype)
+            {
+                activeBosses.Add(go);
+                bossesSpawnedThisRush++;
+            }
+
             float baseMinCd = 0.05f;
             float baseMaxCd = 0.15f;
             float cd = Random.Range(baseMinCd, baseMaxCd) / spawnrateMul;
             spawnCooldown = cd;
+        }
+
+        if (finalRush && !finalRushEndTriggered && finalRushQuota > 0)
+        {
+            bool bossAlive = IsBossAlive();
+            bool quotaReached = finalRushKills >= finalRushQuota;
+
+            if (!bossAlive && quotaReached)
+            {
+                finalRushEndTriggered = true;
+                GameEvents.OnFinalRushEnded?.Invoke(currentWave);
+            }
         }
     }
 
     public void StartFastPhase(float duration)
     {
         fastPhaseUntil = Time.time + duration;
+        spawnCooldown = 0f;
     }
 
     private EnemyArchetype PickEnemy(bool rush)
@@ -142,7 +232,8 @@ public class SpawnDirector : MonoBehaviour
         if (src == null || src.Count == 0) return null;
         float sum = 0f;
         foreach (var p in src) sum += Mathf.Max(0.0001f, p.weight);
-        float r = Random.value * sum, acc = 0f;
+        float r = Random.value * sum;
+        float acc = 0f;
         foreach (var p in src)
         {
             acc += Mathf.Max(0.0001f, p.weight);
@@ -151,7 +242,7 @@ public class SpawnDirector : MonoBehaviour
         return src[src.Count - 1];
     }
 
-    private void Spawn(EnemyArchetype arch, bool rush)
+    private GameObject Spawn(EnemyArchetype arch, bool rush)
     {
         Vector2 pos = GetSpawnPositionNearOffscreenInsideBounds();
         var go = Instantiate(arch.prefab, pos, Quaternion.identity);
@@ -171,13 +262,12 @@ public class SpawnDirector : MonoBehaviour
 
         if (go.TryGetComponent(out EnemyContactDamage contact))
         {
-            // pull tickrate from archetype
             contact.tickInterval = arch.contactTickInterval;
-
-            // calculate per-tick damage based on curve and tickrate
             float dps = (curve != null ? curve.DamageAt(timeElapsed) : 1f) * arch.baseDamage;
             contact.damagePerTick = dps * contact.tickInterval;
         }
+
+        return go;
     }
 
     private int CountAlive()
@@ -186,13 +276,59 @@ public class SpawnDirector : MonoBehaviour
         return enemies.Length;
     }
 
+    private int GetMaxBossCountForWave(int wave)
+    {
+        if (wave >= 5) return 4;
+        if (wave >= 3) return 2;
+        return 1;
+    }
+
+    private int GetAliveBossCount()
+    {
+        activeBosses.RemoveAll(b => b == null);
+        return activeBosses.Count;
+    }
+
+    public bool HasAliveBosses()
+    {
+        return GetAliveBossesByMarker() > 0;
+    }
+
+    private int GetAliveBossesByMarker()
+    {
+        int count = 0;
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (var e in enemies)
+        {
+            if (e && e.GetComponent<BossMarker>() != null)
+                count++;
+        }
+        return count;
+    }
+
+    private bool IsBossAlive()
+    {
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (var e in enemies)
+        {
+            if (e && e.GetComponent<BossMarker>() != null && e.activeInHierarchy)
+                return true;
+        }
+        return false;
+    }
+
     private Rect GetPlayRectFromBorders()
     {
         if (mapBounds == null || mapBounds.Length == 0) return new Rect(-9999, -9999, 19998, 19998);
 
         Vector2 centroid = Vector2.zero;
         int c = 0;
-        foreach (var b in mapBounds) { if (!b) continue; centroid += (Vector2)b.bounds.center; c++; }
+        foreach (var b in mapBounds)
+        {
+            if (!b) continue;
+            centroid += (Vector2)b.bounds.center;
+            c++;
+        }
         if (c == 0) return new Rect(-9999, -9999, 19998, 19998);
         centroid /= c;
 
@@ -222,7 +358,10 @@ public class SpawnDirector : MonoBehaviour
             return new Rect(-9999, -9999, 19998, 19998);
 
         Rect r = new Rect(innerLeft, innerBottom, innerRight - innerLeft, innerTop - innerBottom);
-        r.xMin += boundsInset; r.xMax -= boundsInset; r.yMin += boundsInset; r.yMax -= boundsInset;
+        r.xMin += boundsInset;
+        r.xMax -= boundsInset;
+        r.yMin += boundsInset;
+        r.yMax -= boundsInset;
         return r;
     }
 
@@ -241,9 +380,8 @@ public class SpawnDirector : MonoBehaviour
         float camBottom = cy - h;
         float camTop = cy + h;
 
-        float pad = 0.01f; // tiny nudge to ensure "off-screen"
+        float pad = 0.01f;
 
-        // build four thin bands *inside* play rect but just outside camera view
         float leftX0 = Mathf.Max(play.xMin, camLeft - offscreenBand);
         float leftX1 = Mathf.Min(play.xMax, camLeft - pad);
         float leftY0 = Mathf.Max(play.yMin, camBottom);
@@ -264,17 +402,16 @@ public class SpawnDirector : MonoBehaviour
         float topY0 = Mathf.Max(play.yMin, camTop + pad);
         float topY1 = Mathf.Min(play.yMax, camTop + offscreenBand);
 
-        // collect valid bands with their areas (note: fixed top width: topX1 - topX0)
         var rects = new List<(Rect r, float area)>();
         if (leftX1 > leftX0 && leftY1 > leftY0) rects.Add((new Rect(leftX0, leftY0, leftX1 - leftX0, leftY1 - leftY0), (leftX1 - leftX0) * (leftY1 - leftY0)));
         if (rightX1 > rightX0 && rightY1 > rightY0) rects.Add((new Rect(rightX0, rightY0, rightX1 - rightX0, rightY1 - rightY0), (rightX1 - rightX0) * (rightY1 - rightY0)));
         if (botX1 > botX0 && botY1 > botY0) rects.Add((new Rect(botX0, botY0, botX1 - botX0, botY1 - botY0), (botX1 - botX0) * (botY1 - botY0)));
         if (topX1 > topX0 && topY1 > topY0) rects.Add((new Rect(topX0, topY0, topX1 - topX0, topY1 - topY0), (topX1 - topX0) * (topY1 - topY0)));
 
-        // normal path: weighted pick among valid off-screen bands (still inside play rect)
         if (rects.Count > 0)
         {
-            float total = 0f; foreach (var it in rects) total += it.area;
+            float total = 0f;
+            foreach (var it in rects) total += it.area;
             float pick = Random.value * total;
             float acc = 0f;
             foreach (var it in rects)
@@ -291,47 +428,44 @@ public class SpawnDirector : MonoBehaviour
             return new Vector2(Random.Range(last.xMin, last.xMax), Random.Range(last.yMin, last.yMax));
         }
 
-        // fallback: camera covers (almost) entire play rect or bands collapsed.
-        // choose the side with the most room *inside* the bounds and spawn just beyond the camera edge.
         float gapLeft = Mathf.Max(0f, camLeft - play.xMin);
         float gapRight = Mathf.Max(0f, play.xMax - camRight);
         float gapTop = Mathf.Max(0f, play.yMax - camTop);
         float gapBottom = Mathf.Max(0f, camBottom - play.yMin);
 
-        // pick the side with max gap; if all zero, just pick a corner just beyond camera by pad but clamped inside play
-        int side = 0; // 0=L,1=R,2=T,3=B
-        float best = gapLeft; side = 0;
+        int side = 0;
+        float best = gapLeft;
+        side = 0;
         if (gapRight > best) { best = gapRight; side = 1; }
         if (gapTop > best) { best = gapTop; side = 2; }
         if (gapBottom > best) { best = gapBottom; side = 3; }
 
-        float x, y;
+        float x;
+        float y;
         switch (side)
         {
-            case 0: // left
+            case 0:
                 x = Mathf.Clamp(camLeft - pad, play.xMin, play.xMax);
                 y = Random.Range(Mathf.Max(play.yMin, camBottom), Mathf.Min(play.yMax, camTop));
                 break;
-            case 1: // right
+            case 1:
                 x = Mathf.Clamp(camRight + pad, play.xMin, play.xMax);
                 y = Random.Range(Mathf.Max(play.yMin, camBottom), Mathf.Min(play.yMax, camTop));
                 break;
-            case 2: // top
+            case 2:
                 y = Mathf.Clamp(camTop + pad, play.yMin, play.yMax);
                 x = Random.Range(Mathf.Max(play.xMin, camLeft), Mathf.Min(play.xMax, camRight));
                 break;
-            case 3: // bottom
+            case 3:
             default:
                 y = Mathf.Clamp(camBottom - pad, play.yMin, play.yMax);
                 x = Random.Range(Mathf.Max(play.xMin, camLeft), Mathf.Min(play.xMax, camRight));
                 break;
         }
 
-        // final clamp to ensure we're strictly inside the playable rect
         x = Mathf.Clamp(x, play.xMin, play.xMax);
         y = Mathf.Clamp(y, play.yMin, play.yMax);
 
-        // and make sure we are not accidentally on-screen due to precision — nudge once more if needed
         if (x > camLeft && x < camRight && y > camBottom && y < camTop)
         {
             if (side == 0) x = Mathf.Max(play.xMin, camLeft - pad);
@@ -343,10 +477,87 @@ public class SpawnDirector : MonoBehaviour
         return new Vector2(x, y);
     }
 
-    private void HandleFinalRushStart(int wave, int quota) { finalRush = true; }
-    private void HandleFinalRushEnd(int wave) { finalRush = false; spawnPausedUntil = Time.time + pauseAfterClear; }
-    private void HandleWaveCleared(int wave) { budgetPerSecond += spawnrateIncreasePerWave; }
-    private void HandlePurge(GameObject fx) { StartCoroutine(PurgeInsideOut(fx)); }
+    private void HandleFinalRushStart(int wave, int quota)
+    {
+        finalRush = true;
+        currentWave = wave;
+        bossesSpawnedThisRush = 0;
+        activeBosses.Clear();
+
+        finalRushQuota = Mathf.Max(1, quota);
+        finalRushEndTriggered = false;
+        ResetFinalRushProgress();
+
+        TrySpawnInitialBoss();
+    }
+
+    private void HandleFinalRushEnd(int wave)
+    {
+        finalRush = false;
+        spawnPausedUntil = Time.time + pauseAfterClear;
+        activeBosses.Clear();
+
+        finalRushQuota = 0;
+        finalRushEndTriggered = true;
+        UpdateFinalRushProgressBar();
+    }
+
+    private void TrySpawnInitialBoss()
+    {
+        if (bossArchetype == null || bossArchetype.prefab == null) return;
+
+        int maxBosses = GetMaxBossCountForWave(currentWave);
+        if (GetAliveBossesByMarker() >= maxBosses) return;
+
+        var go = Spawn(bossArchetype, true);
+        if (go != null)
+        {
+            activeBosses.Add(go);
+            bossesSpawnedThisRush++;
+            budget = Mathf.Max(0f, budget - bossArchetype.cost);
+        }
+    }
+
+    private void HandleWaveCleared(int wave)
+    {
+        budgetPerSecond += spawnrateIncreasePerWave;
+    }
+
+    private void HandlePurge(GameObject fx)
+    {
+        StartCoroutine(PurgeInsideOut(fx));
+    }
+
+    private void HandleEnemyKilled(int id)
+    {
+        if (!finalRush || finalRushQuota <= 0) return;
+
+        finalRushKills = Mathf.Min(finalRushKills + 1, finalRushQuota);
+        UpdateFinalRushProgressBar();
+    }
+
+    private void ResetFinalRushProgress()
+    {
+        finalRushKills = 0;
+        UpdateFinalRushProgressBar();
+    }
+
+    private void UpdateFinalRushProgressBar()
+    {
+        if (!finalRushSlider) return;
+
+        if (!finalRush || finalRushQuota <= 0)
+        {
+            finalRushSlider.gameObject.SetActive(false);
+            return;
+        }
+
+        finalRushSlider.gameObject.SetActive(true);
+
+        finalRushSlider.minValue = 0f;
+        finalRushSlider.maxValue = finalRushQuota;
+        finalRushSlider.value = finalRushKills;
+    }
 
     private IEnumerator PurgeInsideOut(GameObject fx)
     {
@@ -364,8 +575,20 @@ public class SpawnDirector : MonoBehaviour
         foreach (var e in enemies)
         {
             if (!e) continue;
+
             if (fx) Instantiate(fx, e.transform.position, Quaternion.identity);
-            Destroy(e);
+
+            var eh = e.GetComponent<EnemyHealth>();
+            if (eh != null)
+            {
+                float lethalDamage = eh.Current + eh.Max + 1f;
+                eh.TakeDamage(lethalDamage);
+            }
+            else
+            {
+                Destroy(e);
+            }
+
             yield return new WaitForSeconds(purgeStepDelay);
         }
     }

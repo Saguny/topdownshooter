@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   archetype: {fileID: 11400000, guid: a140de101f11205448e08eba5e215647, type: 2}
-  difficulty: {fileID: 11400000, guid: 363da86acd973b94595557ed92a9f4d2, type: 2}
+  difficulty: {fileID: 11400000, guid: 6c1138631aa634642a0f09433161fd98, type: 2}
   contact: {fileID: 6993717957234600409}
 --- !u!114 &6993717957234600409
 MonoBehaviour:
@@ -178,11 +178,13 @@ MonoBehaviour:
   gearDropPrefab: {fileID: 6789325886152309237, guid: 42881677769281a46a72816921134c5f, type: 3}
   minGear: 1
   maxGear: 1
+  baseGearsOnKill: 1
+  gearDropChance: 0.1
   deathVfxPrefab: {fileID: 1185364733144309390, guid: 8dbdeab253bc16a41b359021d27d4fb4, type: 3}
   deathSound: {fileID: 8300000, guid: 51f49a435780a224f9fd0f008a22a0c3, type: 3}
   deathVolume: 0.324
   healItemPrefab: {fileID: 1653245802588275055, guid: 9b80ca85b45a48f428cf70029f106a15, type: 3}
-  healDropChance: 0.05
+  healDropChance: 0.005
   spriteRenderer: {fileID: 5088608087563689285}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48e0b7cb409370741a046cd96fa59353, type: 3}
-  m_Name: Grunt Green
+  m_Name: BossEnemy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4184005365869111389, guid: badcc37a953438b4689f5865b7cfe672, type: 3}
-  cost: 2
-  weight: 0.8
-  baseHealth: 10
+  prefab: {fileID: 4184005365869111389, guid: 598b32028e328164499014cafc094010, type: 3}
+  cost: 10
+  weight: 1
+  baseHealth: 300
   baseSpeed: 0.5
-  baseDamage: 20
-  contactTickInterval: 0.5
+  baseDamage: 50
+  contactTickInterval: 1.5

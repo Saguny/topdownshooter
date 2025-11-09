@@ -20,13 +20,15 @@ public class EnemyHealth : MonoBehaviour, IHealth
     [SerializeField] private GameObject gearDropPrefab;
     [SerializeField, Min(0)] private int minGear = 1;
     [SerializeField, Min(0)] private int maxGear = 1;
+    [SerializeField, Min(0)] private int baseGearsOnKill = 1;
+    [Range(0f, 1f)][SerializeField] private float gearDropChance = 0.35f;
     [SerializeField] private GameObject deathVfxPrefab;
     [SerializeField] private AudioClip deathSound;
     [Range(0f, 1f)][SerializeField] private float deathVolume = 1f;
 
     [Header("heal item drop")]
-    [SerializeField] private GameObject healItemPrefab;      
-    [Range(0f, 1f)][SerializeField] private float healDropChance = 0.05f; 
+    [SerializeField] private GameObject healItemPrefab;
+    [Range(0f, 1f)][SerializeField] private float healDropChance = 0.01f;
 
     [Header("damage feedback")]
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -92,7 +94,6 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
         currentHealth -= dmg;
 
-        // 🔥 Feedback bei Treffer
         if (spriteRenderer != null)
         {
             if (_flashRoutine != null)
@@ -100,7 +101,6 @@ public class EnemyHealth : MonoBehaviour, IHealth
             _flashRoutine = StartCoroutine(FlashRed());
         }
 
-        // 🎵 Treffer-Sound
         if (hitSound != null)
             AudioSource.PlayClipAtPoint(hitSound, transform.position, hitVolume);
 
@@ -131,16 +131,22 @@ public class EnemyHealth : MonoBehaviour, IHealth
         try { OnEnemyDied?.Invoke(); } catch { }
         try { GameEvents.OnEnemyKilled?.Invoke(1); } catch { }
 
-        // 💥 VFX
         if (deathVfxPrefab != null)
             Instantiate(deathVfxPrefab, transform.position, Quaternion.identity);
 
-        // 🎵 Death Sound
         if (deathSound != null)
             AudioSource.PlayClipAtPoint(deathSound, transform.position, deathVolume);
 
-        // 🎁 Gear Drops
-        if (gearDropPrefab != null && (minGear > 0 || maxGear > 0))
+        if (baseGearsOnKill > 0)
+        {
+            var player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null && player.TryGetComponent<PlayerInventory>(out var inv))
+                inv.AddGears(baseGearsOnKill);
+        }
+
+        if (gearDropPrefab != null &&
+            (minGear > 0 || maxGear > 0) &&
+            UnityEngine.Random.value <= gearDropChance)
         {
             int count = Mathf.Clamp(UnityEngine.Random.Range(minGear, maxGear + 1), 0, 999);
             for (int i = 0; i < count; i++)
@@ -152,7 +158,6 @@ public class EnemyHealth : MonoBehaviour, IHealth
             }
         }
 
-        // 💚 Heilungs-Item mit Wahrscheinlichkeit droppen
         if (healItemPrefab != null && UnityEngine.Random.value <= healDropChance)
         {
             Vector3 dropPos = transform.position;
@@ -172,6 +177,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     {
         if (maxGear < minGear) maxGear = minGear;
         baseMaxHealth = Mathf.Max(1f, baseMaxHealth);
+        baseGearsOnKill = Mathf.Max(0, baseGearsOnKill);
         if (!Application.isPlaying)
             currentHealth = Mathf.Clamp(currentHealth, 0f, baseMaxHealth);
     }

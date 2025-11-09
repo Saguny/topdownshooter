@@ -137,6 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92c232a0d7b800448b6e00f7a8d13ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gears: 1
+  gears: 2
   pickupSound: {fileID: 8300000, guid: 166e45c6b9edc84489d4e764f004b1ea, type: 3}
   pickupVolume: 0.112
