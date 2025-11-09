@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 08f005482e22db64b95ae8133bf84949
+guid: 1de1ddf3587a53a42ae018b5150e34c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4263581659132963151
-    second: New_Stein2_0
+      213: 4185892851572410813
+    second: Titelloses_409_20251109191105_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New_Stein2_0
+      name: Titelloses_409_20251109191105_0
       rect:
         serializedVersion: 2
-        x: 2458
-        y: 2129
-        width: 973
-        height: 626
+        x: 253
+        y: 119
+        width: 461
+        height: 754
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f49ad77fde84b2b30800000000000000
-      internalID: 4263581659132963151
+      spriteID: db902d5ee57471a30800000000000000
+      internalID: 4185892851572410813
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      New_Stein2_0: 4263581659132963151
+      Titelloses_409_20251109191105_0: 4185892851572410813
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
