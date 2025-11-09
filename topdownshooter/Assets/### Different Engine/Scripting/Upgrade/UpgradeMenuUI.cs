@@ -1,5 +1,4 @@
-﻿// UpgradeMenuUI.cs
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,15 +15,29 @@ public class UpgradeMenuUI : MonoBehaviour
     [SerializeField] private Image[] iconImages;
     [SerializeField] private Sprite defaultIcon;
 
+    
+    [SerializeField] private TMP_Text levelText;
+
+    
+    [SerializeField] private TMP_Text[] lvlText;
+
     private readonly List<UpgradeData> current = new();
     private Action<UpgradeData> onChosen;
     private int selectedIndex = 0;
 
     private void Awake()
     {
-        if (panel != null) panel.SetActive(false);
+        if (panel != null)
+            panel.SetActive(false);
+
         if (upgradeButtons != null)
-            foreach (var b in upgradeButtons) if (b != null) b.onClick.RemoveAllListeners();
+        {
+            foreach (var b in upgradeButtons)
+            {
+                if (b != null)
+                    b.onClick.RemoveAllListeners();
+            }
+        }
     }
 
     private void Update()
@@ -33,11 +46,16 @@ public class UpgradeMenuUI : MonoBehaviour
         HandleKeyboard();
     }
 
-    public void Open(List<UpgradeData> upgrades, Action<UpgradeData> callback)
+    public void Open(List<UpgradeData> upgrades, Action<UpgradeData> callback, int level)
     {
         if (panel == null) return;
         onChosen = callback;
 
+        // player level label
+        if (levelText != null)
+            levelText.text = $"Current Level: {level - 1}";
+
+        // filter out capped upgrades
         var filtered = new List<UpgradeData>();
         if (upgrades != null)
         {
@@ -71,12 +89,21 @@ public class UpgradeMenuUI : MonoBehaviour
 
             var data = current[i];
 
+            // upgrade name 
             if (nameTexts != null && i < nameTexts.Length && nameTexts[i] != null)
                 nameTexts[i].text = data.GetDisplayTitle();
 
-            if (descriptionTexts != null && i < descriptionTexts.Length && descriptionTexts[i] != null)
-                descriptionTexts[i].text = !string.IsNullOrEmpty(data.description) ? data.description : string.Empty;
+            // upgrade level progress 
+            if (lvlText != null && i < lvlText.Length && lvlText[i] != null)
+                lvlText[i].text = data.GetLevelProgress();
 
+            // description
+            if (descriptionTexts != null && i < descriptionTexts.Length && descriptionTexts[i] != null)
+                descriptionTexts[i].text = !string.IsNullOrEmpty(data.description)
+                    ? data.description
+                    : string.Empty;
+
+            // icon
             if (iconImages != null && i < iconImages.Length && iconImages[i] != null)
             {
                 if (defaultIcon != null)
@@ -84,7 +111,10 @@ public class UpgradeMenuUI : MonoBehaviour
                     iconImages[i].sprite = defaultIcon;
                     iconImages[i].enabled = true;
                 }
-                else iconImages[i].enabled = false;
+                else
+                {
+                    iconImages[i].enabled = false;
+                }
             }
 
             int index = i;
@@ -97,7 +127,8 @@ public class UpgradeMenuUI : MonoBehaviour
 
     public void Close()
     {
-        if (panel != null) panel.SetActive(false);
+        if (panel != null)
+            panel.SetActive(false);
     }
 
     private void Choose(int index)
@@ -121,9 +152,12 @@ public class UpgradeMenuUI : MonoBehaviour
             FocusButton(selectedIndex);
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Return) ||
+            Input.GetKeyDown(KeyCode.KeypadEnter) ||
+            Input.GetKeyDown(KeyCode.Space))
         {
-            if (IsActive(selectedIndex)) Choose(selectedIndex);
+            if (IsActive(selectedIndex))
+                Choose(selectedIndex);
         }
     }
 
@@ -159,7 +193,8 @@ public class UpgradeMenuUI : MonoBehaviour
         if (!IsActive(i)) return;
         var b = upgradeButtons[i];
         EventSystem es = EventSystem.current;
-        if (es != null) es.SetSelectedGameObject(b.gameObject);
+        if (es != null)
+            es.SetSelectedGameObject(b.gameObject);
         selectedIndex = i;
     }
 }

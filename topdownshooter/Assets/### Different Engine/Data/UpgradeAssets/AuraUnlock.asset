@@ -16,6 +16,6 @@ MonoBehaviour:
   type: 4
   value: 1
   additive: 0
-  description: 
+  description: Unlock an Aura around the Player that damages Enemies in an Interval
   level: 0
   maxLevel: 1

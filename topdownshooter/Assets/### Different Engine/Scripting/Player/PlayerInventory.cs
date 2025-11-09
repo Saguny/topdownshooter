@@ -19,6 +19,8 @@ public class PlayerInventory : MonoBehaviour
     public bool hasAura = false;
     private StatContext stats;
 
+    public int CurrentLevel => currentLevel;
+
     private void OnEnable()
     {
         BuildRuntimeUpgrades();
@@ -76,8 +78,11 @@ public class PlayerInventory : MonoBehaviour
         }
 
         randomUpgrades.RemoveAll(u => u == null || u.IsAtCap);
-        upgradeMenuUI.Open(randomUpgrades, ApplyUpgrade);
+
+        // NEW: pass the player's current level into the UI
+        upgradeMenuUI.Open(randomUpgrades, ApplyUpgrade, CurrentLevel);
     }
+
 
     private void ApplyUpgrade(UpgradeData upgrade)
     {
@@ -111,20 +116,20 @@ public class PlayerInventory : MonoBehaviour
                 }
                 break;
 
-            // ✅ Neu: AOE Attack freischalten oder verbessern
+            
             case UpgradeType.AOEAttack:
                 var aoe = GetComponent<AOEAttack>();
                 if (aoe != null)
                 {
                     if (upgrade.Level == 0)
                     {
-                        aoe.Activate(); // Erstes Mal: freischalten
-                        Debug.Log("AOE Attack aktiviert!");
+                        aoe.Activate(); 
+                        
                     }
                     else
                     {
-                        aoe.Upgrade(0.9f, 1.15f); // Danach: verbessern
-                        Debug.Log("AOE Attack verbessert!");
+                        aoe.Upgrade(0.9f, 1.15f); 
+                        ;
                     }
                 }
                 break;

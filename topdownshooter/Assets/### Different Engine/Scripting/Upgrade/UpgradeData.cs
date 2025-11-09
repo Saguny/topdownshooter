@@ -27,11 +27,26 @@ public class UpgradeData : ScriptableObject
         if (level < maxLevel) level++;
     }
 
-    public string GetDisplayTitle()
+    
+    public string GetBaseTitle()
     {
-        string baseName = string.IsNullOrEmpty(title) ? "Upgrade" : title;
-        return $"{baseName}  Lv.{level}/{maxLevel}";
+        return string.IsNullOrEmpty(title) ? "Upgrade" : title;
     }
 
-    public void ResetLevel() { level = 0; }
+    
+    public string GetLevelProgress()
+    {
+        return $"Lv. {level + 1}";
+    }
+
+    
+    public string GetDisplayTitle()
+    {
+        return GetBaseTitle();
+    }
+
+    public void ResetLevel()
+    {
+        level = 0;
+    }
 }
