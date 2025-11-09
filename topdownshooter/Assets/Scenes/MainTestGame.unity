@@ -3661,6 +3661,12 @@ MonoBehaviour:
   pauseAfterClear: 2
   purgeStepDelay: 0.02
   startingBudget: 3
+  fastPhaseArchetype: {fileID: 11400000, guid: d7972900bf05a2a4a8ae3c1f9c5aed59, type: 2}
+  fastPhaseDuration: 10
+  fastPhaseCheckInterval: 10
+  fastPhaseChance: 0.03
+  fastPhaseSpawnrateMul: 3
+  fastPhaseDensityMul: 3
 --- !u!114 &1446568114
 MonoBehaviour:
   m_ObjectHideFlags: 0

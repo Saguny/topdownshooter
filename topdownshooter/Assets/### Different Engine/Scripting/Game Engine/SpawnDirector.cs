@@ -21,6 +21,17 @@ public class SpawnDirector : MonoBehaviour
 
     [SerializeField] private float startingBudget = 3f;
 
+    [Header("Fast Phase")]
+    [SerializeField] private EnemyArchetype fastPhaseArchetype; // drag your Fast SO here
+    [SerializeField] private float fastPhaseDuration = 10f;
+    [SerializeField] private float fastPhaseCheckInterval = 10f;
+    [SerializeField, Range(0f, 1f)] private float fastPhaseChance = 0.01f;
+    [SerializeField] private float fastPhaseSpawnrateMul = 3f;   // budget gain + cooldown scaling
+    [SerializeField] private float fastPhaseDensityMul = 3f;     // more enemies allowed on screen
+
+    private float fastPhaseUntil = -1f;
+    private float nextFastPhaseCheck;
+
     private float timeElapsed;
     private float budget;
     private float spawnCooldown;
@@ -46,6 +57,7 @@ public class SpawnDirector : MonoBehaviour
     private void Start()
     {
         budget = startingBudget;
+        nextFastPhaseCheck = Time.time + fastPhaseCheckInterval;
     }
 
     private void Update()
@@ -53,13 +65,36 @@ public class SpawnDirector : MonoBehaviour
         timeElapsed += Time.deltaTime;
         if (Time.time < spawnPausedUntil) return;
 
+        bool inFastPhase = Time.time < fastPhaseUntil;
+
+        // random fast phase trigger
+        if (Time.time >= nextFastPhaseCheck)
+        {
+            nextFastPhaseCheck = Time.time + fastPhaseCheckInterval;
+
+            // only trigger if not already in a fast phase
+            if (!inFastPhase && Random.value < fastPhaseChance)
+            {
+                StartFastPhase(fastPhaseDuration);
+                inFastPhase = true;
+                // Debug.Log($"Fast phase started for {fastPhaseDuration} seconds");
+            }
+        }
+
         float densityScale = curve != null ? curve.DensityAt(timeElapsed) : 1f;
-        float target = desiredPerScreen * (finalRush ? densityScale * 1.2f : densityScale);
+        float rushScale = finalRush ? densityScale * 1.2f : densityScale;
+
+        float spawnrateMul = inFastPhase ? fastPhaseSpawnrateMul : 1f;
+        float densityMul = inFastPhase ? fastPhaseDensityMul : 1f;
+
+        float target = desiredPerScreen * densityMul * rushScale;
         int alive = CountAlive();
 
-        budget += budgetPerSecond * Time.deltaTime * (finalRush ? densityScale * 1.2f : densityScale);
+        budget += budgetPerSecond * spawnrateMul * Time.deltaTime * rushScale;
 
-        int maxSpawnsPerFrame = 3;
+        int baseMaxSpawnsPerFrame = 3;
+        int maxSpawnsPerFrame = inFastPhase ? baseMaxSpawnsPerFrame * 2 : baseMaxSpawnsPerFrame;
+
         int spawnsThisFrame = 0;
         spawnCooldown -= Time.deltaTime;
 
@@ -68,7 +103,18 @@ public class SpawnDirector : MonoBehaviour
                alive < target &&
                spawnCooldown <= 0f)
         {
-            var arch = PickEnemy(finalRush);
+            EnemyArchetype arch;
+
+            // if a fast phase is active, force the fast archetype
+            if (inFastPhase && fastPhaseArchetype != null)
+            {
+                arch = fastPhaseArchetype;
+            }
+            else
+            {
+                arch = PickEnemy(finalRush);
+            }
+
             if (arch == null || arch.prefab == null) break;
             if (budget < arch.cost) break;
 
@@ -76,15 +122,26 @@ public class SpawnDirector : MonoBehaviour
             budget -= arch.cost;
             alive++;
             spawnsThisFrame++;
-            spawnCooldown = Random.Range(0.05f, 0.15f);
+
+            // base cooldown scaled by spawnrate multiplier
+            float baseMinCd = 0.05f;
+            float baseMaxCd = 0.15f;
+            float cd = Random.Range(baseMinCd, baseMaxCd) / spawnrateMul;
+            spawnCooldown = cd;
         }
+    }
+
+    public void StartFastPhase(float duration)
+    {
+        fastPhaseUntil = Time.time + duration;
     }
 
     private EnemyArchetype PickEnemy(bool rush)
     {
         var src = (!rush || chunkyPool == null || chunkyPool.Count == 0) ? pool : chunkyPool;
         if (src == null || src.Count == 0) return null;
-        float sum = 0f; foreach (var p in src) sum += Mathf.Max(0.0001f, p.weight);
+        float sum = 0f;
+        foreach (var p in src) sum += Mathf.Max(0.0001f, p.weight);
         float r = Random.value * sum, acc = 0f;
         foreach (var p in src)
         {
@@ -121,7 +178,6 @@ public class SpawnDirector : MonoBehaviour
             float dps = (curve != null ? curve.DamageAt(timeElapsed) : 1f) * arch.baseDamage;
             contact.damagePerTick = dps * contact.tickInterval;
         }
-
     }
 
     private int CountAlive()
@@ -286,7 +342,6 @@ public class SpawnDirector : MonoBehaviour
 
         return new Vector2(x, y);
     }
-
 
     private void HandleFinalRushStart(int wave, int quota) { finalRush = true; }
     private void HandleFinalRushEnd(int wave) { finalRush = false; spawnPausedUntil = Time.time + pauseAfterClear; }
