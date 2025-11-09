@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e0b7cb409370741a046cd96fa59353, type: 3}
   m_Name: Fast
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 4184005365869111389, guid: 930ac902d147181449d8473d1914a271, type: 3}
   cost: 1
-  weight: 0.203
-  baseHealth: 10
-  baseSpeed: 2.52
-  baseDamage: 5
+  weight: 0.4
+  baseHealth: 5
+  baseSpeed: 1.5
+  baseDamage: 3
+  contactTickInterval: 0.25

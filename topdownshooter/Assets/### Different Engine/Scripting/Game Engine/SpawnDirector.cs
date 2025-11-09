@@ -19,6 +19,8 @@ public class SpawnDirector : MonoBehaviour
     [SerializeField] private float pauseAfterClear = 2f;
     [SerializeField] private float purgeStepDelay = 0.02f;
 
+    [SerializeField] private float startingBudget = 3f;
+
     private float timeElapsed;
     private float budget;
     private float spawnCooldown;
@@ -39,6 +41,11 @@ public class SpawnDirector : MonoBehaviour
         GameEvents.OnFinalRushEnded -= HandleFinalRushEnd;
         GameEvents.OnWaveCleared -= HandleWaveCleared;
         GameEvents.OnPurgeEnemiesWithFx -= HandlePurge;
+    }
+
+    private void Start()
+    {
+        budget = startingBudget;
     }
 
     private void Update()
@@ -107,9 +114,14 @@ public class SpawnDirector : MonoBehaviour
 
         if (go.TryGetComponent(out EnemyContactDamage contact))
         {
+            // pull tickrate from archetype
+            contact.tickInterval = arch.contactTickInterval;
+
+            // calculate per-tick damage based on curve and tickrate
             float dps = (curve != null ? curve.DamageAt(timeElapsed) : 1f) * arch.baseDamage;
             contact.damagePerTick = dps * contact.tickInterval;
         }
+
     }
 
     private int CountAlive()

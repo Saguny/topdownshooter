@@ -9,4 +9,7 @@ public class EnemyArchetype : ScriptableObject
     public float baseHealth = 10f;
     public float baseSpeed = 1.5f;
     public float baseDamage = 5f;
+
+    [Header("Contact Damage")]
+    public float contactTickInterval = 0.5f;
 }

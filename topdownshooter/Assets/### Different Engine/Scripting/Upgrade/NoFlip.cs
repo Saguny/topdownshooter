@@ -1,25 +1,50 @@
 using UnityEngine;
+using UnityEngine.UI;
 
+[DefaultExecutionOrder(1000)]
 public class NoFlip : MonoBehaviour
 {
-    private Vector3 _originalScale;
+    [Header("World sprites that should not flip")]
+    [SerializeField] private SpriteRenderer[] spriteRenderers;
 
-    private void Awake()
-    {
-        _originalScale = transform.localScale;
-    }
+    [Header("UI images that should not flip")]
+    [SerializeField] private Image[] uiImages;
 
     private void LateUpdate()
     {
-        // keep scale absolute (so it never flips)
-        Vector3 parentScale = transform.parent != null ? transform.parent.localScale : Vector3.one;
-        transform.localScale = new Vector3(
-            Mathf.Abs(_originalScale.x) * Mathf.Sign(parentScale.x) < 0 ? -_originalScale.x : _originalScale.x,
-            _originalScale.y,
-            _originalScale.z
-        );
+        // sign of the owner (player/enemy) on X
+        float ownerSign = Mathf.Sign(transform.localScale.x);
+        if (ownerSign == 0f) ownerSign = 1f;
 
-        // simpler version: always force positive X
-        transform.localScale = new Vector3(Mathf.Abs(_originalScale.x), _originalScale.y, _originalScale.z);
+        
+        if (spriteRenderers != null)
+        {
+            for (int i = 0; i < spriteRenderers.Length; i++)
+            {
+                var sr = spriteRenderers[i];
+                if (sr == null) continue;
+
+                Transform t = sr.transform;
+                Vector3 s = t.localScale;
+                float mag = Mathf.Abs(s.x);
+                s.x = mag * ownerSign;
+                t.localScale = s;
+            }
+        }
+
+        if (uiImages != null)
+        {
+            for (int i = 0; i < uiImages.Length; i++)
+            {
+                var img = uiImages[i];
+                if (img == null) continue;
+
+                Transform t = img.transform;
+                Vector3 s = t.localScale;
+                float mag = Mathf.Abs(s.x);
+                s.x = mag * ownerSign;
+                t.localScale = s;
+            }
+        }
     }
 }

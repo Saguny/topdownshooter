@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4184005365869111389, guid: 42be6b8904c843c44b70e4d58f208fe1, type: 3}
   cost: 2
-  weight: 0.6
+  weight: 0.8
   baseHealth: 10
   baseSpeed: 0.5
   baseDamage: 20
+  contactTickInterval: 0.5

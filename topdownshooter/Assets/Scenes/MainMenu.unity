@@ -708,7 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 0}
-  targetText: {fileID: 0}
+  targetText: {fileID: 1807962568}
   normalColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
   hoverColor: {r: 1, g: 1, b: 1, a: 1}
   scaleMultiplier: 1.1
@@ -1197,7 +1197,7 @@ RectTransform:
   m_GameObject: {fileID: 1340810780}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.7640557}
-  m_LocalScale: {x: 0.71567786, y: 0.71567786, z: 0.71567786}
+  m_LocalScale: {x: 0.7156778, y: 0.7156778, z: 0.7156778}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 109011064}
@@ -1205,7 +1205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -656.7, y: -391.5}
+  m_AnchoredPosition: {x: -656.69995, y: -391.50003}
   m_SizeDelta: {x: 88.914, y: 37.3115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1340810782
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 0}
-  targetText: {fileID: 0}
+  targetText: {fileID: 109011065}
   normalColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
   hoverColor: {r: 1, g: 1, b: 1, a: 1}
   scaleMultiplier: 1.1

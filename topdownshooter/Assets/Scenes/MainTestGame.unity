@@ -896,6 +896,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee84a00707c1c14cb967692da0b9790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderers:
+  - {fileID: 257906485}
+  uiImages: []
 --- !u!1 &268235846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,6 +1306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 359061946}
+  targetText: {fileID: 0}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   hoverColor: {r: 1, g: 0.9880786, b: 0, a: 1}
   scaleMultiplier: 1.03
@@ -2534,6 +2538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 1182981122}
+  targetText: {fileID: 0}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   hoverColor: {r: 1, g: 0.9880786, b: 0, a: 1}
   scaleMultiplier: 1.03
@@ -3000,6 +3005,41 @@ MonoBehaviour:
   damage: 20
   fireSound: {fileID: 8300000, guid: 8823a5f3dd41f5549b909c33fd16dc1b, type: 3}
   fireVolume: 0.229
+--- !u!114 &1274759143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274759104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6891fd2c692dc47b62f49e2704c89d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barSprite: {fileID: 0}
+  sortingLayer: Default
+  bgOrder: 199
+  fgOrder: 200
+  size: {x: 0.8, y: 0.08}
+  offset: {x: 0, y: -0.08, z: 0}
+  bgPadding: 0.06
+  pixelSnap: 0
+--- !u!114 &1274759144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274759104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee84a00707c1c14cb967692da0b9790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers: []
+  uiImages:
+  - {fileID: 0}
 --- !u!1 &1340306204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3487,6 +3527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 1420487559}
+  targetText: {fileID: 0}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   hoverColor: {r: 1, g: 0.9880786, b: 0, a: 1}
   scaleMultiplier: 1.03
@@ -3608,6 +3649,7 @@ MonoBehaviour:
   pool:
   - {fileID: 11400000, guid: a140de101f11205448e08eba5e215647, type: 2}
   - {fileID: 11400000, guid: 3d6fd9545e34a0048a24105b2e10bd27, type: 2}
+  - {fileID: 11400000, guid: d7972900bf05a2a4a8ae3c1f9c5aed59, type: 2}
   desiredPerScreen: 10
   budgetPerSecond: 6
   spawnOffset: 2
@@ -3618,6 +3660,7 @@ MonoBehaviour:
   boundsInset: 0.25
   pauseAfterClear: 2
   purgeStepDelay: 0.02
+  startingBudget: 3
 --- !u!114 &1446568114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3631,7 +3674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveDuration: 180
-  baseKillsToClear: 25
+  baseKillsToClear: 50
   breakAfterWave: 5
   subjectiveDeathFx: {fileID: 1185364733144309390, guid: 8dbdeab253bc16a41b359021d27d4fb4, type: 3}
 --- !u!4 &1446568115
@@ -3664,7 +3707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0.8
-  duration: 0.5
+  duration: 1
 --- !u!1 &1469288016
 GameObject:
   m_ObjectHideFlags: 0
@@ -5283,7 +5326,7 @@ PrefabInstance:
       objectReference: {fileID: 1047109365}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: gearsForUpgrade
-      value: 2
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: progressBackground
@@ -5409,7 +5452,10 @@ PrefabInstance:
       addedObject: {fileID: 257906482}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 767629532391218235, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
-      insertIndex: 5
+      insertIndex: 2
+      addedObject: {fileID: 1274759144}
+    - targetCorrespondingSourceObject: {fileID: 767629532391218235, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
+      insertIndex: 6
       addedObject: {fileID: 1274759118}
     - targetCorrespondingSourceObject: {fileID: 767629532391218235, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       insertIndex: -1
@@ -5417,6 +5463,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 767629532391218235, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1274759134}
+    - targetCorrespondingSourceObject: {fileID: 767629532391218235, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1274759143}
   m_SourcePrefab: {fileID: 100100000, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
