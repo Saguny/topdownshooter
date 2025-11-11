@@ -13,13 +13,24 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float _bossAvoidRadius = 2.5f;
     [SerializeField, Range(0f, 3f)] private float _bossAvoidWeight = 1.5f;
 
+    [Header("Obstacle Avoidance")]
+    [SerializeField] private LayerMask _obstacleMask;          
+    [SerializeField] private float _avoidanceRadius = 0.5f;    
+    [SerializeField] private float _avoidanceDistance = 2f;    
+    [SerializeField, Range(0f, 3f)] private float _avoidanceWeight = 1.5f;
+    [SerializeField, Range(0f, 1f)] private float _directionSmoothFactor = 0.2f;
+
     private Rigidbody2D _rigidbody;
     private PlayerAwareness _playerAwareness;
     private Animator _animator;
     private Vector3 _originalScale;
 
-    // cached boss reference
+    
     private Transform _bossTransform;
+
+    
+    private Vector2 _smoothedDirection = Vector2.zero;
+    private float _avoidanceSide = 0f; 
 
     private readonly int HashIsRunning = Animator.StringToHash("IsRunning");
 
@@ -28,12 +39,12 @@ public class EnemyMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerAwareness = GetComponent<PlayerAwareness>();
         _animator = GetComponent<Animator>();
-        if (_animator) _animator.enabled = true;
+        if (_animator != null) _animator.enabled = true;
 
         _originalScale = transform.localScale;
         _baseSpeed = _speed;
 
-        // find the boss (object with BossMarker component)
+        
         BossMarker bossMarker = FindObjectOfType<BossMarker>();
         if (bossMarker != null)
         {
@@ -43,21 +54,33 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 direction = _playerAwareness.AwareOfPlayer
+        
+        Vector2 direction = _playerAwareness != null && _playerAwareness.AwareOfPlayer
             ? _playerAwareness.DirectionToPlayer
             : Vector2.zero;
 
-        // apply boss avoidance if needed
+        
         direction = ApplyBossAvoidance(direction);
 
-        Move(direction);
-        FlipSprite(direction);
+        
+        direction = ApplyObstacleAvoidance(direction);
+
+        
+        UpdateSmoothedDirection(direction);
+
+        
+        Move(_smoothedDirection);
+        FlipSprite(_smoothedDirection);
 
         bool isMoving = _rigidbody.linearVelocity.sqrMagnitude > 0.01f;
-        if (_animator && _animator.isActiveAndEnabled)
+        if (_animator != null && _animator.isActiveAndEnabled)
+        {
             _animator.SetBool(HashIsRunning, isMoving);
+        }
     }
 
+    
+    
     private Vector2 ApplyBossAvoidance(Vector2 toPlayerDir)
     {
         if (_bossTransform == null)
@@ -74,20 +97,19 @@ public class EnemyMovement : MonoBehaviour
         if (distToBoss > _bossAvoidRadius || distToBoss <= Mathf.Epsilon)
             return toPlayerDir;
 
-        // base direction towards player
         Vector2 playerDirNorm = toPlayerDir.normalized;
 
-        // direction around boss (perpendicular to the vector towards boss)
+        
         Vector2 aroundDir = Vector2.Perpendicular(toBoss).normalized;
 
-        // choose the side that is more aligned with going to the player
+        
         if (Vector2.Dot(aroundDir, playerDirNorm) < 0f)
             aroundDir = -aroundDir;
 
-        // how strong the avoidance is (stronger when closer)
+        
         float t = 1f - Mathf.Clamp01(distToBoss / _bossAvoidRadius);
 
-        // blend between "go to player" and "go around boss"
+        
         Vector2 blended =
             playerDirNorm * (1f - t) +
             aroundDir * (t * _bossAvoidWeight);
@@ -98,6 +120,91 @@ public class EnemyMovement : MonoBehaviour
         return blended.normalized;
     }
 
+    
+    private Vector2 ApplyObstacleAvoidance(Vector2 desiredDir)
+    {
+        if (desiredDir.sqrMagnitude < 0.0001f)
+        {
+            _avoidanceSide = 0f;
+            return desiredDir;
+        }
+
+        Vector2 desiredNorm = desiredDir.normalized;
+        Vector2 origin = _rigidbody.position;
+
+        RaycastHit2D hit = Physics2D.CircleCast(
+            origin,
+            _avoidanceRadius,
+            desiredNorm,
+            _avoidanceDistance,
+            _obstacleMask
+        );
+
+        
+        if (!hit.collider)
+        {
+            _avoidanceSide = 0f;
+            return desiredNorm;
+        }
+
+        
+        float t = 1f - Mathf.Clamp01(hit.distance / _avoidanceDistance);
+
+        Vector2 normal = hit.normal.normalized;
+        Vector2 around = Vector2.Perpendicular(normal).normalized;
+
+        
+        if (Mathf.Approximately(_avoidanceSide, 0f))
+        {
+            float sideDot = Vector2.Dot(around, desiredNorm);
+            _avoidanceSide = Mathf.Sign(sideDot);
+
+            
+            if (Mathf.Approximately(_avoidanceSide, 0f))
+                _avoidanceSide = 1f;
+        }
+
+        
+        around *= _avoidanceSide;
+
+        Vector2 blended =
+            desiredNorm * (1f - t) +
+            around * (t * _avoidanceWeight);
+
+        if (blended.sqrMagnitude < 0.0001f)
+            return desiredNorm;
+
+        return blended.normalized;
+    }
+
+    
+    private void UpdateSmoothedDirection(Vector2 targetDirection)
+    {
+        if (targetDirection.sqrMagnitude > 0.0001f)
+        {
+            Vector2 targetNorm = targetDirection.normalized;
+
+            if (_smoothedDirection.sqrMagnitude < 0.0001f)
+            {
+                
+                _smoothedDirection = targetNorm;
+            }
+            else
+            {
+                _smoothedDirection = Vector2.Lerp(
+                    _smoothedDirection,
+                    targetNorm,
+                    _directionSmoothFactor
+                );
+            }
+        }
+        else
+        {
+            _smoothedDirection = Vector2.zero;
+        }
+    }
+
+    
     private void Move(Vector2 direction)
     {
         if (direction.sqrMagnitude < 0.001f)
@@ -112,9 +219,21 @@ public class EnemyMovement : MonoBehaviour
     private void FlipSprite(Vector2 direction)
     {
         if (direction.x > 0.01f)
-            transform.localScale = new Vector3(Mathf.Abs(_originalScale.x), _originalScale.y, _originalScale.z);
+        {
+            transform.localScale = new Vector3(
+                Mathf.Abs(_originalScale.x),
+                _originalScale.y,
+                _originalScale.z
+            );
+        }
         else if (direction.x < -0.01f)
-            transform.localScale = new Vector3(-Mathf.Abs(_originalScale.x), _originalScale.y, _originalScale.z);
+        {
+            transform.localScale = new Vector3(
+                -Mathf.Abs(_originalScale.x),
+                _originalScale.y,
+                _originalScale.z
+            );
+        }
     }
 
     public void SetSpeedMultiplier(float mult)

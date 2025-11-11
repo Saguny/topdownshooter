@@ -7,7 +7,7 @@ TagManager:
   - Enemy
   - Gear
   - Projectile
-  - Boss
+  - Obstacles
   layers:
   - Default
   - TransparentFX
@@ -22,8 +22,8 @@ TagManager:
   - Aura
   - Enemy
   - Glow
-  - 
-  - 
+  - Obstacles
+  - FinalRushWall
   - 
   - 
   - 
@@ -50,6 +50,12 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1987439627
+    locked: 0
+  - name: Obstacles
+    uniqueID: 3326743159
+    locked: 0
+  - name: FinalRushBG
+    uniqueID: 3685007515
     locked: 0
   - name: Enemy
     uniqueID: 242874385

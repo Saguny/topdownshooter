@@ -111,6 +111,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
+  _bossAvoidRadius: 2.5
+  _bossAvoidWeight: 1.5
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  _avoidanceRadius: 0.5
+  _avoidanceDistance: 2
+  _avoidanceWeight: 1.5
+  _directionSmoothFactor: 0.2
 --- !u!114 &720283281531707828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +266,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 242874385
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 2964000683056490967, guid: a84a0170c391fbd498222a04f3543081, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
