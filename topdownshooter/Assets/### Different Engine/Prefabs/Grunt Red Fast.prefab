@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1.5
+  _bossAvoidRadius: 2.5
+  _bossAvoidWeight: 1.5
 --- !u!114 &720283281531707828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMaxHealth: 5
   currentHealth: 0
-  armor: 9
+  armor: 0
   gearDropPrefab: {fileID: 6789325886152309237, guid: 42881677769281a46a72816921134c5f, type: 3}
   minGear: 1
   maxGear: 1

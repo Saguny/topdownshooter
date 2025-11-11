@@ -55,7 +55,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 70
+  m_Mass: 500
   m_LinearDamping: 10
   m_AngularDamping: 10
   m_GravityScale: 0
@@ -105,7 +105,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.45
+  m_Radius: 1.06
 --- !u!114 &-6497688819578841960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.5
+  _bossAvoidRadius: 2.5
+  _bossAvoidWeight: 1.5
 --- !u!114 &720283281531707828
 MonoBehaviour:
   m_ObjectHideFlags: 0

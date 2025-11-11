@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
+  _bossAvoidRadius: 2.5
+  _bossAvoidWeight: 1
 --- !u!114 &720283281531707828
 MonoBehaviour:
   m_ObjectHideFlags: 0
