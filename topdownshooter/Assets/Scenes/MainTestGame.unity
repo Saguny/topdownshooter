@@ -5306,7 +5306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07130dcecf3ba5049a1efb817bd09b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveDuration: 5
+  waveDuration: 180
   baseKillsToClear: 300
   breakAfterWave: 5
   subjectiveDeathFx: {fileID: 1185364733144309390, guid: 8dbdeab253bc16a41b359021d27d4fb4, type: 3}
