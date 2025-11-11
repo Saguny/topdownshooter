@@ -308,13 +308,7 @@ public class SpawnDirector : MonoBehaviour
 
     private bool IsBossAlive()
     {
-        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (var e in enemies)
-        {
-            if (e && e.GetComponent<BossMarker>() != null && e.activeInHierarchy)
-                return true;
-        }
-        return false;
+        return GetAliveBossCount() > 0;
     }
 
     private Rect GetPlayRectFromBorders()
