@@ -11,7 +11,6 @@ public class SpawnDirector : MonoBehaviour
     [SerializeField] private List<EnemyArchetype> pool;
     [SerializeField] private float desiredPerScreen = 12f;
     [SerializeField] private float budgetPerSecond = 10f;
-    [SerializeField] private float spawnOffset = 2f;
     [SerializeField] private List<EnemyArchetype> chunkyPool;
     [SerializeField] private float finalRushHealthMul = 2f;
     [SerializeField] private float spawnrateIncreasePerWave = 2f;
@@ -110,6 +109,7 @@ public class SpawnDirector : MonoBehaviour
 
         bool inFastPhase = Time.time < fastPhaseUntil;
 
+        // random chance to start preparing a fast phase
         if (!preparingFastPhase &&
             !inFastPhase &&
             runTime >= fastPhaseMinRunTime &&
@@ -129,6 +129,7 @@ public class SpawnDirector : MonoBehaviour
 
         if (preparingFastPhase)
         {
+            // wait until wave is clear before starting fast phase
             if (alive <= 0 && !fastPhaseSequenceRunning)
             {
                 StartCoroutine(BeginFastPhaseAfterDelay());
@@ -149,7 +150,6 @@ public class SpawnDirector : MonoBehaviour
         spawnCooldown -= Time.deltaTime;
 
         while (spawnsThisFrame < maxSpawnsPerFrame &&
-               budget >= 1f &&
                alive < target &&
                spawnCooldown <= 0f)
         {
@@ -230,8 +230,10 @@ public class SpawnDirector : MonoBehaviour
     {
         var src = (!rush || chunkyPool == null || chunkyPool.Count == 0) ? pool : chunkyPool;
         if (src == null || src.Count == 0) return null;
+
         float sum = 0f;
         foreach (var p in src) sum += Mathf.Max(0.0001f, p.weight);
+
         float r = Random.value * sum;
         float acc = 0f;
         foreach (var p in src)
@@ -255,10 +257,16 @@ public class SpawnDirector : MonoBehaviour
         }
 
         if (go.TryGetComponent(out EnemyMovement m))
-            m.SetSpeedMultiplier((curve != null ? curve.SpeedAt(timeElapsed) : 1f) * arch.baseSpeed);
+        {
+            float speedMul = curve != null ? curve.SpeedAt(timeElapsed) : 1f;
+            m.SetSpeedMultiplier(speedMul * arch.baseSpeed);
+        }
 
         if (go.TryGetComponent(out EnemyDamage d))
-            d.SetDamageMultiplier((curve != null ? curve.DamageAt(timeElapsed) : 1f) * arch.baseDamage);
+        {
+            float dmgMul = curve != null ? curve.DamageAt(timeElapsed) : 1f;
+            d.SetDamageMultiplier(dmgMul * arch.baseDamage);
+        }
 
         if (go.TryGetComponent(out EnemyContactDamage contact))
         {
@@ -272,8 +280,7 @@ public class SpawnDirector : MonoBehaviour
 
     private int CountAlive()
     {
-        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        return enemies.Length;
+        return EnemyRegistry.Count;
     }
 
     private int GetMaxBossCountForWave(int wave)
@@ -285,25 +292,13 @@ public class SpawnDirector : MonoBehaviour
 
     private int GetAliveBossCount()
     {
-        activeBosses.RemoveAll(b => b == null);
+        activeBosses.RemoveAll(b => b == null || !b.activeInHierarchy);
         return activeBosses.Count;
     }
 
     public bool HasAliveBosses()
     {
-        return GetAliveBossesByMarker() > 0;
-    }
-
-    private int GetAliveBossesByMarker()
-    {
-        int count = 0;
-        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (var e in enemies)
-        {
-            if (e && e.GetComponent<BossMarker>() != null)
-                count++;
-        }
-        return count;
+        return GetAliveBossCount() > 0;
     }
 
     private bool IsBossAlive()
@@ -313,7 +308,8 @@ public class SpawnDirector : MonoBehaviour
 
     private Rect GetPlayRectFromBorders()
     {
-        if (mapBounds == null || mapBounds.Length == 0) return new Rect(-9999, -9999, 19998, 19998);
+        if (mapBounds == null || mapBounds.Length == 0)
+            return new Rect(-9999, -9999, 19998, 19998);
 
         Vector2 centroid = Vector2.zero;
         int c = 0;
@@ -323,7 +319,10 @@ public class SpawnDirector : MonoBehaviour
             centroid += (Vector2)b.bounds.center;
             c++;
         }
-        if (c == 0) return new Rect(-9999, -9999, 19998, 19998);
+
+        if (c == 0)
+            return new Rect(-9999, -9999, 19998, 19998);
+
         centroid /= c;
 
         float innerLeft = float.NegativeInfinity;
@@ -348,8 +347,15 @@ public class SpawnDirector : MonoBehaviour
             }
         }
 
-        if (!float.IsFinite(innerLeft) || !float.IsFinite(innerRight) || !float.IsFinite(innerBottom) || !float.IsFinite(innerTop) || innerRight <= innerLeft || innerTop <= innerBottom)
+        if (!float.IsFinite(innerLeft) ||
+            !float.IsFinite(innerRight) ||
+            !float.IsFinite(innerBottom) ||
+            !float.IsFinite(innerTop) ||
+            innerRight <= innerLeft ||
+            innerTop <= innerBottom)
+        {
             return new Rect(-9999, -9999, 19998, 19998);
+        }
 
         Rect r = new Rect(innerLeft, innerBottom, innerRight - innerLeft, innerTop - innerBottom);
         r.xMin += boundsInset;
@@ -397,10 +403,14 @@ public class SpawnDirector : MonoBehaviour
         float topY1 = Mathf.Min(play.yMax, camTop + offscreenBand);
 
         var rects = new List<(Rect r, float area)>();
-        if (leftX1 > leftX0 && leftY1 > leftY0) rects.Add((new Rect(leftX0, leftY0, leftX1 - leftX0, leftY1 - leftY0), (leftX1 - leftX0) * (leftY1 - leftY0)));
-        if (rightX1 > rightX0 && rightY1 > rightY0) rects.Add((new Rect(rightX0, rightY0, rightX1 - rightX0, rightY1 - rightY0), (rightX1 - rightX0) * (rightY1 - rightY0)));
-        if (botX1 > botX0 && botY1 > botY0) rects.Add((new Rect(botX0, botY0, botX1 - botX0, botY1 - botY0), (botX1 - botX0) * (botY1 - botY0)));
-        if (topX1 > topX0 && topY1 > topY0) rects.Add((new Rect(topX0, topY0, topX1 - topX0, topY1 - topY0), (topX1 - topX0) * (topY1 - topY0)));
+        if (leftX1 > leftX0 && leftY1 > leftY0)
+            rects.Add((new Rect(leftX0, leftY0, leftX1 - leftX0, leftY1 - leftY0), (leftX1 - leftX0) * (leftY1 - leftY0)));
+        if (rightX1 > rightX0 && rightY1 > rightY0)
+            rects.Add((new Rect(rightX0, rightY0, rightX1 - rightX0, rightY1 - rightY0), (rightX1 - rightX0) * (rightY1 - rightY0)));
+        if (botX1 > botX0 && botY1 > botY0)
+            rects.Add((new Rect(botX0, botY0, botX1 - botX0, botY1 - botY0), (botX1 - botX0) * (botY1 - botY0)));
+        if (topX1 > topX0 && topY1 > topY0)
+            rects.Add((new Rect(topX0, topY0, topX1 - topX0, topY1 - topY0), (topX1 - topX0) * (topY1 - topY0)));
 
         if (rects.Count > 0)
         {
@@ -418,6 +428,7 @@ public class SpawnDirector : MonoBehaviour
                     return new Vector2(rx, ry);
                 }
             }
+
             var last = rects[rects.Count - 1].r;
             return new Vector2(Random.Range(last.xMin, last.xMax), Random.Range(last.yMin, last.yMax));
         }
@@ -429,7 +440,6 @@ public class SpawnDirector : MonoBehaviour
 
         int side = 0;
         float best = gapLeft;
-        side = 0;
         if (gapRight > best) { best = gapRight; side = 1; }
         if (gapTop > best) { best = gapTop; side = 2; }
         if (gapBottom > best) { best = gapBottom; side = 3; }
@@ -460,6 +470,7 @@ public class SpawnDirector : MonoBehaviour
         x = Mathf.Clamp(x, play.xMin, play.xMax);
         y = Mathf.Clamp(y, play.yMin, play.yMax);
 
+        // ensure actually offscreen
         if (x > camLeft && x < camRight && y > camBottom && y < camTop)
         {
             if (side == 0) x = Mathf.Max(play.xMin, camLeft - pad);
@@ -501,7 +512,7 @@ public class SpawnDirector : MonoBehaviour
         if (bossArchetype == null || bossArchetype.prefab == null) return;
 
         int maxBosses = GetMaxBossCountForWave(currentWave);
-        if (GetAliveBossesByMarker() >= maxBosses) return;
+        if (GetAliveBossCount() >= maxBosses) return;
 
         var go = Spawn(bossArchetype, true);
         if (go != null)
@@ -558,11 +569,11 @@ public class SpawnDirector : MonoBehaviour
         var player = GameObject.FindGameObjectWithTag("Player");
         if (!player) yield break;
 
-        var enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+        var enemies = new List<GameObject>(EnemyRegistry.All);
         enemies.Sort((a, b) =>
         {
-            float da = (a ? (a.transform.position - player.transform.position).sqrMagnitude : float.MaxValue);
-            float db = (b ? (b.transform.position - player.transform.position).sqrMagnitude : float.MaxValue);
+            float da = a ? (a.transform.position - player.transform.position).sqrMagnitude : float.MaxValue;
+            float db = b ? (b.transform.position - player.transform.position).sqrMagnitude : float.MaxValue;
             return da.CompareTo(db);
         });
 

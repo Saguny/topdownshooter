@@ -17,5 +17,5 @@ MonoBehaviour:
   weight: 1
   baseHealth: 300
   baseSpeed: 0.5
-  baseDamage: 50
+  baseDamage: 25
   contactTickInterval: 1.5

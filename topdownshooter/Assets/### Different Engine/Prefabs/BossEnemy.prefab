@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf6c418de0368b4189b105b0401a240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  archetype: {fileID: 11400000, guid: a140de101f11205448e08eba5e215647, type: 2}
+  archetype: {fileID: 11400000, guid: b5a152337a0dd734facb49ee513816db, type: 2}
   difficulty: {fileID: 11400000, guid: 6c1138631aa634642a0f09433161fd98, type: 2}
   contact: {fileID: 6993717957234600409}
 --- !u!114 &6993717957234600409
@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd6d9b303124b041a6f5b521170d12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerTick: 50
-  tickInterval: 1
+  damagePerTick: 25
+  tickInterval: 2
 --- !u!114 &7705832605091154836
 MonoBehaviour:
   m_ObjectHideFlags: 0

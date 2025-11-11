@@ -68,7 +68,13 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     private void OnEnable()
     {
+        EnemyRegistry.Register(gameObject);
         OnHealthChanged?.Invoke(currentHealth, baseMaxHealth);
+    }
+
+    private void OnDisable()
+    {
+        EnemyRegistry.Unregister(gameObject);
     }
 
     public void ResetHealth()

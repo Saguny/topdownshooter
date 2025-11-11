@@ -3911,7 +3911,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7972900bf05a2a4a8ae3c1f9c5aed59, type: 2}
   desiredPerScreen: 10
   budgetPerSecond: 6
-  spawnOffset: 2
   chunkyPool:
   - {fileID: 11400000, guid: 746df5f43c191544db34c2bc54a56bce, type: 2}
   - {fileID: 11400000, guid: d7972900bf05a2a4a8ae3c1f9c5aed59, type: 2}
@@ -3947,7 +3946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveDuration: 180
-  baseKillsToClear: 100
+  baseKillsToClear: 250
   breakAfterWave: 5
   subjectiveDeathFx: {fileID: 1185364733144309390, guid: 8dbdeab253bc16a41b359021d27d4fb4, type: 3}
 --- !u!4 &1446568115

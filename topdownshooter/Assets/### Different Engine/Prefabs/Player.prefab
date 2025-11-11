@@ -199,7 +199,7 @@ MonoBehaviour:
   gearIncreaseMultiplier: 1.3
   allUpgrades: []
   upgradeMenuUI: {fileID: 0}
-  progressBar: {fileID: 0}
+  progressBarGradient: {fileID: 0}
   hasAura: 0
 --- !u!114 &5202921698746210702
 MonoBehaviour:
@@ -214,9 +214,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseRadius: 1.5
-  pickupMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &4463241459436760605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,9 +242,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39f0e84ae21b804c8003e922debff18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePool: {fileID: 0}
+  bulletPrefab: {fileID: 0}
   aimer: {fileID: 4463241459436760605}
-  fireRate: 3
+  baseFireRate: 3
+  baseBulletSpeed: 12
+  baseBulletDamage: 10.5
 --- !u!114 &7010350018708564161
 MonoBehaviour:
   m_ObjectHideFlags: 0
