@@ -130,7 +130,7 @@ It serves as a foundation for 2D or 3D action and roguelike projects in Unity.
 
 ## Documentation
 
-For Blog Refer to `https://www.notion.so/Top-Down-Rogue-like-Shooter-Fortgeschrittene-Interaktionstechnologien-296f779cfe0a802f839cedab5b00953e` 
+For Blog Refer to [Notion.so](https://www.notion.so/Top-Down-Rogue-like-Shooter-Fortgeschrittene-Interaktionstechnologien-296f779cfe0a802f839cedab5b00953e)
 (German)
 ---
 
@@ -146,4 +146,4 @@ For Blog Refer to `https://www.notion.so/Top-Down-Rogue-like-Shooter-Fortgeschri
 ## Author
 
 Developed by **Sagun**  
-Documentation prepared by **Chiichan**
+Documentation made by Project Members and Chiichan
