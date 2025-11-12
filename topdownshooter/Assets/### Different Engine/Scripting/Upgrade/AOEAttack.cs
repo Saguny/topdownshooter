@@ -7,6 +7,7 @@ public class AOEAttack : MonoBehaviour
     public float attackInterval = 5f;
     public float attackRange = 8f;
     public float damage = 20f;
+    public int projectileCount = 1; // NEU
 
     [Header("Audio")]
     public AudioClip fireSound;
@@ -40,7 +41,7 @@ public class AOEAttack : MonoBehaviour
         if (_timer >= attackInterval)
         {
             _timer = 0f;
-            FireProjectile();
+            FireProjectiles();
         }
     }
 
@@ -55,30 +56,40 @@ public class AOEAttack : MonoBehaviour
         _active = false;
     }
 
-    public void Upgrade(float intervalMultiplier, float damageMultiplier)
+    /// <summary>
+    /// Upgrade der AOE-Attacke: Multiplikatoren für Interval, Damage, Radius und Projektile.
+    /// </summary>
+    public void Upgrade(float intervalMultiplier, float damageMultiplier, float rangeMultiplier, int extraProjectiles)
     {
         attackInterval = Mathf.Max(0.5f, attackInterval * intervalMultiplier);
         damage *= damageMultiplier;
+        attackRange *= rangeMultiplier;
+        projectileCount = Mathf.Max(1, projectileCount + extraProjectiles);
     }
 
-    private void FireProjectile()
+    private void FireProjectiles()
     {
         if (projectilePrefab == null || targetCamera == null) return;
 
-        float vx = Random.Range(viewportXRange.x, viewportXRange.y);
-        float vy = Random.Range(viewportYRange.x, viewportYRange.y);
-
-        Vector3 impactPos = targetCamera.ViewportToWorldPoint(new Vector3(vx, vy, Mathf.Abs(targetCamera.transform.position.z)));
-        impactPos.z = 0f;
-
-        float topY = targetCamera.transform.position.y + targetCamera.orthographicSize;
-        Vector3 spawnPos = new Vector3(impactPos.x, topY + spawnYOffset, impactPos.z);
-
-        GameObject proj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
-
-        if (proj.TryGetComponent(out AOEProjectile aoe))
+        for (int i = 0; i < projectileCount; i++)
         {
-            aoe.Setup(damage, attackRange, impactPos);
+            float vx = Random.Range(viewportXRange.x, viewportXRange.y);
+            float vy = Random.Range(viewportYRange.x, viewportYRange.y);
+
+            Vector3 impactPos = targetCamera.ViewportToWorldPoint(
+                new Vector3(vx, vy, Mathf.Abs(targetCamera.transform.position.z))
+            );
+            impactPos.z = 0f;
+
+            float topY = targetCamera.transform.position.y + targetCamera.orthographicSize;
+            Vector3 spawnPos = new Vector3(impactPos.x, topY + spawnYOffset, impactPos.z);
+
+            GameObject proj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+
+            if (proj.TryGetComponent(out AOEProjectile aoe))
+            {
+                aoe.Setup(damage, attackRange, impactPos);
+            }
         }
 
         if (fireSound != null)

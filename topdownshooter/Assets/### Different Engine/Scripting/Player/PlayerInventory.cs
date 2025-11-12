@@ -19,6 +19,8 @@ public class PlayerInventory : MonoBehaviour
     public bool hasAura = false;
     private StatContext stats;
 
+    private bool hasAOEAttack = false;
+
     public int CurrentLevel => currentLevel;
 
     private void OnEnable()
@@ -74,8 +76,20 @@ public class PlayerInventory : MonoBehaviour
         List<UpgradeData> pool = new List<UpgradeData>(runtimeUpgrades);
         pool.RemoveAll(u => u == null || u.IsAtCap);
 
-        if (hasAura) pool.RemoveAll(u => u.type == UpgradeType.AuraUnlock);
-        else pool.RemoveAll(u => u.type == UpgradeType.AuraDamage || u.type == UpgradeType.AuraRadius);
+        if (hasAura)
+            pool.RemoveAll(u => u.type == UpgradeType.AuraUnlock);
+        else
+            pool.RemoveAll(u => u.type == UpgradeType.AuraDamage || u.type == UpgradeType.AuraRadius);
+
+        if (hasAOEAttack)
+        {
+            pool.RemoveAll(u => u.type == UpgradeType.AOEAttack && u.IsAtCap);
+        }
+        else
+        {
+            pool.RemoveAll(u => u.type == UpgradeType.AOEAttackRadius || u.type == UpgradeType.AOEAttackProjectileCount);
+        }
+
 
         List<UpgradeData> randomUpgrades = new List<UpgradeData>();
         for (int i = 0; i < 3 && pool.Count > 0; i++)
@@ -101,6 +115,7 @@ public class PlayerInventory : MonoBehaviour
         if (stats != null)
             stats.Apply(upgrade);
 
+        var aoe = GetComponent<AOEAttack>();
         switch (upgrade.type)
         {
             case UpgradeType.AuraUnlock:
@@ -123,24 +138,36 @@ public class PlayerInventory : MonoBehaviour
                 break;
 
             case UpgradeType.AOEAttack:
-                var aoe = GetComponent<AOEAttack>();
                 if (aoe != null)
                 {
                     if (upgrade.Level == 0)
                     {
                         aoe.Activate();
+                        hasAOEAttack = true;
                     }
                     else
                     {
-                        aoe.Upgrade(0.9f, 1.15f);
+                        aoe.Upgrade(0.9f, 1.15f, 1f, 0);
                     }
                 }
+                break;
+
+
+            case UpgradeType.AOEAttackRadius:
+                if (aoe != null)
+                    aoe.Upgrade(1f, 1f, upgrade.value, 0);
+                break;
+
+            case UpgradeType.AOEAttackProjectileCount:
+                if (aoe != null)
+                    aoe.Upgrade(1f, 1f, 1f, 1);
                 break;
         }
 
         upgrade.LevelUp();
         Time.timeScale = 1f;
     }
+
 
     public void ResetRun()
     {
@@ -151,6 +178,7 @@ public class PlayerInventory : MonoBehaviour
         UpdateProgress();
         if (stats != null) stats.ResetStats();
         hasAura = false;
+        hasAOEAttack = false;
     }
 
     private void UpdateProgress()

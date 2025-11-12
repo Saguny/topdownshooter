@@ -4631,6 +4631,7 @@ MonoBehaviour:
   attackInterval: 5
   attackRange: 2
   damage: 20
+  projectileCount: 1
   fireSound: {fileID: 8300000, guid: 8823a5f3dd41f5549b909c33fd16dc1b, type: 3}
   fireVolume: 0.229
   targetCamera: {fileID: 0}
@@ -8612,7 +8613,7 @@ PrefabInstance:
       objectReference: {fileID: 1866763091}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: allUpgrades.Array.size
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: gearIncreaseMultiplier
@@ -8658,6 +8659,14 @@ PrefabInstance:
       propertyPath: 'allUpgrades.Array.data[9]'
       value: 
       objectReference: {fileID: 11400000, guid: 4b2f44d35290f3a44abba26a48c8b1d8, type: 2}
+    - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
+      propertyPath: 'allUpgrades.Array.data[10]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 676997559e3ea024a91eea31f66f413b, type: 2}
+    - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
+      propertyPath: 'allUpgrades.Array.data[11]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 173762e4a423cf3419586d3d31cd4e33, type: 2}
     - target: {fileID: 5202921698746210702, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: pickupMask.m_Bits
       value: 256
