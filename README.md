@@ -92,7 +92,7 @@ float difficulty = baseDifficulty + (Time.timeSinceLevelLoad * growthRate);
 
 ### Installation
 ```bash
-git clone https://github.com/yourusername/YourGameProject.git
+git clone https://github.com/Saguny/topdownshooter.git
 cd YourGameProject
 ```
 Open the project folder in Unity Hub and select **Open Project**.
@@ -130,10 +130,8 @@ It serves as a foundation for 2D or 3D action and roguelike projects in Unity.
 
 ## Documentation
 
-For detailed technical information, refer to:
-- `Game_Architecture_Overview.md`
-- `Game_Architecture_Overview_DE.md` (German version)
-
+For Blog Refer to `https://www.notion.so/Top-Down-Rogue-like-Shooter-Fortgeschrittene-Interaktionstechnologien-296f779cfe0a802f839cedab5b00953e` 
+(German)
 ---
 
 ## Future Improvements
