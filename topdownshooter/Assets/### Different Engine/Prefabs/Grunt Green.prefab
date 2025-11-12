@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 5718124482810303360}
   - component: {fileID: 5088608087563689285}
   - component: {fileID: 4450218037733749501}
-  - component: {fileID: 5090262039069969137}
+  - component: {fileID: 3845682338706684569}
   m_Layer: 11
   m_Name: Grunt Green
   m_TagString: Enemy
@@ -267,7 +267,7 @@ SpriteRenderer:
   m_SortingLayerID: 242874385
   m_SortingLayer: -1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 2964000683056490967, guid: a84a0170c391fbd498222a04f3543081, type: 3}
+  m_Sprite: {fileID: 3920333714221825623, guid: d0e2ebb1bf80b6941a6f7bd0b82be658, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -287,7 +287,7 @@ AudioSource:
   m_GameObject: {fileID: 4184005365869111389}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1077320095084850286, guid: 249c82989c14ce74fbaf3e48ffbf9123, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -375,7 +375,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5090262039069969137
+--- !u!114 &3845682338706684569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

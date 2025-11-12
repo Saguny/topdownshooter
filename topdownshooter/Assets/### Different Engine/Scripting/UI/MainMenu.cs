@@ -1,58 +1,46 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [Header("Fade Settings")]
-    public Image fadeImage;          
-    public float fadeDuration = 1f;  
-    public float blackHoldTime = 1f; 
+    [Header("scenes")]
+    public string gameSceneName = "MainTestGame";
+    public string creditsSceneName = "CreditsScene";
 
-    private bool isLoading = false;
+    bool isLoading;
+
+    void Start()
+    {
+        // fade from black when menu appears
+        if (ScreenFader.Instance != null)
+            ScreenFader.Instance.FadeIn();
+    }
 
     public void PlayGame()
     {
-        if (!isLoading)
-        {
-            StartCoroutine(LoadSceneWithFade());
-        }
-    }
-
-    private IEnumerator LoadSceneWithFade()
-    {
+        if (isLoading) return;
         isLoading = true;
 
-        
-        Color startColor = fadeImage.color;
-        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 1f);
+        if (ScreenFader.Instance != null)
+            ScreenFader.Instance.FadeAndLoad(gameSceneName);
+        else
+            SceneManager.LoadScene(gameSceneName);
+    }
 
-        float t = 0f;
+    public void OpenCredits()
+    {
+        if (isLoading) return;
+        isLoading = true;
 
-        
-        while (t < fadeDuration)
-        {
-            t += Time.unscaledDeltaTime;
-            float lerp = Mathf.Clamp01(t / fadeDuration);
-            fadeImage.color = Color.Lerp(startColor, endColor, lerp);
-            yield return null;
-        }
-
-        
-        fadeImage.color = endColor;
-
-        
-        yield return new WaitForSecondsRealtime(blackHoldTime);
-
-        
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (ScreenFader.Instance != null)
+            ScreenFader.Instance.FadeAndLoad(creditsSceneName);
+        else
+            SceneManager.LoadScene(creditsSceneName);
     }
 
     public void QuitGame()
     {
         Application.Quit();
-
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif

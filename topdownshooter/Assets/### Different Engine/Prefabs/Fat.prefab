@@ -156,6 +156,7 @@ MonoBehaviour:
   _avoidanceDistance: 2
   _avoidanceWeight: 1.5
   _directionSmoothFactor: 0.2
+  _spriteFacesLeftByDefault: 0
 --- !u!114 &720283281531707828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +308,7 @@ AudioSource:
   m_GameObject: {fileID: 4184005365869111389}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1077320095084850286, guid: 249c82989c14ce74fbaf3e48ffbf9123, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1

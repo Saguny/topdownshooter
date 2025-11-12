@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 5718124482810303360}
   - component: {fileID: 5088608087563689285}
   - component: {fileID: 4450218037733749501}
-  - component: {fileID: 23029315316924894}
+  - component: {fileID: 6675768283165519451}
   m_Layer: 11
   m_Name: Grunt Red Fast
   m_TagString: Enemy
@@ -267,7 +267,7 @@ SpriteRenderer:
   m_SortingLayerID: 242874385
   m_SortingLayer: -1
   m_SortingOrder: 2
-  m_Sprite: {fileID: -4648613801140593926, guid: 4f85922ba78a1bb478e44225302f9226, type: 3}
+  m_Sprite: {fileID: -2200439518047623104, guid: aaf319cab1571834ab69f442da270491, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -375,7 +375,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &23029315316924894
+--- !u!114 &6675768283165519451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

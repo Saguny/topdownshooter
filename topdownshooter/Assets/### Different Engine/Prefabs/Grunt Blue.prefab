@@ -16,10 +16,10 @@ GameObject:
   - component: {fileID: 7705832605091154836}
   - component: {fileID: 720283281531707828}
   - component: {fileID: 8483690065550941714}
-  - component: {fileID: 6190732262709710906}
   - component: {fileID: 5718124482810303360}
   - component: {fileID: 5088608087563689285}
   - component: {fileID: 4450218037733749501}
+  - component: {fileID: 8778315876424276188}
   m_Layer: 11
   m_Name: Grunt Blue
   m_TagString: Enemy
@@ -201,26 +201,6 @@ MonoBehaviour:
   hitVolume: 0.16
   audioSource: {fileID: 0}
   destroyOnDeath: 1
---- !u!114 &6190732262709710906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4184005365869111389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad6891fd2c692dc47b62f49e2704c89d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  sortingLayer: HUD
-  bgOrder: 199
-  fgOrder: 200
-  size: {x: 0.8, y: 0.08}
-  offset: {x: 0, y: -0.8, z: 0}
-  bgPadding: 0.04
-  pixelSnap: 0
 --- !u!95 &5718124482810303360
 Animator:
   serializedVersion: 7
@@ -287,7 +267,7 @@ SpriteRenderer:
   m_SortingLayerID: 242874385
   m_SortingLayer: -1
   m_SortingOrder: 2
-  m_Sprite: {fileID: -153612027754913308, guid: a050680bc80a1694bb8cf5eb19d63d59, type: 3}
+  m_Sprite: {fileID: -4867986679941778427, guid: 2991ee06038452b4ba2cecfbbb2d9134, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -307,7 +287,7 @@ AudioSource:
   m_GameObject: {fileID: 4184005365869111389}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1077320095084850286, guid: 249c82989c14ce74fbaf3e48ffbf9123, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -395,3 +375,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8778315876424276188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184005365869111389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6891fd2c692dc47b62f49e2704c89d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  sortingLayer: HUD
+  bgOrder: 199
+  fgOrder: 200
+  size: {x: 0.8, y: 0.08}
+  offset: {x: 0, y: -0.8, z: 0}
+  bgPadding: 0.04
+  pixelSnap: 0
