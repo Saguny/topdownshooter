@@ -1,4 +1,4 @@
-# Unity Action Game — Project Overview
+# Unity Action Top Down Shooter — Project Overview
 
 A modular, component-driven Unity action game project featuring dynamic enemies, difficulty scaling, player–enemy interactions, and responsive UI/audio feedback.  
 This repository demonstrates clean C# architecture, loose coupling, and data-driven design suitable for modern Unity workflows.
