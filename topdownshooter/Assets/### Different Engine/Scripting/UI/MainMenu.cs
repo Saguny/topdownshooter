@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [Header("scenes")]
-    public string gameSceneName = "MainTestGame";
+    public string gameSceneName = "Scenes/MainTestGame";
     public string creditsSceneName = "CreditsScene";
 
     bool isLoading;
