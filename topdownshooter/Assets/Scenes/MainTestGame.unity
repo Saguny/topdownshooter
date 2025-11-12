@@ -595,7 +595,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 565000409
-  m_SortingLayer: -6
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1207134236166879695, guid: bac155907ef562c44a5e1373ac0b8eb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -918,7 +918,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 565000409
-  m_SortingLayer: -6
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1207134236166879695, guid: bac155907ef562c44a5e1373ac0b8eb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -951,7 +951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &257906482
 Transform:
   m_ObjectHideFlags: 0
@@ -979,7 +979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d37476aa2d716c4f9b76776d7300030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.83
+  radius: 1.65
   damage: 10
   damageInterval: 0.5
   enemyMask:
@@ -988,7 +988,7 @@ MonoBehaviour:
   animator: {fileID: 257906486}
   spawnAnimName: Aura_Spawn
   loopAnimName: Aura_Loop
-  _visualScaleBase: 1.83
+  _visualScaleBase: 1.65
 --- !u!58 &257906484
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1024,7 +1024,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1.83
+  m_Radius: 1.65
 --- !u!212 &257906485
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1067,9 +1067,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -508140567
-  m_SortingLayer: -5
+  m_SortingLayer: -1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 835617799, guid: 0170d79dcb3694649a530d4060e1b0f0, type: 3}
+  m_Sprite: {fileID: -7848738801321597021, guid: 6998ebed3e94be9489a5b9b79874848f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2944,8 +2944,8 @@ GameObject:
   - component: {fileID: 961654626}
   - component: {fileID: 961654628}
   - component: {fileID: 961654627}
-  - component: {fileID: 961654630}
   - component: {fileID: 961654631}
+  - component: {fileID: 961654632}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3072,22 +3072,6 @@ Transform:
   - {fileID: 1711880890}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &961654630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 961654625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e5ffe46461af7498097d8f1dd3ba07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 1274759113}
-  _smoothSpeed: 5
-  _cameraZ: -10
-  _offset: {x: 0, y: 0}
 --- !u!114 &961654631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3100,7 +3084,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb0113ad66908a47952f24b2133f980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverUI: {fileID: 0}
+  gameOverUI: {fileID: 2058173057}
+--- !u!114 &961654632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961654625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914b72c451b82c94f833ca302b023b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1274759113}
+  _smoothSpeed: 5
+  _cameraZ: -10
+  _offset: {x: 0, y: 0}
 --- !u!1 &962090572
 GameObject:
   m_ObjectHideFlags: 0
@@ -4670,9 +4670,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee84a00707c1c14cb967692da0b9790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers: []
+  spriteRenderers:
+  - {fileID: 257906485}
   uiImages:
   - {fileID: 0}
+--- !u!114 &1274759153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274759104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85beaea7802d6f94ebd3d27e9da524a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 6
+  _accelTime: 0.08
+  firePoint: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!1 &1310989008
 GameObject:
   m_ObjectHideFlags: 0
@@ -6289,6 +6306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1611196868}
   - component: {fileID: 1611196869}
+  - component: {fileID: 1611196870}
   m_Layer: 0
   m_Name: FPSDisplay
   m_TagString: Untagged
@@ -6322,6 +6340,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14fa2769ffd15e84f83930f68397453e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsText: {fileID: 1520593944}
+  deltaTime: 0
+  minFps: 3.4028235e+38
+  maxFps: 0
+  avgAccum: 0
+  avgCount: 0
+  avgWindow: 2
+  windowTimer: 0
+--- !u!114 &1611196870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611196867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4b59297525d8446b687f4597e3a7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fpsText: {fileID: 1520593944}
@@ -6915,7 +6953,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 565000409
-  m_SortingLayer: -6
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1207134236166879695, guid: bac155907ef562c44a5e1373ac0b8eb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7958,7 +7996,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 565000409
-  m_SortingLayer: -6
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1207134236166879695, guid: bac155907ef562c44a5e1373ac0b8eb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8567,6 +8605,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 961654626}
+    - target: {fileID: 1885696961853288004, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 6d0231b065696e3439e414ddc75e9480, type: 3}
     - target: {fileID: 2536700318208748158, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: baseFireRate
       value: 1
@@ -8729,6 +8771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5202921698746210702, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
+    - {fileID: 7010350018708564161, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6236575731635123124, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
@@ -8759,6 +8802,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 767629532391218235, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1274759143}
+    - targetCorrespondingSourceObject: {fileID: 767629532391218235, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1274759153}
   m_SourcePrefab: {fileID: 100100000, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
 --- !u!114 &3366964022587899224
 MonoBehaviour:

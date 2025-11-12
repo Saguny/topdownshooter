@@ -262,7 +262,7 @@ public class SpawnDirector : MonoBehaviour
             m.SetSpeedMultiplier(speedMul * arch.baseSpeed);
         }
 
-        if (go.TryGetComponent(out EnemyDamage d))
+        if (go.TryGetComponent(out EnemyContactDamage d))
         {
             float dmgMul = curve != null ? curve.DamageAt(timeElapsed) : 1f;
             d.SetDamageMultiplier(dmgMul * arch.baseDamage);

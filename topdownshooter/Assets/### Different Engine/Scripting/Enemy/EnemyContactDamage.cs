@@ -108,6 +108,12 @@ public class EnemyContactDamage : MonoBehaviour
         _nextTickTime = Time.time + tickInterval;
     }
 
+    public void SetDamageMultiplier(float newDamage)
+    {
+        damagePerTick = newDamage * tickInterval;
+    }
+
+
     private bool IsPlayer(Collider2D col)
     {
         return col.CompareTag("Player");

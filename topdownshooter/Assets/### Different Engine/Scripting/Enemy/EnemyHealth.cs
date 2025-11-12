@@ -11,7 +11,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
 {
     [Header("health")]
     [Min(1f)] public float baseMaxHealth = 10f;
-    [SerializeField, ReadOnlyField] private float currentHealth;
+    [SerializeField] private float currentHealth;
 
     [Tooltip("flat damage reduced from each hit")]
     [Min(0f)] public float armor = 0f;

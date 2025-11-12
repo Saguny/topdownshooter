@@ -93,7 +93,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 480
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -145,12 +145,12 @@ TextureImporter:
       name: Aura1_0
       rect:
         serializedVersion: 2
-        x: 746
-        y: 1650
-        width: 1064
-        height: 1076
+        x: 747
+        y: 1011
+        width: 1684
+        height: 1715
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -167,12 +167,12 @@ TextureImporter:
       name: Aura1_1
       rect:
         serializedVersion: 2
-        x: 925
+        x: 926
         y: 1292
-        width: 708
+        width: 706
         height: 1256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: Aura1_2
       rect:
         serializedVersion: 2
-        x: 1620
+        x: 1621
         y: 2309
-        width: 255
+        width: 254
         height: 155
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -211,12 +211,12 @@ TextureImporter:
       name: Aura1_3
       rect:
         serializedVersion: 2
-        x: 1877
+        x: 1878
         y: 2403
-        width: 276
-        height: 191
+        width: 274
+        height: 190
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -233,12 +233,12 @@ TextureImporter:
       name: Aura1_4
       rect:
         serializedVersion: 2
-        x: 1914
+        x: 1916
         y: 2191
-        width: 226
-        height: 200
+        width: 224
+        height: 199
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -255,12 +255,12 @@ TextureImporter:
       name: Aura1_5
       rect:
         serializedVersion: 2
-        x: 2000
+        x: 2001
         y: 1767
-        width: 281
-        height: 430
+        width: 279
+        height: 429
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -277,12 +277,12 @@ TextureImporter:
       name: Aura1_6
       rect:
         serializedVersion: 2
-        x: 2177
-        y: 2122
-        width: 200
-        height: 280
+        x: 2178
+        y: 2123
+        width: 198
+        height: 278
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -299,12 +299,12 @@ TextureImporter:
       name: Aura1_7
       rect:
         serializedVersion: 2
-        x: 2300
+        x: 2301
         y: 1814
-        width: 135
-        height: 295
+        width: 133
+        height: 294
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -321,12 +321,12 @@ TextureImporter:
       name: Aura1_8
       rect:
         serializedVersion: 2
-        x: 834
-        y: 1165
-        width: 384
-        height: 461
+        x: 835
+        y: 1166
+        width: 383
+        height: 458
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -343,12 +343,12 @@ TextureImporter:
       name: Aura1_9
       rect:
         serializedVersion: 2
-        x: 1785
-        y: 1294
-        width: 228
-        height: 200
+        x: 1786
+        y: 1295
+        width: 226
+        height: 199
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -366,11 +366,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2016
-        y: 1369
+        y: 1370
         width: 184
-        height: 393
+        height: 392
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -387,12 +387,12 @@ TextureImporter:
       name: Aura1_11
       rect:
         serializedVersion: 2
-        x: 2221
-        y: 1426
-        width: 201
-        height: 353
+        x: 2222
+        y: 1427
+        width: 200
+        height: 351
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -410,11 +410,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1532
-        y: 1242
+        y: 1244
         width: 198
-        height: 116
+        height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -431,12 +431,12 @@ TextureImporter:
       name: Aura1_13
       rect:
         serializedVersion: 2
-        x: 1709
-        y: 1016
-        width: 559
-        height: 375
+        x: 1710
+        y: 1018
+        width: 557
+        height: 372
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -453,12 +453,12 @@ TextureImporter:
       name: Aura1_14
       rect:
         serializedVersion: 2
-        x: 1291
+        x: 1292
         y: 1016
-        width: 374
-        height: 138
+        width: 372
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -475,7 +475,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c38518efe62787744aebdbe90d4bc636
     internalID: 0
     vertices: []
     indices: 
@@ -484,7 +484,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Aura1_0: -7848738801321597021
+      Aura1_1: 6527806945931228698
+      Aura1_10: 3608247449280262951
+      Aura1_11: -5924643790242194277
+      Aura1_12: 9021936595558520803
+      Aura1_13: 1881452411439709287
+      Aura1_14: -920550430153988095
+      Aura1_2: 5747300439607113683
+      Aura1_3: -2283144365732485016
+      Aura1_4: 3140857636945226925
+      Aura1_5: -2935351498843601312
+      Aura1_6: -8393293466356324187
+      Aura1_7: 4431071856983522763
+      Aura1_8: 5618232058833979966
+      Aura1_9: -1090739821678228782
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
