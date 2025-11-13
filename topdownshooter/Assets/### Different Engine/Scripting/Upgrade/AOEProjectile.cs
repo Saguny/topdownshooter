@@ -13,34 +13,41 @@ public class AOEProjectile : MonoBehaviour
     [Header("VFX")]
     public GameObject impactEffectPrefab;
     public float impactEffectDuration = 0.5f;
+    public float impactVisualScale = 1f;
+
+    [Header("Visual")]
+    public float spriteAngleOffset = 0f;
 
     private Vector3 _impactPosition;
-    private bool _hasImpactPosition;
+    private Vector2 _direction;
+    private bool _initialized;
 
-    public void Setup(float damageAmount, float radius, Vector3 impactPosition)
+    public void Setup(float damageAmount, float radius, Vector3 impactPosition, Vector2 direction)
     {
-        this.damage = damageAmount;
+        damage = damageAmount;
         this.radius = radius;
         _impactPosition = impactPosition;
-        _hasImpactPosition = true;
+        _direction = direction.normalized;
+        _initialized = true;
+
+        float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle + spriteAngleOffset, Vector3.forward);
+
         Destroy(gameObject, lifeTime);
     }
 
     private void Update()
     {
-        if (!_hasImpactPosition) return;
+        if (!_initialized) return;
 
-        Vector3 dir = _impactPosition - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
+        transform.position += (Vector3)(_direction * distanceThisFrame);
 
-        if (dir.sqrMagnitude <= distanceThisFrame * distanceThisFrame)
+        Vector2 toImpact = _impactPosition - transform.position;
+        if (Vector2.Dot(toImpact, _direction) <= 0f || toImpact.sqrMagnitude <= distanceThisFrame * distanceThisFrame)
         {
             Explode();
-            return;
         }
-
-        transform.position += dir.normalized * distanceThisFrame;
-        transform.up = dir.normalized;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -61,7 +68,7 @@ public class AOEProjectile : MonoBehaviour
         if (impactEffectPrefab != null)
         {
             GameObject fx = Instantiate(impactEffectPrefab, transform.position, Quaternion.identity);
-            fx.transform.localScale = Vector3.one * (radius * 2f);
+            fx.transform.localScale = Vector3.one * impactVisualScale;
             Destroy(fx, impactEffectDuration);
         }
 

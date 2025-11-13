@@ -1,13 +1,25 @@
 fileFormatVersion: 2
-guid: 346ce9b99f7db1544ab6288415adc353
+guid: d7fe669afe2b0b94ea2e8c58810e1a45
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -901712193590190741
-    second: New_pstein6_0
+      213: 6705089987281880281
+    second: aoe_expl_05-06_0
   - first:
-      213: -1796837514562003905
-    second: New_pstein6_1
+      213: 5188218042766537246
+    second: aoe_expl_05-06_1
+  - first:
+      213: -1897428467213036164
+    second: aoe_expl_05-06_2
+  - first:
+      213: 494304811846806103
+    second: aoe_expl_05-06_3
+  - first:
+      213: -5077612278871772299
+    second: aoe_expl_05-06_4
+  - first:
+      213: -2087514789094961836
+    second: aoe_expl_05-06_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,12 +61,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 5000
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New_pstein6_0
+      name: aoe_expl_05-06_0
       rect:
         serializedVersion: 2
-        x: 1787
-        y: 2417
-        width: 593
-        height: 629
+        x: 214
+        y: 214
+        width: 25
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6d1b6399897c73f0800000000000000
-      internalID: -901712193590190741
+      spriteID: 9d407fe71d34d0d50800000000000000
+      internalID: 6705089987281880281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_pstein6_1
+      name: aoe_expl_05-06_1
       rect:
         serializedVersion: 2
-        x: 2047
-        y: 2160
-        width: 185
-        height: 33
+        x: 246
+        y: 237
+        width: 63
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +152,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3c9f61fcc95017e0800000000000000
-      internalID: -1796837514562003905
+      spriteID: e123f5052d0400840800000000000000
+      internalID: 5188218042766537246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aoe_expl_05-06_2
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 235
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c759d01bcdafaa5e0800000000000000
+      internalID: -1897428467213036164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aoe_expl_05-06_3
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 228
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75a25e08b9f1cd600800000000000000
+      internalID: 494304811846806103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aoe_expl_05-06_4
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 120
+        width: 174
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 573bfa2e882b889b0800000000000000
+      internalID: -5077612278871772299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aoe_expl_05-06_5
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 205
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45dce940c58a703e0800000000000000
+      internalID: -2087514789094961836
       vertices: []
       indices: 
       edges: []
@@ -150,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      New_pstein6_0: -901712193590190741
-      New_pstein6_1: -1796837514562003905
+      aoe_expl_05-06_0: 6705089987281880281
+      aoe_expl_05-06_1: 5188218042766537246
+      aoe_expl_05-06_2: -1897428467213036164
+      aoe_expl_05-06_3: 494304811846806103
+      aoe_expl_05-06_4: -5077612278871772299
+      aoe_expl_05-06_5: -2087514789094961836
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

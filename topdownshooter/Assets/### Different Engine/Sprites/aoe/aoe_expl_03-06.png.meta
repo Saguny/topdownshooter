@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: a7675e517d23d454ab2af618ca8d8b38
+guid: d1b271b5b1a9bd14bbe209346c689b9a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4068099874583564747
-    second: New_pstein2_0
+      213: 7526081909428492986
+    second: aoe_expl_03-06_0
+  - first:
+      213: 767868323637037604
+    second: aoe_expl_03-06_1
+  - first:
+      213: 2032583953579700311
+    second: aoe_expl_03-06_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 5000
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New_pstein2_0
+      name: aoe_expl_03-06_0
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 106
-        width: 523
-        height: 715
+        x: 132
+        y: 342
+        width: 31
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc15d5f384bc47830800000000000000
-      internalID: 4068099874583564747
+      spriteID: aba9af92f93027860800000000000000
+      internalID: 7526081909428492986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aoe_expl_03-06_1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 283
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42a09a80c2408aa00800000000000000
+      internalID: 767868323637037604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aoe_expl_03-06_2
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 100
+        width: 168
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 750f6413650353c10800000000000000
+      internalID: 2032583953579700311
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      New_pstein2_0: 4068099874583564747
+      aoe_expl_03-06_0: 7526081909428492986
+      aoe_expl_03-06_1: 767868323637037604
+      aoe_expl_03-06_2: 2032583953579700311
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

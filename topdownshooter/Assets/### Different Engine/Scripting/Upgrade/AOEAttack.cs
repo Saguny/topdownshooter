@@ -7,7 +7,7 @@ public class AOEAttack : MonoBehaviour
     public float attackInterval = 5f;
     public float attackRange = 8f;
     public float damage = 20f;
-    public int projectileCount = 1; // NEU
+    public int projectileCount = 1;
 
     [Header("Audio")]
     public AudioClip fireSound;
@@ -15,9 +15,10 @@ public class AOEAttack : MonoBehaviour
 
     [Header("Meteor Targeting")]
     [SerializeField] private Camera targetCamera;
-    [SerializeField] private float spawnYOffset = 2f;
     [SerializeField] private Vector2 viewportXRange = new Vector2(0.1f, 0.9f);
     [SerializeField] private Vector2 viewportYRange = new Vector2(0.2f, 0.9f);
+    [SerializeField] private float spawnYOffset = 2f;
+    [SerializeField] private float meteorTiltFromVerticalDeg = 16.786f;
 
     private AudioSource _audio;
     private float _timer;
@@ -56,9 +57,6 @@ public class AOEAttack : MonoBehaviour
         _active = false;
     }
 
-    /// <summary>
-    /// Upgrade der AOE-Attacke: Multiplikatoren für Interval, Damage, Radius und Projektile.
-    /// </summary>
     public void Upgrade(float intervalMultiplier, float damageMultiplier, float rangeMultiplier, int extraProjectiles)
     {
         attackInterval = Mathf.Max(0.5f, attackInterval * intervalMultiplier);
@@ -81,14 +79,26 @@ public class AOEAttack : MonoBehaviour
             );
             impactPos.z = 0f;
 
-            float topY = targetCamera.transform.position.y + targetCamera.orthographicSize;
-            Vector3 spawnPos = new Vector3(impactPos.x, topY + spawnYOffset, impactPos.z);
+            float worldAngleDeg = -90f + meteorTiltFromVerticalDeg;
+            float worldAngleRad = worldAngleDeg * Mathf.Deg2Rad;
+            Vector2 dir = new Vector2(Mathf.Cos(worldAngleRad), Mathf.Sin(worldAngleRad)).normalized;
 
-            GameObject proj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+            float topY = targetCamera.transform.position.y + targetCamera.orthographicSize;
+            float spawnY = topY + spawnYOffset;
+
+            float t = (spawnY - impactPos.y) / (-dir.y);
+            Vector3 spawnPos = impactPos - (Vector3)(dir * t);
+            spawnPos.z = 0f;
+
+            GameObject proj = Instantiate(
+                projectilePrefab,
+                spawnPos,
+                Quaternion.AngleAxis(worldAngleDeg, Vector3.forward)
+            );
 
             if (proj.TryGetComponent(out AOEProjectile aoe))
             {
-                aoe.Setup(damage, attackRange, impactPos);
+                aoe.Setup(damage, attackRange, impactPos, dir);
             }
         }
 
