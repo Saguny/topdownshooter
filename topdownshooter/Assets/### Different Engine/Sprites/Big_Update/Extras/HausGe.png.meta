@@ -124,10 +124,10 @@ TextureImporter:
       name: HausGe_0
       rect:
         serializedVersion: 2
-        x: 566
-        y: 1524
-        width: 936
-        height: 1008
+        x: 1071
+        y: 2557
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: HausGe_1
       rect:
         serializedVersion: 2
-        x: 1046
-        y: 2527
+        x: 1091
+        y: 2551
         width: 14
-        height: 16
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: HausGe_2
       rect:
         serializedVersion: 2
-        x: 1073
-        y: 2528
-        width: 48
-        height: 41
+        x: 1153
+        y: 2567
+        width: 8
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +190,10 @@ TextureImporter:
       name: HausGe_3
       rect:
         serializedVersion: 2
-        x: 1143
-        y: 2529
-        width: 36
-        height: 48
+        x: 1215
+        y: 2561
+        width: 8
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: HausGe_4
       rect:
         serializedVersion: 2
-        x: 1192
-        y: 2529
-        width: 88
-        height: 37
+        x: 1085
+        y: 2557
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: HausGe_5
       rect:
         serializedVersion: 2
-        x: 1329
-        y: 2508
-        width: 7
-        height: 7
+        x: 1113
+        y: 2557
+        width: 10
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,9 +256,9 @@ TextureImporter:
       name: HausGe_6
       rect:
         serializedVersion: 2
-        x: 1494
-        y: 2199
-        width: 7
+        x: 1141
+        y: 2559
+        width: 8
         height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -278,10 +278,10 @@ TextureImporter:
       name: HausGe_7
       rect:
         serializedVersion: 2
-        x: 1470
-        y: 2189
-        width: 6
-        height: 7
+        x: 1165
+        y: 2549
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,11 +296,957 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: HausGe_8
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 2549
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc2edcc2445d2f4bbfb85dd2ca243f6
+      internalID: -704181559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_9
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 2551
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22e338530ad0831409ada57cc151fe4b
+      internalID: -1636305722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_10
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 2537
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ff0cf725d57f84f9b2dbc7d771028a
+      internalID: 1015932208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_11
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 2545
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7192f6e9e4d233c4d9866123abe7ec2e
+      internalID: -1595018954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_12
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 2531
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d5f9919d20f814da02e0e05f3f15a2
+      internalID: -1470645638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_13
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 2541
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57d54c3ec40e2ee448ef17c89d7b52b0
+      internalID: 1572452640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_14
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 2539
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb7e283700684b4593d5eae62f81fd7
+      internalID: 1190910904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_15
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 2541
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1163f3de0973dd5468a50af44af705a7
+      internalID: 1400594823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_16
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 2533
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7660b672cd390754aae0f5a1a8f6f297
+      internalID: 2009548503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_17
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 2259
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5adb4308a78dbd4190224efe2ac4f78
+      internalID: -1924996439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_18
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 1563
+        width: 920
+        height: 980
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64254c3f825ba124cb255b28c03d93ac
+      internalID: -952679258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_19
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 2263
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf06c64a4df0df45bb048cd741dde1a
+      internalID: -210323807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_20
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 2249
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8369e13c7a157354cb0ffc2be4761c2f
+      internalID: 453455053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_21
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 2239
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1234258449a4fe4ab66a40b1d640a30
+      internalID: -1475776016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_22
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 2197
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7acf54c59732f704793b435b56690348
+      internalID: 1624282956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_23
+      rect:
+        serializedVersion: 2
+        x: 1487
+        y: 2197
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 428325dd1ef8e29488f1a520da49998d
+      internalID: -300969144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_24
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 2177
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 529d3a35b63b8e0469b43f7a6c1aeb61
+      internalID: 1160304578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_25
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 2145
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f267e016da496ba49bfdf2b031bf7d73
+      internalID: 1662855312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_26
+      rect:
+        serializedVersion: 2
+        x: 1491
+        y: 2121
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f07aa0ea91c83c4daf2ad3358f11ad5
+      internalID: -165990884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_27
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 2097
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96369033de8f7724eaa36caf3ccd6763
+      internalID: 11876157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_28
+      rect:
+        serializedVersion: 2
+        x: 1495
+        y: 2023
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f299ccc5f29a939488fbd9f6e599eabd
+      internalID: 895103642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_29
+      rect:
+        serializedVersion: 2
+        x: 1495
+        y: 2011
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df4ccbe3de0560498805b12462f598a
+      internalID: 495346520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_30
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 1557
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c11188d9d7d302d4e91e3d5eb8350fb0
+      internalID: 2000618476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_31
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 1551
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 523af0af383e4294cbad77cc67baa566
+      internalID: 555339128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_32
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 1557
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376e1b19cc1d0e44584fbf5e32dd2b58
+      internalID: -1333900751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_33
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 1559
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a385b8e4b66367e459586943704191f6
+      internalID: -1048666217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_34
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 1535
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98ece1ea2d89af94eb65da3c8f0035bb
+      internalID: 178527737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_35
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 1553
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03bf4eed772b7d54a8555390ac9d7499
+      internalID: 1974366295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_36
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 1557
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68f583e03852d640955d4c9ea0ed830
+      internalID: 1404827250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_37
+      rect:
+        serializedVersion: 2
+        x: 1403
+        y: 1557
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ae842cf64ac6b4488c917b24eb65e1
+      internalID: 961502012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_38
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 1543
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea0542c4ac9ff94f9ca957d86d10fa9
+      internalID: 1624873327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_39
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 1543
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f09c3ddb38c22c4a8fc180fe074aabc
+      internalID: -1775775086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_40
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 1541
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c28aec387a7c4046872975e15836492
+      internalID: 1485627779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_41
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 1545
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08553c40858ab494885d73ed22df9c2a
+      internalID: 530877586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_42
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 1539
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01472e2ae90374b4fa54f31bcf5f0d1b
+      internalID: 1365152505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_43
+      rect:
+        serializedVersion: 2
+        x: 1381
+        y: 1547
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07fbc199fdb3d3340b76b4815987a9c3
+      internalID: -1788516510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_44
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 1547
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9878a2104de91439d887b01a99f859
+      internalID: 1899397171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_45
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 1525
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0da184cda27623409f50363a3ad723c
+      internalID: -1454478952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_46
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 1523
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c681227c0e998e48b95278c5173b3ba
+      internalID: -1870544715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_47
+      rect:
+        serializedVersion: 2
+        x: 1363
+        y: 1539
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c19f1dbcac207c048b1cc6051f8e27ba
+      internalID: 2038613295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_48
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 1533
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8da56ffa87c1874a942019b5c488dce
+      internalID: 1340623857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_49
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 1529
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e1389e809f95347ba59d74b9d4bb73
+      internalID: -1113286045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausGe_50
+      rect:
+        serializedVersion: 2
+        x: 1363
+        y: 1531
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3d16e30bd3e2f3459aa43c24a1afb72
+      internalID: -128630617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2861e67d3f5eb41408cabbb61c646f77
     internalID: 0
     vertices: []
     indices: 
@@ -309,7 +1255,58 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HausGe_0: -7419034919802874317
+      HausGe_1: 5729600848888092462
+      HausGe_10: 1015932208
+      HausGe_11: -1595018954
+      HausGe_12: -1470645638
+      HausGe_13: 1572452640
+      HausGe_14: 1190910904
+      HausGe_15: 1400594823
+      HausGe_16: 2009548503
+      HausGe_17: -1924996439
+      HausGe_18: -952679258
+      HausGe_19: -210323807
+      HausGe_2: -2698696304136568920
+      HausGe_20: 453455053
+      HausGe_21: -1475776016
+      HausGe_22: 1624282956
+      HausGe_23: -300969144
+      HausGe_24: 1160304578
+      HausGe_25: 1662855312
+      HausGe_26: -165990884
+      HausGe_27: 11876157
+      HausGe_28: 895103642
+      HausGe_29: 495346520
+      HausGe_3: -5584254740256678236
+      HausGe_30: 2000618476
+      HausGe_31: 555339128
+      HausGe_32: -1333900751
+      HausGe_33: -1048666217
+      HausGe_34: 178527737
+      HausGe_35: 1974366295
+      HausGe_36: 1404827250
+      HausGe_37: 961502012
+      HausGe_38: 1624873327
+      HausGe_39: -1775775086
+      HausGe_4: -8976814917497340304
+      HausGe_40: 1485627779
+      HausGe_41: 530877586
+      HausGe_42: 1365152505
+      HausGe_43: -1788516510
+      HausGe_44: 1899397171
+      HausGe_45: -1454478952
+      HausGe_46: -1870544715
+      HausGe_47: 2038613295
+      HausGe_48: 1340623857
+      HausGe_49: -1113286045
+      HausGe_5: 6326573515525486044
+      HausGe_50: -128630617
+      HausGe_6: 3234121330837838206
+      HausGe_7: 9122013230050973135
+      HausGe_8: -704181559
+      HausGe_9: -1636305722
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

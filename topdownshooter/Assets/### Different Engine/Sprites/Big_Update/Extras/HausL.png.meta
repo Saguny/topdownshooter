@@ -103,10 +103,10 @@ TextureImporter:
       name: HausL_0
       rect:
         serializedVersion: 2
-        x: 1834
-        y: 2762
-        width: 914
-        height: 959
+        x: 1853
+        y: 2771
+        width: 896
+        height: 944
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,11 +121,253 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: HausL_1
+      rect:
+        serializedVersion: 2
+        x: 2163
+        y: 3711
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad887de233dc5cb4e99ad7703e2138e7
+      internalID: 658788980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausL_2
+      rect:
+        serializedVersion: 2
+        x: 2191
+        y: 3707
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1142853edb2957541aa3148932cd9500
+      internalID: 2131196014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausL_3
+      rect:
+        serializedVersion: 2
+        x: 2233
+        y: 3709
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c268125a237bfb4f812026dc1dc7421
+      internalID: -1237988439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausL_4
+      rect:
+        serializedVersion: 2
+        x: 1845
+        y: 3427
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce163bdce31778947bca12188459f608
+      internalID: -708173503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausL_5
+      rect:
+        serializedVersion: 2
+        x: 1843
+        y: 3409
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fcb614baddfbe04e9638415298b14d4
+      internalID: 810397412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausL_6
+      rect:
+        serializedVersion: 2
+        x: 1835
+        y: 3393
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11bb256dfb9639744a15978f7951a3d8
+      internalID: 1307164369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausL_7
+      rect:
+        serializedVersion: 2
+        x: 1835
+        y: 3371
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325687cbbe46266459c7b0d8b8e780f8
+      internalID: 1455523358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausL_8
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 3357
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9be975e94f25345a046616cf48d1d6
+      internalID: -561300810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausL_9
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 3347
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c769fb1e6115a248b64669ba5135737
+      internalID: 525670838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausL_10
+      rect:
+        serializedVersion: 2
+        x: 2347
+        y: 2769
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c47ee870392d0d49ae1a8d4debed104
+      internalID: -781729443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausL_11
+      rect:
+        serializedVersion: 2
+        x: 2407
+        y: 2761
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddbfc34d99dbf754c93242498c6caf3c
+      internalID: -975869500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 62502f4b2782c814db06f822df580c8d
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +376,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HausL_0: 6627179774343900619
+      HausL_1: 658788980
+      HausL_10: -781729443
+      HausL_11: -975869500
+      HausL_2: 2131196014
+      HausL_3: -1237988439
+      HausL_4: -708173503
+      HausL_5: 810397412
+      HausL_6: 1307164369
+      HausL_7: 1455523358
+      HausL_8: -561300810
+      HausL_9: 525670838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

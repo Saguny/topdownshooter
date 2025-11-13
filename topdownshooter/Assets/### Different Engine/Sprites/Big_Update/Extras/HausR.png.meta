@@ -142,10 +142,10 @@ TextureImporter:
       name: HausR_0
       rect:
         serializedVersion: 2
-        x: 486
-        y: 534
-        width: 976
-        height: 990
+        x: 1115
+        y: 1569
+        width: 8
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +164,10 @@ TextureImporter:
       name: HausR_1
       rect:
         serializedVersion: 2
-        x: 1040
-        y: 1519
-        width: 124
-        height: 55
+        x: 1131
+        y: 1563
+        width: 8
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +186,10 @@ TextureImporter:
       name: HausR_2
       rect:
         serializedVersion: 2
-        x: 1168
-        y: 1519
-        width: 101
-        height: 51
+        x: 1189
+        y: 1565
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,10 +208,10 @@ TextureImporter:
       name: HausR_3
       rect:
         serializedVersion: 2
-        x: 1179
-        y: 1516
-        width: 6
-        height: 6
+        x: 1087
+        y: 1551
+        width: 10
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,10 +230,10 @@ TextureImporter:
       name: HausR_4
       rect:
         serializedVersion: 2
-        x: 1204
-        y: 1525
+        x: 1099
+        y: 1557
         width: 6
-        height: 8
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,8 +252,8 @@ TextureImporter:
       name: HausR_5
       rect:
         serializedVersion: 2
-        x: 1068
-        y: 1508
+        x: 1155
+        y: 1557
         width: 6
         height: 6
       alignment: 0
@@ -274,10 +274,10 @@ TextureImporter:
       name: HausR_6
       rect:
         serializedVersion: 2
-        x: 1185
-        y: 1511
-        width: 8
-        height: 7
+        x: 511
+        y: 555
+        width: 928
+        height: 992
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,10 +296,10 @@ TextureImporter:
       name: HausR_7
       rect:
         serializedVersion: 2
-        x: 1210
-        y: 1512
-        width: 7
-        height: 6
+        x: 1049
+        y: 1545
+        width: 12
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,10 +318,10 @@ TextureImporter:
       name: HausR_8
       rect:
         serializedVersion: 2
-        x: 896
-        y: 1498
-        width: 6
-        height: 6
+        x: 1063
+        y: 1535
+        width: 22
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -340,10 +340,10 @@ TextureImporter:
       name: HausR_9
       rect:
         serializedVersion: 2
-        x: 1128
-        y: 1498
-        width: 7
-        height: 8
+        x: 1101
+        y: 1543
+        width: 8
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,10 +362,10 @@ TextureImporter:
       name: HausR_10
       rect:
         serializedVersion: 2
-        x: 531
-        y: 1280
-        width: 6
-        height: 6
+        x: 1191
+        y: 1537
+        width: 10
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,10 +384,10 @@ TextureImporter:
       name: HausR_11
       rect:
         serializedVersion: 2
-        x: 523
-        y: 1158
-        width: 7
-        height: 6
+        x: 1203
+        y: 1547
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,10 +406,10 @@ TextureImporter:
       name: HausR_12
       rect:
         serializedVersion: 2
-        x: 529
-        y: 1156
-        width: 6
-        height: 6
+        x: 509
+        y: 1397
+        width: 8
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -428,10 +428,10 @@ TextureImporter:
       name: HausR_13
       rect:
         serializedVersion: 2
-        x: 1061
-        y: 561
-        width: 6
-        height: 7
+        x: 489
+        y: 1361
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -446,11 +446,737 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: HausR_14
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1367
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bf7112b71ed2a04bace87178e842121
+      internalID: 251956915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_15
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1349
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf369add30160640ac2a1b9bea7d448
+      internalID: -1440707660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_16
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 1337
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d6ca17c8fd7c84eb8ed5a5cf6d83bd
+      internalID: -172897872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_17
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 1333
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aad7bc5476df82147a626fd9409ab7fb
+      internalID: -1152876566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_18
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 1299
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9ab67bfd158ce49b378d343d8a2946
+      internalID: -257620627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_19
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 1277
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061b060ee63459943aef681bb26bbc35
+      internalID: -851261126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_20
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 1265
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19c1198a1572d0a4a95e3e671d53f213
+      internalID: -427512545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_21
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 1109
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f101e3bef4148e84b9a3af22f430a47e
+      internalID: -1527594748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_22
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 1055
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e27e23e128a427140a850eace41c3453
+      internalID: -1669832102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_23
+      rect:
+        serializedVersion: 2
+        x: 1447
+        y: 1041
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f799873a8dd96fc4d9468f0e8585c71e
+      internalID: -1627856942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_24
+      rect:
+        serializedVersion: 2
+        x: 1437
+        y: 1029
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354cd61b4d7387344bc35f028eef0b3a
+      internalID: -1940707841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_25
+      rect:
+        serializedVersion: 2
+        x: 1451
+        y: 1029
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed12f4baba3d14346906d8f9165f0cd0
+      internalID: 1161923698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_26
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 1007
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b01abcecc777c049b385329994a291f
+      internalID: 894760868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_27
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 991
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5009c193603ba684289cca59f8881270
+      internalID: 1969830730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_28
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 993
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb324f7af2ef7cf4fb3cd49c490ae459
+      internalID: 1804075478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_29
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 983
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18df811bf1debd488badb138e1699b9
+      internalID: 1963938946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_30
+      rect:
+        serializedVersion: 2
+        x: 1447
+        y: 939
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cada0f83dd39fbb40a14d5b231b15ce5
+      internalID: 1521284090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_31
+      rect:
+        serializedVersion: 2
+        x: 1447
+        y: 925
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb30cd02349d37444af60b5361f5442b
+      internalID: -1565016546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_32
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 907
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 927dcbe5ab3441d49b66cc232285fdd2
+      internalID: 1934922416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_33
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 897
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53b0b639e4758c44fb618922d2e6ff8e
+      internalID: 1334220785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_34
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 883
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4182e6ded9785549a2471a934fa95fb
+      internalID: 1880558247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_35
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 843
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e617f1c848e014c8a018330194b116
+      internalID: 1986179518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_36
+      rect:
+        serializedVersion: 2
+        x: 1441
+        y: 835
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c76e6472c1b3ec4a98d69c8a93c2649
+      internalID: 1756158368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_37
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 553
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 124c227af1da6cc41947347c5819c1ab
+      internalID: 1642346842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_38
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 549
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66ec46ef61776c4d81130fe64b3bf18
+      internalID: 783407348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_39
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 551
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 599425fb5fd37c8458d3ac064d7dd32b
+      internalID: -211327351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_40
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 551
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df9cecf8ba5452e428503c4f68d6f4b5
+      internalID: -932031058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_41
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 545
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae560421e96b2a144b993e9427299c09
+      internalID: 1980191466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_42
+      rect:
+        serializedVersion: 2
+        x: 1307
+        y: 553
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21c9e3e96b0521b49aaf25c1f5c4d9bd
+      internalID: 1182229150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_43
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 543
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8cd19b45c374b84288d08e7312710f4
+      internalID: -1445767998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_44
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 533
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5826bd8d222c0c40bffeef9a5d9fbca
+      internalID: -526448216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_45
+      rect:
+        serializedVersion: 2
+        x: 1237
+        y: 543
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a70510bc96dd8984491b5283f097b748
+      internalID: -975263104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HausR_46
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 535
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf6cd09041395e842a22a4b77cfafebd
+      internalID: 948450645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0188bc979343a2547bde1c3e94d1b320
     internalID: 0
     vertices: []
     indices: 
@@ -459,7 +1185,54 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HausR_0: -271936544495328938
+      HausR_1: -7893478807766649752
+      HausR_10: 3147391085972957193
+      HausR_11: -785603795447368628
+      HausR_12: -5283280315886756857
+      HausR_13: 561646379085363746
+      HausR_14: 251956915
+      HausR_15: -1440707660
+      HausR_16: -172897872
+      HausR_17: -1152876566
+      HausR_18: -257620627
+      HausR_19: -851261126
+      HausR_2: 7947079646033789346
+      HausR_20: -427512545
+      HausR_21: -1527594748
+      HausR_22: -1669832102
+      HausR_23: -1627856942
+      HausR_24: -1940707841
+      HausR_25: 1161923698
+      HausR_26: 894760868
+      HausR_27: 1969830730
+      HausR_28: 1804075478
+      HausR_29: 1963938946
+      HausR_3: -8826587487767470665
+      HausR_30: 1521284090
+      HausR_31: -1565016546
+      HausR_32: 1934922416
+      HausR_33: 1334220785
+      HausR_34: 1880558247
+      HausR_35: 1986179518
+      HausR_36: 1756158368
+      HausR_37: 1642346842
+      HausR_38: 783407348
+      HausR_39: -211327351
+      HausR_4: -542697531886215380
+      HausR_40: -932031058
+      HausR_41: 1980191466
+      HausR_42: 1182229150
+      HausR_43: -1445767998
+      HausR_44: -526448216
+      HausR_45: -975263104
+      HausR_46: 948450645
+      HausR_5: -4348737549081941857
+      HausR_6: -6535935011508204390
+      HausR_7: -6368767283173584295
+      HausR_8: 8129831358389029457
+      HausR_9: 1483823098095381370
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

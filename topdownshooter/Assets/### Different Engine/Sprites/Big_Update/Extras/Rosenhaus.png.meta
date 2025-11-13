@@ -115,10 +115,10 @@ TextureImporter:
       name: Rosenhaus_0
       rect:
         serializedVersion: 2
-        x: 375
-        y: 778
-        width: 3405
-        height: 1823
+        x: 372
+        y: 776
+        width: 3412
+        height: 1826
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,99 +133,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Rosenhaus_1
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 2008
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3424b15381554da80800000000000000
-      internalID: -8443029838954282429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rosenhaus_2
-      rect:
-        serializedVersion: 2
-        x: 406
-        y: 2014
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c96572cc701afeec0800000000000000
-      internalID: -3535430127600576868
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rosenhaus_3
-      rect:
-        serializedVersion: 2
-        x: 405
-        y: 1942
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 98cb80116c7dd37e0800000000000000
-      internalID: -1784032631679566711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rosenhaus_4
-      rect:
-        serializedVersion: 2
-        x: 398
-        y: 1898
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 70f6e9a3874344b10800000000000000
-      internalID: 1964753028424560391
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6e635475dfd6427408ce9d3b986ae531
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +148,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Rosenhaus_0: 2799005986632109369
-      Rosenhaus_1: -8443029838954282429
-      Rosenhaus_2: -3535430127600576868
-      Rosenhaus_3: -1784032631679566711
-      Rosenhaus_4: 1964753028424560391
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

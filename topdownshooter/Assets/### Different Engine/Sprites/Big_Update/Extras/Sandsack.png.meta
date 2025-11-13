@@ -103,10 +103,10 @@ TextureImporter:
       name: Sandsack_0
       rect:
         serializedVersion: 2
-        x: 1013
-        y: 537
-        width: 1184
-        height: 1940
+        x: 1011
+        y: 535
+        width: 1188
+        height: 1944
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e1f48fed50d46a146a6645ceaede46a8
     internalID: 0
     vertices: []
     indices: 

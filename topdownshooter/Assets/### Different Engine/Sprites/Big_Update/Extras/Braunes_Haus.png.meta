@@ -103,10 +103,10 @@ TextureImporter:
       name: Braunes_Haus_0
       rect:
         serializedVersion: 2
-        x: 1269
-        y: 2477
-        width: 3116
-        height: 2299
+        x: 1266
+        y: 2475
+        width: 3121
+        height: 2302
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 71211bde3993e684c8c7781594e2990b
     internalID: 0
     vertices: []
     indices: 
