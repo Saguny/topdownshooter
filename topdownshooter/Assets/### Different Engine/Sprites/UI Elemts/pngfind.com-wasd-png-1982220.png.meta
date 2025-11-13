@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pngfind.com-wasd-png-1982220_0: 8097297589144109577
+      pngfind.com-wasd-png-1982220_1: -194298724083644010
+      pngfind.com-wasd-png-1982220_2: -4568002874245972080
+      pngfind.com-wasd-png-1982220_3: 6639951450302152311
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -406,7 +406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &188533086
 Transform:
   m_ObjectHideFlags: 0
@@ -428,6 +428,7 @@ Transform:
   - {fileID: 858669088}
   - {fileID: 263011263}
   - {fileID: 1826268684}
+  - {fileID: 409617523}
   m_Father: {fileID: 1672029058}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &194017459
@@ -972,16 +973,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409617522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3.862151}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7156778, y: 0.7156778, z: 0.7156778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1672029058}
+  m_Father: {fileID: 188533086}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 35.908676, y: 0}
-  m_SizeDelta: {x: -1120, y: -1144.687}
+  m_AnchoredPosition: {x: 0.000045776367, y: -36.159683}
+  m_SizeDelta: {x: 800, y: -64.68701}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409617524
 MonoBehaviour:
@@ -1003,11 +1004,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GameLoop:
-
-    Endure 3 Minutes of Relentless Enemy Waves, Grow Stronger,
-    Upgrade your Powers and Prepare Yourself, when the Clock Hits 3 Minutes, The
-    boss emerges, Defeat him or Start again...'
+  m_text: Endure Relentless Enemy Waves, Grow Stronger, Upgrade your Powers and Prepare
+    Yourself, when the Clock Hits 3, It emerges, Defeat it or Start again...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 037ea6c47c9068245940f52adcf6af4b, type: 2}
   m_sharedMaterial: {fileID: 2147266445327825013, guid: 037ea6c47c9068245940f52adcf6af4b, type: 2}
@@ -1529,7 +1527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &634916877
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3616,7 +3614,6 @@ RectTransform:
   m_Children:
   - {fileID: 1405836193}
   - {fileID: 188533086}
-  - {fileID: 409617523}
   - {fileID: 386885361}
   - {fileID: 1015782031}
   - {fileID: 634916877}
@@ -4242,7 +4239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7942841457429167724, guid: af3b5a0dd5ef8d141a4009ff0d33a469, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
