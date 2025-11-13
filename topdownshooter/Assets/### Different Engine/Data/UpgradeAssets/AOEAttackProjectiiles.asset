@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Meteorite Amount
   type: 12
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 03b469762b3d55945b7d426fe1efabe2, type: 3}
   value: 1
   additive: 1
   description: Increases the Number of Meteorites falling from the Heavens by 1

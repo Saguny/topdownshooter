@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Electrical Aura Radius
   type: 6
-  icon: {fileID: 21300000, guid: ef7f6b57757b62c479172d31af65ae41, type: 3}
+  icon: {fileID: 21300000, guid: 0d45579255e787c469ca0598a4cd9c14, type: 3}
   value: 1.15
   additive: 0
   description: Increase Electrical Aura Radius by 15%

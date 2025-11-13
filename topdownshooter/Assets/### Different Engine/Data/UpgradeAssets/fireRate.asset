@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Fire Rate
   type: 0
-  icon: {fileID: 21300000, guid: 30bd4d3d65e281747be1b81d46753430, type: 3}
+  icon: {fileID: 21300000, guid: a59ef3380a57551458b358001a33dcf6, type: 3}
   value: 1.2
   additive: 0
   description: Increases Fire Rate of Bullets by 20%

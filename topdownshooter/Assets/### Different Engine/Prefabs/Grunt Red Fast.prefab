@@ -120,6 +120,7 @@ MonoBehaviour:
   _avoidanceDistance: 2
   _avoidanceWeight: 1.5
   _directionSmoothFactor: 0.2
+  _spriteFacesLeftByDefault: 1
 --- !u!114 &720283281531707828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +194,7 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 51f49a435780a224f9fd0f008a22a0c3, type: 3}
   deathVolume: 0.324
   healItemPrefab: {fileID: 1653245802588275055, guid: 9b80ca85b45a48f428cf70029f106a15, type: 3}
-  healDropChance: 0.03
+  healDropChance: 0.01
   spriteRenderer: {fileID: 5088608087563689285}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
@@ -265,7 +266,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 242874385
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 2
   m_Sprite: {fileID: -2200439518047623104, guid: aaf319cab1571834ab69f442da270491, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

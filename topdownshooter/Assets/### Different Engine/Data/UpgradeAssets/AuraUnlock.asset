@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Electrical Aura
   type: 4
-  icon: {fileID: 21300000, guid: f68c6c1821503df428383c8fbed9fa6d, type: 3}
+  icon: {fileID: 8104338040443142145, guid: f68c6c1821503df428383c8fbed9fa6d, type: 3}
   value: 1
   additive: 0
   description: Unlocks an Electrical Aura Around the player which deals Damage every

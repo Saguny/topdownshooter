@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Bullet Speed
   type: 1
-  icon: {fileID: 21300000, guid: 1ac1d1dd58b0c604694037a19387fc50, type: 3}
+  icon: {fileID: 21300000, guid: bd23c94142c5f184289c9c89f6898634, type: 3}
   value: 1.1
   additive: 0
   description: Increases Bullet speed by 10%

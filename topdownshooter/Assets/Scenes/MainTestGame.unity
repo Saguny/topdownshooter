@@ -5362,7 +5362,7 @@ MonoBehaviour:
   damage: 20
   projectileCount: 1
   projectileSound: {fileID: 8300000, guid: c14b7e86f7a4bbe4f86096b250fdfe27, type: 3}
-  projectileVolume: 0.242
+  projectileVolume: 0.17
   splashSound: {fileID: 8300000, guid: 72eda5eff10165f4c8ed0a89640fe8f8, type: 3}
   splashVolume: 0.769
   targetCamera: {fileID: 961654626}

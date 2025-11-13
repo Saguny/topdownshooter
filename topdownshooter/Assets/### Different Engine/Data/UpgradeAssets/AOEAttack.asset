@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Meteorite
   type: 10
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d5418d77e251bca47970c273c47c6b72, type: 3}
   value: 1.15
   additive: 0
   description: Has a Meteorite fall from the Heavens

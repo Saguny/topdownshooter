@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Max Health
   type: 8
-  icon: {fileID: 21300000, guid: 3616609dc57975f499072cf5bfcfd182, type: 3}
+  icon: {fileID: 21300000, guid: f63c4cffaece41741a6ed1143225bc39, type: 3}
   value: 1.2
   additive: 0
   description: Increases Max Health by 20%. Heals you fully on Select

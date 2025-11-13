@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Meteor Radius
   type: 11
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d6f9a64e6f0cc8c4b94c9134fce1e768, type: 3}
   value: 1.15
   additive: 0
   description: Increases the Impact Area by 15%
