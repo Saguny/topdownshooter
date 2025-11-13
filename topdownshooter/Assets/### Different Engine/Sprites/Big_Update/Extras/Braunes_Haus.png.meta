@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Braunes_Haus_0: 1488178565310848100
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

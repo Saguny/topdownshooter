@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rosenhaus_0: 2799005986632109369
+      Rosenhaus_1: -8443029838954282429
+      Rosenhaus_2: -3535430127600576868
+      Rosenhaus_3: -1784032631679566711
+      Rosenhaus_4: 1964753028424560391
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
