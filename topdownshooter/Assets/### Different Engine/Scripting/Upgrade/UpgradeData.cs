@@ -1,4 +1,3 @@
-// UpgradeData.cs
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Rogue/Upgrade Data", fileName = "Upgrade_")]
@@ -7,6 +6,7 @@ public class UpgradeData : ScriptableObject
     [Header("Identity")]
     public string title;
     public UpgradeType type;
+    public Sprite icon;
 
     [Header("Effect")]
     public float value = 1.10f;
@@ -27,19 +27,16 @@ public class UpgradeData : ScriptableObject
         if (level < maxLevel) level++;
     }
 
-    
     public string GetBaseTitle()
     {
         return string.IsNullOrEmpty(title) ? "Upgrade" : title;
     }
 
-    
     public string GetLevelProgress()
     {
         return $"Lv. {level + 1}";
     }
 
-    
     public string GetDisplayTitle()
     {
         return GetBaseTitle();

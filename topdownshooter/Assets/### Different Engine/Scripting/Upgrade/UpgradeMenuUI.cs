@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UpgradeMenuUI : MonoBehaviour
 {
@@ -15,10 +16,7 @@ public class UpgradeMenuUI : MonoBehaviour
     [SerializeField] private Image[] iconImages;
     [SerializeField] private Sprite defaultIcon;
 
-    
     [SerializeField] private TMP_Text levelText;
-
-    
     [SerializeField] private TMP_Text[] lvlText;
 
     private readonly List<UpgradeData> current = new();
@@ -51,11 +49,9 @@ public class UpgradeMenuUI : MonoBehaviour
         if (panel == null) return;
         onChosen = callback;
 
-        // player level label
         if (levelText != null)
             levelText.text = $"Current Level: {level - 1}";
 
-        // filter out capped upgrades
         var filtered = new List<UpgradeData>();
         if (upgrades != null)
         {
@@ -89,26 +85,24 @@ public class UpgradeMenuUI : MonoBehaviour
 
             var data = current[i];
 
-            // upgrade name 
             if (nameTexts != null && i < nameTexts.Length && nameTexts[i] != null)
                 nameTexts[i].text = data.GetDisplayTitle();
 
-            // upgrade level progress 
             if (lvlText != null && i < lvlText.Length && lvlText[i] != null)
                 lvlText[i].text = data.GetLevelProgress();
 
-            // description
             if (descriptionTexts != null && i < descriptionTexts.Length && descriptionTexts[i] != null)
                 descriptionTexts[i].text = !string.IsNullOrEmpty(data.description)
                     ? data.description
                     : string.Empty;
 
-            // icon
             if (iconImages != null && i < iconImages.Length && iconImages[i] != null)
             {
-                if (defaultIcon != null)
+                Sprite spriteToUse = data.icon != null ? data.icon : defaultIcon;
+
+                if (spriteToUse != null)
                 {
-                    iconImages[i].sprite = defaultIcon;
+                    iconImages[i].sprite = spriteToUse;
                     iconImages[i].enabled = true;
                 }
                 else

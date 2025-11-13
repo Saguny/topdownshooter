@@ -16,18 +16,24 @@ public class AOEProjectile : MonoBehaviour
     public float impactVisualScale = 1f;
 
     [Header("Visual")]
-    public float spriteAngleOffset = 0f;
+    public float spriteAngleOffset = 90f;
+
+    [Header("Audio")]
+    public AudioClip explosionSound;
+    [Range(0f, 1f)] public float explosionVolume = 1f;
 
     private Vector3 _impactPosition;
     private Vector2 _direction;
     private bool _initialized;
 
-    public void Setup(float damageAmount, float radius, Vector3 impactPosition, Vector2 direction)
+    public void Setup(float damageAmount, float radius, Vector3 impactPosition, Vector2 direction, AudioClip splashClip, float splashVol)
     {
         damage = damageAmount;
         this.radius = radius;
         _impactPosition = impactPosition;
         _direction = direction.normalized;
+        explosionSound = splashClip;
+        explosionVolume = splashVol;
         _initialized = true;
 
         float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
@@ -71,6 +77,9 @@ public class AOEProjectile : MonoBehaviour
             fx.transform.localScale = Vector3.one * impactVisualScale;
             Destroy(fx, impactEffectDuration);
         }
+
+        if (explosionSound != null)
+            AudioSource.PlayClipAtPoint(explosionSound, transform.position, explosionVolume);
 
         Destroy(gameObject);
     }

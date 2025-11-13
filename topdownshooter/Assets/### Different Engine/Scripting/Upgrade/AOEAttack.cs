@@ -1,17 +1,24 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
 
 public class AOEAttack : MonoBehaviour
 {
     [Header("AOE Attack Settings")]
-    public GameObject projectilePrefab;
-    public float attackInterval = 5f;
-    public float attackRange = 8f;
-    public float damage = 20f;
-    public int projectileCount = 1;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private float attackInterval = 5f;
+    [SerializeField] private float attackRange = 8f;
+    [SerializeField] private float damage = 20f;
+    [SerializeField] private int projectileCount = 1;
 
     [Header("Audio")]
-    public AudioClip fireSound;
-    [Range(0f, 1f)] public float fireVolume = 0.8f;
+    [SerializeField] private AudioClip projectileSound;
+    [Range(0f, 1f)][SerializeField] private float projectileVolume = 0.8f;
+    [SerializeField] private AudioClip splashSound;
+    [Range(0f, 1f)][SerializeField] private float splashVolume = 0.8f;
 
     [Header("Meteor Targeting")]
     [SerializeField] private Camera targetCamera;
@@ -22,7 +29,7 @@ public class AOEAttack : MonoBehaviour
 
     private AudioSource _audio;
     private float _timer;
-    private bool _active = false;
+    private bool _active;
 
     private void Awake()
     {
@@ -71,8 +78,8 @@ public class AOEAttack : MonoBehaviour
 
         for (int i = 0; i < projectileCount; i++)
         {
-            float vx = Random.Range(viewportXRange.x, viewportXRange.y);
-            float vy = Random.Range(viewportYRange.x, viewportYRange.y);
+            float vx = UnityEngine.Random.Range(viewportXRange.x, viewportXRange.y);
+            float vy = UnityEngine.Random.Range(viewportYRange.x, viewportYRange.y);
 
             Vector3 impactPos = targetCamera.ViewportToWorldPoint(
                 new Vector3(vx, vy, Mathf.Abs(targetCamera.transform.position.z))
@@ -85,8 +92,8 @@ public class AOEAttack : MonoBehaviour
 
             float topY = targetCamera.transform.position.y + targetCamera.orthographicSize;
             float spawnY = topY + spawnYOffset;
-
             float t = (spawnY - impactPos.y) / (-dir.y);
+
             Vector3 spawnPos = impactPos - (Vector3)(dir * t);
             spawnPos.z = 0f;
 
@@ -98,11 +105,11 @@ public class AOEAttack : MonoBehaviour
 
             if (proj.TryGetComponent(out AOEProjectile aoe))
             {
-                aoe.Setup(damage, attackRange, impactPos, dir);
+                aoe.Setup(damage, attackRange, impactPos, dir, splashSound, splashVolume);
             }
         }
 
-        if (fireSound != null)
-            _audio.PlayOneShot(fireSound, fireVolume);
+        if (projectileSound != null)
+            _audio.PlayOneShot(projectileSound, projectileVolume);
     }
 }

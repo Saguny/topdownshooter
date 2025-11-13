@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4494451677080024271}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.14580677, w: 0.9893131}
-  m_LocalPosition: {x: 0.66, y: -0.4, z: 0}
+  m_LocalPosition: {x: -1.02, y: 0, z: 0}
   m_LocalScale: {x: 0.5057461, y: 0.5057461, z: 0.5057461}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597feaa7037eb1144b2b167658076b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 16
+  speed: 15
   lifeTime: 4
   damage: 20
   radius: 1.05
@@ -54,6 +54,8 @@ MonoBehaviour:
   impactEffectDuration: 0.5
   impactVisualScale: 1
   spriteAngleOffset: 90
+  explosionSound: {fileID: 0}
+  explosionVolume: 1
 --- !u!58 &6255660209566955238
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -88,7 +90,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.13, y: -1.03}
+  m_Offset: {x: 1.47, y: -1.03}
   m_Radius: 0.49999997
 --- !u!1 &7958823623820449316
 GameObject:
