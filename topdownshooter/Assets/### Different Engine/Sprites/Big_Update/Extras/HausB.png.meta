@@ -721,9 +721,9 @@ TextureImporter:
       name: HausB_27
       rect:
         serializedVersion: 2
-        x: 1847
+        x: 1853
         y: 525
-        width: 896
+        width: 893
         height: 966
       alignment: 0
       pivot: {x: 0, y: 0}
