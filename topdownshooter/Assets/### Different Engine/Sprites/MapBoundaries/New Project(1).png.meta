@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9cebb6c466675e9459471c0253abe574
+guid: 8652e248137f1fd4bbd92d4b2affce66
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -328827203702122615
-    second: SoullessL_0
+      213: -8821620907868167463
+    second: New Project(1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SoullessL_0
+      name: New Project(1)_0
       rect:
         serializedVersion: 2
-        x: 146
-        y: 37
-        width: 755
-        height: 967
+        x: 51
+        y: 267
+        width: 727
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 98799d28665cf6bf0800000000000000
-      internalID: -328827203702122615
+      spriteID: 9922566ce54e41349985372b01aad19e
+      internalID: 1433452190
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 83a62e769d967f24ea1c6f73125e3c40
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SoullessL_0: -328827203702122615
+      New Project(1)_0: 1433452190
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Reichweite_0: -2495210042165595357
+      Reichweite_1: 8821492431317954263
+      Reichweite_2: 4032153433787635267
+      Reichweite_3: -648234298576096504
+      Reichweite_4: 3988031448929207192
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

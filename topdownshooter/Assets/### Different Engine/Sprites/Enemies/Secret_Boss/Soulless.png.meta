@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Soulless_0: 4077587565442604496
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

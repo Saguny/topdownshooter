@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Aura_freigeschaltet_0: 8104338040443142145
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
