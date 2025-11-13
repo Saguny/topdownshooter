@@ -1,0 +1,949 @@
+fileFormatVersion: 2
+guid: 05a171af83a0f434db0d205d1c67e2ec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3240719423369539913
+    second: aura2 1_0
+  - first:
+      213: -6083140141417007656
+    second: aura2 1_1
+  - first:
+      213: -7943518592571700253
+    second: aura2 1_2
+  - first:
+      213: 3900823793521775226
+    second: aura2 1_3
+  - first:
+      213: 4344606009158379373
+    second: aura2 1_4
+  - first:
+      213: 394989314490660533
+    second: aura2 1_5
+  - first:
+      213: 3527355254775749219
+    second: aura2 1_6
+  - first:
+      213: 5317085458268560296
+    second: aura2 1_7
+  - first:
+      213: 2048028246288688056
+    second: aura2 1_8
+  - first:
+      213: -6017181903585772516
+    second: aura2 1_9
+  - first:
+      213: -4379210385889284250
+    second: aura2 1_10
+  - first:
+      213: -3742489001269308486
+    second: aura2 1_11
+  - first:
+      213: 2440660741165456267
+    second: aura2 1_12
+  - first:
+      213: 3123516819431779715
+    second: aura2 1_13
+  - first:
+      213: -5477153399163764203
+    second: aura2 1_14
+  - first:
+      213: -7647448192650270789
+    second: aura2 1_15
+  - first:
+      213: -7470883004857396752
+    second: aura2 1_16
+  - first:
+      213: -1822422372355884060
+    second: aura2 1_17
+  - first:
+      213: 5151078836826292147
+    second: aura2 1_18
+  - first:
+      213: 1914554833536732270
+    second: aura2 1_19
+  - first:
+      213: 691929940126233547
+    second: aura2 1_20
+  - first:
+      213: 3659925591156473664
+    second: aura2 1_21
+  - first:
+      213: 5088995690531107898
+    second: aura2 1_22
+  - first:
+      213: -6066730591878434348
+    second: aura2 1_23
+  - first:
+      213: -8912380252126704123
+    second: aura2 1_24
+  - first:
+      213: -4665786312671177511
+    second: aura2 1_25
+  - first:
+      213: -8569930215222449153
+    second: aura2 1_26
+  - first:
+      213: 7507922290676593489
+    second: aura2 1_27
+  - first:
+      213: -1279895596823010609
+    second: aura2 1_28
+  - first:
+      213: -4517823433412833641
+    second: aura2 1_29
+  - first:
+      213: -5538712563705113395
+    second: aura2 1_30
+  - first:
+      213: -5233705500394618472
+    second: aura2 1_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 480
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: aura2 1_0
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 1043
+        width: 1616
+        height: 1637
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7be8951cad6a603d0800000000000000
+      internalID: -3240719423369539913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_1
+      rect:
+        serializedVersion: 2
+        x: 1529
+        y: 2611
+        width: 246
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d57bef6548549ba0800000000000000
+      internalID: -6083140141417007656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_2
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 2355
+        width: 160
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eb8d073de3f2c190800000000000000
+      internalID: -7943518592571700253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_3
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 2435
+        width: 222
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a72d140a292822630800000000000000
+      internalID: 3900823793521775226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_4
+      rect:
+        serializedVersion: 2
+        x: 1899
+        y: 2427
+        width: 226
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d67a9e885242b4c30800000000000000
+      internalID: 4344606009158379373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_5
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 2253
+        width: 109
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b67a4450b84b7500800000000000000
+      internalID: 394989314490660533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_6
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 2189
+        width: 155
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36a148d5aeea3f030800000000000000
+      internalID: 3527355254775749219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_7
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 2305
+        width: 207
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ab1e7c9d051ac940800000000000000
+      internalID: 5317085458268560296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_8
+      rect:
+        serializedVersion: 2
+        x: 1662
+        y: 2341
+        width: 191
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b3e00ec6de0c6c10800000000000000
+      internalID: 2048028246288688056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_9
+      rect:
+        serializedVersion: 2
+        x: 1949
+        y: 2221
+        width: 152
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1c7cd760fcae7ca0800000000000000
+      internalID: -6017181903585772516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_10
+      rect:
+        serializedVersion: 2
+        x: 2203
+        y: 2161
+        width: 136
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66f2e582b5be933c0800000000000000
+      internalID: -4379210385889284250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_11
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 2027
+        width: 122
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab35987f412001cc0800000000000000
+      internalID: -3742489001269308486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_12
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 1806
+        width: 68
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b986e4308fed120800000000000000
+      internalID: 2440660741165456267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_13
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 2009
+        width: 189
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d60388ff5f85b20800000000000000
+      internalID: 3123516819431779715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_14
+      rect:
+        serializedVersion: 2
+        x: 2041
+        y: 1953
+        width: 128
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 512458ea00e3df3b0800000000000000
+      internalID: -5477153399163764203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_15
+      rect:
+        serializedVersion: 2
+        x: 2337
+        y: 1814
+        width: 68
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb7a0eef26eced590800000000000000
+      internalID: -7647448192650270789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_16
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 1669
+        width: 67
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1d8f05d77125890800000000000000
+      internalID: -7470883004857396752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_17
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 1691
+        width: 68
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ebb009028475b6e0800000000000000
+      internalID: -1822422372355884060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_18
+      rect:
+        serializedVersion: 2
+        x: 2203
+        y: 1789
+        width: 56
+        height: 196
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bf301719ee4c7740800000000000000
+      internalID: 5151078836826292147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_19
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 1393
+        width: 158
+        height: 190
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6cc6f33a7dd19a10800000000000000
+      internalID: 1914554833536732270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_20
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1577
+        width: 72
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc37ea25d9a3a9900800000000000000
+      internalID: 691929940126233547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_21
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 1477
+        width: 111
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f3e3d1feaaac230800000000000000
+      internalID: 3659925591156473664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_22
+      rect:
+        serializedVersion: 2
+        x: 2099
+        y: 1581
+        width: 74
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a34b99d2e9ebf9640800000000000000
+      internalID: 5088995690531107898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_23
+      rect:
+        serializedVersion: 2
+        x: 2261
+        y: 1467
+        width: 130
+        height: 286
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d1371b6ba4aecba0800000000000000
+      internalID: -6066730591878434348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_24
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 1189
+        width: 242
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50e08c8616dd05480800000000000000
+      internalID: -8912380252126704123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_25
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 1315
+        width: 200
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d4da5ba11ccf3fb0800000000000000
+      internalID: -4665786312671177511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_26
+      rect:
+        serializedVersion: 2
+        x: 1825
+        y: 1331
+        width: 164
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb67cbefdd711980800000000000000
+      internalID: -8569930215222449153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_27
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1389
+        width: 159
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 153f3017b8f713860800000000000000
+      internalID: 7507922290676593489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_28
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 1281
+        width: 152
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc227c16cb5ec3ee0800000000000000
+      internalID: -1279895596823010609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_29
+      rect:
+        serializedVersion: 2
+        x: 1965
+        y: 1145
+        width: 272
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79e0e7516877d41c0800000000000000
+      internalID: -4517823433412833641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_30
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 1043
+        width: 326
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc41d57c44a8223b0800000000000000
+      internalID: -5538712563705113395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aura2 1_31
+      rect:
+        serializedVersion: 2
+        x: 1741
+        y: 1056
+        width: 207
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89188f5a3942e57b0800000000000000
+      internalID: -5233705500394618472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 06c3a1a418fc7cf49960a97927824c8c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      aura2 1_0: -3240719423369539913
+      aura2 1_1: -6083140141417007656
+      aura2 1_10: -4379210385889284250
+      aura2 1_11: -3742489001269308486
+      aura2 1_12: 2440660741165456267
+      aura2 1_13: 3123516819431779715
+      aura2 1_14: -5477153399163764203
+      aura2 1_15: -7647448192650270789
+      aura2 1_16: -7470883004857396752
+      aura2 1_17: -1822422372355884060
+      aura2 1_18: 5151078836826292147
+      aura2 1_19: 1914554833536732270
+      aura2 1_2: -7943518592571700253
+      aura2 1_20: 691929940126233547
+      aura2 1_21: 3659925591156473664
+      aura2 1_22: 5088995690531107898
+      aura2 1_23: -6066730591878434348
+      aura2 1_24: -8912380252126704123
+      aura2 1_25: -4665786312671177511
+      aura2 1_26: -8569930215222449153
+      aura2 1_27: 7507922290676593489
+      aura2 1_28: -1279895596823010609
+      aura2 1_29: -4517823433412833641
+      aura2 1_3: 3900823793521775226
+      aura2 1_30: -5538712563705113395
+      aura2 1_31: -5233705500394618472
+      aura2 1_4: 4344606009158379373
+      aura2 1_5: 394989314490660533
+      aura2 1_6: 3527355254775749219
+      aura2 1_7: 5317085458268560296
+      aura2 1_8: 2048028246288688056
+      aura2 1_9: -6017181903585772516
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

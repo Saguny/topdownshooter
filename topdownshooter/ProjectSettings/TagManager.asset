@@ -8,6 +8,7 @@ TagManager:
   - Gear
   - Projectile
   - Obstacles
+  - SongNameText
   layers:
   - Default
   - TransparentFX
