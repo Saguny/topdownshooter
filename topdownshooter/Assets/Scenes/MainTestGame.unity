@@ -9914,7 +9914,7 @@ PrefabInstance:
       objectReference: {fileID: 1866763091}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: allUpgrades.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: gearIncreaseMultiplier
@@ -9968,6 +9968,10 @@ PrefabInstance:
       propertyPath: 'allUpgrades.Array.data[11]'
       value: 
       objectReference: {fileID: 11400000, guid: 173762e4a423cf3419586d3d31cd4e33, type: 2}
+    - target: {fileID: 5138785705691985010, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
+      propertyPath: 'allUpgrades.Array.data[12]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c10186fdfe712d441af76ac343569e4b, type: 2}
     - target: {fileID: 5202921698746210702, guid: 7f5a0da687fa1b8499aa31f236632248, type: 3}
       propertyPath: pickupMask.m_Bits
       value: 256

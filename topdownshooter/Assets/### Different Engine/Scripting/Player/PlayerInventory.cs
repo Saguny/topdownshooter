@@ -87,8 +87,13 @@ public class PlayerInventory : MonoBehaviour
         }
         else
         {
-            pool.RemoveAll(u => u.type == UpgradeType.AOEAttackRadius || u.type == UpgradeType.AOEAttackProjectileCount);
+            pool.RemoveAll(u =>
+                u.type == UpgradeType.AOEAttackRadius ||
+                u.type == UpgradeType.AOEAttackProjectileCount ||
+                u.type == UpgradeType.AOEAttackDamage
+            );
         }
+
 
 
         List<UpgradeData> randomUpgrades = new List<UpgradeData>();
@@ -162,6 +167,12 @@ public class PlayerInventory : MonoBehaviour
                 if (aoe != null)
                     aoe.Upgrade(1f, 1f, 1f, 1);
                 break;
+
+            case UpgradeType.AOEAttackDamage:
+                if (aoe != null)
+                    aoe.Upgrade(1f, upgrade.value, 1f, 0);
+                break;
+
         }
 
         upgrade.LevelUp();

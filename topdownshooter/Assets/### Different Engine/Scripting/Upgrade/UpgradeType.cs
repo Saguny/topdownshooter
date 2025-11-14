@@ -11,6 +11,7 @@ public enum UpgradeType
     MaxHealth,
     HealthRegen,
     AOEAttack,
-    AOEAttackRadius,       
-    AOEAttackProjectileCount 
+    AOEAttackRadius,
+    AOEAttackProjectileCount,
+    AOEAttackDamage
 }

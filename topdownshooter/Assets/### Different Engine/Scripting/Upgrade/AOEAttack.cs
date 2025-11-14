@@ -72,6 +72,7 @@ public class AOEAttack : MonoBehaviour
         projectileCount = Mathf.Max(1, projectileCount + extraProjectiles);
     }
 
+
     private void FireProjectiles()
     {
         if (projectilePrefab == null || targetCamera == null) return;
