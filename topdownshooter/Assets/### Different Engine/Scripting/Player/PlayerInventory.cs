@@ -21,6 +21,8 @@ public class PlayerInventory : MonoBehaviour
     private StatContext stats;
     private bool hasAOEAttack = false;
 
+    public int totalKills = 0;
+
     public int CurrentLevel => currentLevel;
 
     private void OnEnable()
@@ -47,7 +49,8 @@ public class PlayerInventory : MonoBehaviour
 
     private void HandleEnemyKilled(int count)
     {
-        if (count > 0)
+        if (count > 0) 
+            totalKills += count;
             AddGears(count);
     }
 

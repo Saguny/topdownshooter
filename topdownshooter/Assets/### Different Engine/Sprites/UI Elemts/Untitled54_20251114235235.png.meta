@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 00e80749faef00a48b416707eef86a99
+guid: 62774c857263ebb41bf699c759a43559
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1381462829511976408
-    second: Strasse_besser_0
+      213: -2833317390207264014
+    second: Untitled54_20251114235235_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Strasse_besser_0
+      name: Untitled54_20251114235235_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 4096
-        height: 3072
+        x: 155
+        y: 152
+        width: 1735
+        height: 1741
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82a588830ee04dce0800000000000000
-      internalID: -1381462829511976408
+      spriteID: 2fa52cc58d80ea8d0800000000000000
+      internalID: -2833317390207264014
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Strasse_besser_0: -1381462829511976408
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

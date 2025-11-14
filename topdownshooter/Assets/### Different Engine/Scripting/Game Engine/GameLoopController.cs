@@ -41,7 +41,7 @@ public class GameLoopController : MonoBehaviour
             totalRun = snap;
             GameEvents.OnRunTimeChanged?.Invoke(totalRun);
 
-            int quota = baseKillsToClear * (int)Mathf.Pow(2, waveIndex);
+            int quota = baseKillsToClear * (int)Mathf.Pow(1.4f, waveIndex);
             GameEvents.OnFinalRushStarted?.Invoke(waveIndex + 1, quota);
 
             while (waveKills < quota)
