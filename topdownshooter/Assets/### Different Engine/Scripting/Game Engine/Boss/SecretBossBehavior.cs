@@ -4,9 +4,20 @@ public class SecretBossBehavior : MonoBehaviour
 {
     public float triggerRadius = 3f;
     public LayerMask playerLayer;
-    public SecretBossHallucinationUI ui;
 
+    // assign the UI object (the thing on the canvas) here
+    [SerializeField] private GameObject uiObject;
+
+    private SecretBossHallucinationUI ui;
     private bool triggered = false;
+
+    private void Awake()
+    {
+        if (uiObject != null)
+        {
+            ui = uiObject.GetComponent<SecretBossHallucinationUI>();
+        }
+    }
 
     private void Update()
     {
