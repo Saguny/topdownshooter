@@ -12,13 +12,13 @@ public class PlayerInventory : MonoBehaviour
     public UpgradeMenuUI upgradeMenuUI;
 
     [SerializeField] private ProgressBarGradient progressBarGradient;
+    [SerializeField] private DifficultyCurve difficultyCurve;
 
     private List<UpgradeData> runtimeUpgrades = new List<UpgradeData>();
     private int currentLevel = 1;
     private Aura aura;
     public bool hasAura = false;
     private StatContext stats;
-
     private bool hasAOEAttack = false;
 
     public int CurrentLevel => currentLevel;
@@ -26,6 +26,7 @@ public class PlayerInventory : MonoBehaviour
     private void OnEnable()
     {
         BuildRuntimeUpgrades();
+        RefreshGearsRequirement();
         UpdateProgress();
         GameEvents.OnEnemyKilled += HandleEnemyKilled;
     }
@@ -64,8 +65,7 @@ public class PlayerInventory : MonoBehaviour
     private void LevelUp()
     {
         currentLevel++;
-        gearsForUpgrade = Mathf.CeilToInt(gearsForUpgrade * gearIncreaseMultiplier);
-        UpdateProgress();
+        RefreshGearsRequirement();
         OpenUpgradeMenu();
     }
 
@@ -93,8 +93,6 @@ public class PlayerInventory : MonoBehaviour
                 u.type == UpgradeType.AOEAttackDamage
             );
         }
-
-
 
         List<UpgradeData> randomUpgrades = new List<UpgradeData>();
         for (int i = 0; i < 3 && pool.Count > 0; i++)
@@ -157,7 +155,6 @@ public class PlayerInventory : MonoBehaviour
                 }
                 break;
 
-
             case UpgradeType.AOEAttackRadius:
                 if (aoe != null)
                     aoe.Upgrade(1f, 1f, upgrade.value, 0);
@@ -172,19 +169,22 @@ public class PlayerInventory : MonoBehaviour
                 if (aoe != null)
                     aoe.Upgrade(1f, upgrade.value, 1f, 0);
                 break;
-
         }
 
         upgrade.LevelUp();
         Time.timeScale = 1f;
     }
 
-
     public void ResetRun()
     {
         gearCount = 0;
-        gearsForUpgrade = 15;
         currentLevel = 1;
+
+        if (difficultyCurve != null)
+            gearsForUpgrade = difficultyCurve.GearsForLevel(currentLevel);
+        else
+            gearsForUpgrade = 15;
+
         foreach (var u in runtimeUpgrades) if (u != null) u.ResetLevel();
         UpdateProgress();
         if (stats != null) stats.ResetStats();
@@ -196,6 +196,14 @@ public class PlayerInventory : MonoBehaviour
     {
         float t = gearsForUpgrade > 0 ? Mathf.Clamp01((float)gearCount / gearsForUpgrade) : 0f;
         if (progressBarGradient) progressBarGradient.SetProgress01(t);
+    }
+
+    private void RefreshGearsRequirement()
+    {
+        if (difficultyCurve != null)
+            gearsForUpgrade = difficultyCurve.GearsForLevel(currentLevel);
+
+        UpdateProgress();
     }
 
     private void BuildRuntimeUpgrades()
