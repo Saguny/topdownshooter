@@ -39,6 +39,10 @@ public class SpawnDirector : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float secretBossChancePerCheck = 0.0005f;
     [SerializeField] private float secretBossCheckInterval = 30f;
 
+    [Header("Secret Boss UI")]
+    [Tooltip("scene object that contains SecretBossHallucinationUI, usually your canvas root or panel")]
+    [SerializeField] private GameObject secretBossUiObject;
+
     [Header("Final Rush UI")]
     [SerializeField] private Slider finalRushSlider;
 
@@ -101,7 +105,6 @@ public class SpawnDirector : MonoBehaviour
 
     private void HandleWaveStarted(int wave)
     {
-        // treat wave 1 as "new run" for the easter egg
         if (wave == 1)
         {
             secretBossSpawnedThisRun = false;
@@ -135,7 +138,6 @@ public class SpawnDirector : MonoBehaviour
 
         bool inFastPhase = Time.time < fastPhaseUntil;
 
-        // random chance to start preparing a fast phase
         if (!preparingFastPhase &&
             !inFastPhase &&
             runTime >= fastPhaseMinRunTime &&
@@ -155,7 +157,6 @@ public class SpawnDirector : MonoBehaviour
 
         if (preparingFastPhase)
         {
-            // wait until wave is clear before starting fast phase
             if (alive <= 0 && !fastPhaseSequenceRunning)
             {
                 StartCoroutine(BeginFastPhaseAfterDelay());
@@ -256,7 +257,7 @@ public class SpawnDirector : MonoBehaviour
     {
         if (secretBossArchetype == null || secretBossArchetype.prefab == null) return;
         if (secretBossSpawnedThisRun) return;
-        if (finalRush) return; // do not interfere with final rush
+        if (finalRush) return;
         if (runTime < secretBossMinRunTime) return;
         if (Time.time < nextSecretBossCheck) return;
 
@@ -269,6 +270,13 @@ public class SpawnDirector : MonoBehaviour
 
         if (go != null)
         {
+            // wire ui reference into the freshly spawned prefab
+            if (secretBossUiObject != null &&
+                go.TryGetComponent(out SecretBossBehavior boss))
+            {
+                boss.Init(secretBossUiObject);
+            }
+
             secretBossSpawnedThisRun = true;
         }
     }
@@ -518,7 +526,6 @@ public class SpawnDirector : MonoBehaviour
         x = Mathf.Clamp(x, play.xMin, play.xMax);
         y = Mathf.Clamp(y, play.yMin, play.yMax);
 
-        // ensure actually offscreen
         if (x > camLeft && x < camRight && y > camBottom && y < camTop)
         {
             if (side == 0) x = Mathf.Max(play.xMin, camLeft - pad);

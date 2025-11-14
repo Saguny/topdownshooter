@@ -6707,6 +6707,7 @@ MonoBehaviour:
   secretBossMinRunTime: 90
   secretBossChancePerCheck: 0.0005
   secretBossCheckInterval: 30
+  secretBossUiObject: {fileID: 1972766145}
   finalRushSlider: {fileID: 1684449902}
 --- !u!114 &1446568114
 MonoBehaviour:
@@ -6753,8 +6754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7df5544e5017be45a31a0e9a8948016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.8
-  duration: 1
+  delay: 1
+  duration: 2
 --- !u!114 &1446568117
 MonoBehaviour:
   m_ObjectHideFlags: 0

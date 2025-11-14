@@ -1,17 +1,39 @@
+using System.Collections;
 using UnityEngine;
 
 public class SecretBossBehavior : MonoBehaviour
 {
-    public float triggerRadius = 3f;
-    public LayerMask playerLayer;
+    [Header("Trigger")]
+    [SerializeField] private float triggerRadius = 3f;
+    [SerializeField] private LayerMask playerLayer;
 
-    // assign the UI object (the thing on the canvas) here
+    [Header("Ui hookup (optional in prefab)")]
     [SerializeField] private GameObject uiObject;
 
+    [Header("Despawn")]
+    [SerializeField] private float despawnDelay = 0.5f;
+
+    [Header("SFX")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip triggerSfx;
+
+
     private SecretBossHallucinationUI ui;
-    private bool triggered = false;
+    private bool triggered;
+
+    // called from SpawnDirector right after Instantiate
+    public void Init(GameObject uiObj)
+    {
+        uiObject = uiObj;
+        cacheUiComponent();
+    }
 
     private void Awake()
+    {
+        cacheUiComponent();
+    }
+
+    private void cacheUiComponent()
     {
         if (uiObject != null)
         {
@@ -23,21 +45,66 @@ public class SecretBossBehavior : MonoBehaviour
     {
         if (triggered) return;
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, triggerRadius, playerLayer);
-        if (hits.Length > 0)
+        // check for player inside trigger radius
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, triggerRadius, playerLayer);
+        if (hit != null)
         {
-            triggered = true;
-
-            if (ui != null)
-                ui.PlayHallucination();
-
-            Destroy(gameObject);
+            onTriggered();
         }
+    }
+
+    private void onTriggered()
+    {
+        triggered = true;
+
+        // show UI
+        if (ui != null)
+        {
+            ui.PlayHallucination();
+        }
+
+        // play SFX
+        if (audioSource != null && triggerSfx != null)
+        {
+            audioSource.PlayOneShot(triggerSfx);
+        }
+
+        // hide boss visuals immediately
+        disableVisualsAndColliders();
+
+        // destroy after delay
+        StartCoroutine(despawnRoutine());
+    }
+
+
+    private void disableVisualsAndColliders()
+    {
+        // disable all renderers
+        var renderers = GetComponentsInChildren<Renderer>();
+        foreach (var r in renderers)
+        {
+            if (r != null) r.enabled = false;
+        }
+
+        // disable all 2d colliders
+        var colliders2d = GetComponentsInChildren<Collider2D>();
+        foreach (var c in colliders2d)
+        {
+            if (c != null) c.enabled = false;
+        }
+    }
+
+    private IEnumerator despawnRoutine()
+    {
+        if (despawnDelay > 0f)
+            yield return new WaitForSeconds(despawnDelay);
+
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, triggerRadius);
     }
 }
