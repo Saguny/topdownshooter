@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Menu_Ninja_Wald_0: -428151904927704530
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
