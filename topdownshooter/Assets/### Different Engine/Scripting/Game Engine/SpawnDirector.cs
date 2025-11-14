@@ -33,6 +33,12 @@ public class SpawnDirector : MonoBehaviour
     [Header("Boss")]
     [SerializeField] private EnemyArchetype bossArchetype;
 
+    [Header("Secret Boss Easter Egg")]
+    [SerializeField] private EnemyArchetype secretBossArchetype;
+    [SerializeField] private float secretBossMinRunTime = 90f;
+    [SerializeField, Range(0f, 1f)] private float secretBossChancePerCheck = 0.0005f;
+    [SerializeField] private float secretBossCheckInterval = 30f;
+
     [Header("Final Rush UI")]
     [SerializeField] private Slider finalRushSlider;
 
@@ -55,6 +61,9 @@ public class SpawnDirector : MonoBehaviour
     private int finalRushKills;
     private bool finalRushEndTriggered;
 
+    private static bool secretBossSpawnedThisRun;
+    private float nextSecretBossCheck;
+
     private void OnEnable()
     {
         GameEvents.OnFinalRushStarted += HandleFinalRushStart;
@@ -63,6 +72,7 @@ public class SpawnDirector : MonoBehaviour
         GameEvents.OnPurgeEnemiesWithFx += HandlePurge;
         GameEvents.OnRunTimeChanged += HandleRunTimeChanged;
         GameEvents.OnEnemyKilled += HandleEnemyKilled;
+        GameEvents.OnWaveStarted += HandleWaveStarted;
     }
 
     private void OnDisable()
@@ -73,18 +83,30 @@ public class SpawnDirector : MonoBehaviour
         GameEvents.OnPurgeEnemiesWithFx -= HandlePurge;
         GameEvents.OnRunTimeChanged -= HandleRunTimeChanged;
         GameEvents.OnEnemyKilled -= HandleEnemyKilled;
+        GameEvents.OnWaveStarted -= HandleWaveStarted;
     }
 
     private void Start()
     {
         budget = startingBudget;
         nextFastPhaseCheck = Time.time + fastPhaseCheckInterval;
+        nextSecretBossCheck = Time.time + secretBossCheckInterval;
         UpdateFinalRushProgressBar();
     }
 
     private void HandleRunTimeChanged(float value)
     {
         runTime = value;
+    }
+
+    private void HandleWaveStarted(int wave)
+    {
+        // treat wave 1 as "new run" for the easter egg
+        if (wave == 1)
+        {
+            secretBossSpawnedThisRun = false;
+            nextSecretBossCheck = Time.time + secretBossCheckInterval;
+        }
     }
 
     private void StartPreparingFastPhase()
@@ -105,6 +127,10 @@ public class SpawnDirector : MonoBehaviour
     private void Update()
     {
         timeElapsed += Time.deltaTime;
+
+        // secret boss easter egg roll runs independently of normal spawning
+        TrySpawnSecretBoss();
+
         if (Time.time < spawnPausedUntil) return;
 
         bool inFastPhase = Time.time < fastPhaseUntil;
@@ -224,6 +250,27 @@ public class SpawnDirector : MonoBehaviour
     {
         fastPhaseUntil = Time.time + duration;
         spawnCooldown = 0f;
+    }
+
+    private void TrySpawnSecretBoss()
+    {
+        if (secretBossArchetype == null || secretBossArchetype.prefab == null) return;
+        if (secretBossSpawnedThisRun) return;
+        if (finalRush) return; // do not interfere with final rush
+        if (runTime < secretBossMinRunTime) return;
+        if (Time.time < nextSecretBossCheck) return;
+
+        nextSecretBossCheck = Time.time + secretBossCheckInterval;
+
+        if (Random.value > secretBossChancePerCheck) return;
+
+        Vector2 pos = GetSpawnPositionNearOffscreenInsideBounds();
+        GameObject go = Instantiate(secretBossArchetype.prefab, pos, Quaternion.identity);
+
+        if (go != null)
+        {
+            secretBossSpawnedThisRun = true;
+        }
     }
 
     private EnemyArchetype PickEnemy(bool rush)
@@ -361,6 +408,7 @@ public class SpawnDirector : MonoBehaviour
         r.xMin += boundsInset;
         r.xMax -= boundsInset;
         r.yMin += boundsInset;
+        r.yMax -= boundsInset;
         r.yMax -= boundsInset;
         return r;
     }
