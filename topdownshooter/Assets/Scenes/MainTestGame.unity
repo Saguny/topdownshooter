@@ -6988,9 +6988,9 @@ MonoBehaviour:
   fastPhasePostClearDelay: 1
   bossArchetype: {fileID: 11400000, guid: b5a152337a0dd734facb49ee513816db, type: 2}
   secretBossArchetype: {fileID: 11400000, guid: 256a27c8ddb8c7a4f947e8be4e336b35, type: 2}
-  secretBossMinRunTime: 90
-  secretBossChancePerCheck: 0.0005
-  secretBossCheckInterval: 30
+  secretBossMinRunTime: 5
+  secretBossChancePerCheck: 1
+  secretBossCheckInterval: 5
   finalRushSlider: {fileID: 1684449902}
   baseMaxSpawnsPerFrame: 3
   extraSpawnsPerFrameAtMax: 6
