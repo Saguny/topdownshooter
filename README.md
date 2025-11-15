@@ -7,6 +7,15 @@ This repository is intended as a foundation for building your own roguelike shoo
 
 ---
 
+
+![GitHub Contributors](https://contrib.rocks/image?repo=Saguny/TopDownRoguelikeEngine)
+
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Saguny&repo=TopDownRoguelikeEngine&show_owner=true)](https://github.com/Saguny/TopDownRoguelikeEngine)
+
+
+
+
+
 ## Features
 
 - Event-driven game loop with wave phases and final rush
@@ -58,7 +67,7 @@ Assets/Scripting/
     (UpgradeData, UpgradeType and related logic)
 ```
 
-The `Data` folder typically contains ScriptableObjects such as `DifficultyCurve`, `EnemyArchetype` assets and `UpgradeData` assets.  
+The `Data` folder contains ScriptableObjects such as `DifficultyCurve`, `EnemyArchetype` assets and `UpgradeData` assets.  
 `Prefabs`, `Animations`, `Sounds` and `Sprites` contain the visual and audio content referenced by the scripts.
 
 ---
@@ -79,7 +88,7 @@ URP is optional. The scripts are renderer-agnostic.
 Clone the repository or download it as a zip and extract it:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Saguny/TopDownRoguelikeEngine
 ```
 
 Open the project folder in Unity 6 via the Unity Hub.
@@ -188,11 +197,4 @@ You can extend the project in several ways:
 - Implement more complex boss behaviours using custom scripts in the `Enemy` or `Game Engine` folders.
 
 Because most communication is done through the `GameEvents` static class, you can add new systems that plug into the loop without modifying the existing core code.
-
----
-
-## License
-
-This project is released under the MIT License.  
-You are free to use, modify, and distribute it in personal and commercial projects.
 
