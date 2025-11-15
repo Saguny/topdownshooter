@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -191,4 +190,7 @@ public class UpgradeMenuUI : MonoBehaviour
             es.SetSelectedGameObject(b.gameObject);
         selectedIndex = i;
     }
+
+    // expose open state so other systems (pause menu) can check it
+    public bool IsOpen => panel != null && panel.activeSelf;
 }

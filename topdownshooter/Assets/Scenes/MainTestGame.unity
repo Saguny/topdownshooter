@@ -3347,6 +3347,7 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: 249c82989c14ce74fbaf3e48ffbf9123, type: 2}
   musicParam: MusicVol
   sfxParam: SFXVol
+  upgradeMenu: {fileID: 1047109365}
 --- !u!1 &811008261
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] string musicParam = "MusicVol";
     [SerializeField] string sfxParam = "SFXVol";
 
+    [Header("other ui")]
+    [SerializeField] private UpgradeMenuUI upgradeMenu; // block pause while this is open
+
     const string MusicKey = "vol_music";
     const string SfxKey = "vol_sfx";
 
@@ -22,6 +25,10 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
+        // auto-find upgrade menu if not wired in inspector
+        if (upgradeMenu == null)
+            upgradeMenu = FindObjectOfType<UpgradeMenuUI>();
+
         // 1) migrate any old saved zeros so we don't load “perma-mute”
         float musicSaved = PlayerPrefs.GetFloat(MusicKey, 100f);
         float sfxSaved = PlayerPrefs.GetFloat(SfxKey, 100f);
@@ -54,7 +61,13 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // if upgrade menu is open, ignore pause toggle completely
+            if (upgradeMenu != null && upgradeMenu.IsOpen)
+                return;
+
             TogglePause();
+        }
 
         // DEV: press F9 to reset volumes to defaults if needed
         if (Input.GetKeyDown(KeyCode.F9))
