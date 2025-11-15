@@ -1,4 +1,4 @@
-# Top-Down Roguelike Shooter
+# Top-Down Roguelike Shooter Engine
 
 A modular and extensible top-down roguelike shooter framework built with Unity 6.  
 The project features an event-driven game loop with waves and final rush, dynamic enemy spawning, ScriptableObject-based upgrades, auto-aim and auto-fire combat, aura and AOE abilities, and scalable difficulty curves.
